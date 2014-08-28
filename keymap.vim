@@ -122,8 +122,8 @@ fun! keymap#RecoverMarkAndCyan()
     highlight User2 gui=bold guifg=black guibg=red
 endfun
 nmap <S-F1> :colorscheme oceandeep<CR>:call keymap#RecoverMarkAndCyan()<cr>
-nmap <S-F2> :colorscheme darkblue2<CR>:call keymap#RecoverMarkAndCyan()<cr>
-nmap <S-F3> :colorscheme slate<CR> :call keymap#RecoverMarkAndCyan()<cr>
+nmap <S-F2> :colorscheme solarized<CR>:set background=light<CR>:call keymap#RecoverMarkAndCyan()<cr>
+nmap <S-F3> :colorscheme midnight<CR> :call keymap#RecoverMarkAndCyan()<cr>
 nmap <S-F4> :colorscheme hybrid<CR>:call keymap#RecoverMarkAndCyan()<cr>
 " nmap <S-F5> :colorscheme slate<CR>:call keymap#RecoverMarkAndCyan()<cr>
 " nmap <S-F1> :set guifont=Monaco:h12<CR>:colorscheme oceandeep<CR>:source $VIMRUNTIME/../vimfiles/plugin/mark.vim<CR>,/?
@@ -1104,10 +1104,10 @@ nmap <C-p><C-p> /PENDING<CR>zz
 "cmap c conditional
 imap TT TODO 
 
-cmap go Go
+" cmap go Go
 nmap go :Go 
-" cmap git GitCustom 
-" nmap git :GitCustom 
+" cmap git G
+nmap git :G
 
 fun! s:GitCustomtest()
 cd %:p:h
@@ -1132,7 +1132,10 @@ fun! s:GoUpdate(theme)
         return
     endif
 endfun
-
+fun! s:Gresetfunc()
+    !rm .git/index
+    !git reset
+endfun
 fun! s:GitCustom(opt,repo,theme)
     cd %:p:h
     let s:process = 0 
@@ -1175,6 +1178,7 @@ endfun
 command! -nargs=1 Go call s:GoUpdate(<f-args>)
 command! -nargs=* GitCustom call s:GitCustom(<f-args>)
 command! -nargs=* MakeGitCustom !makegit <f-args>
+command! Greset call s:Gresetfunc()<CR>
 
 map <A-h> <Left>
 imap <A-h> <Left>
@@ -1231,18 +1235,11 @@ func! ListTODO(  )"{{{
 endfunc"}}}
 nmap Q :q!<CR>
 nmap <M-l> viw
-nmap [d :call NERDTreeOpenCustom()<CR>
+nmap [d :call VimFilerOpenCustomLeft()<CR>
 " nmap [d :NERDTreeToggle<CR>
-fun! NERDTreeOpenCustom()
-    if nerdtree#isTreeOpen()
-        NERDTreeClose
-        return
-    endif
-    if exists(bufname("%"))
-        NERDTreeFind
-    else
-        NERDTreeToggle
-    endif
+fun! VimFilerOpenCustomLeft()
+    leftabove vnew
+    VimFilerBufferDir
 endfun
 
 
@@ -1286,3 +1283,5 @@ inoremap <expr> <c-d> pumvisible() ? "\<C-P>\<C-P>\<C-P>\<C-P>\<C-P>\<C-P>\<C-P>
 
 
 inoremap <expr> <C-o> pumvisible() ? "\<C-x>\<C-o>" : "\<C-o>"
+
+au filetype vim nmap <buffer>BB 141gg:BundleSearch<CR>

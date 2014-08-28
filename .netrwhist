@@ -1,8 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='C:\Vim'
-let g:netrw_dirhist_2='C:/Vim'
-let g:netrw_dirhist_3='C:\Vim'
-let g:netrw_dirhist_4='C:/Vim/ctags58'
-let g:netrw_dirhist_5='D:\Workspace'
-let g:netrw_dirhist_6='C:\Vim'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='C:/Users/Administrator/.vim/bundle/vdebug/plugin/python/vdebug/ui'
+let g:netrw_dirhist_2='C:\Users\Administrator\.vim\bundle\vdebug\plugin\python\vdebug\ui'
+let g:netrw_dirhist_3='C:/Users/Administrator/.vim/bundle/vdebug/plugin/python/vdebug'
+let g:netrw_dirhist_4='C:\Users\Administrator\Desktop\abc\smoother'
+let g:netrw_dirhist_5='C:/Users/Administrator/Desktop/abc/smoother'
