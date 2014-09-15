@@ -97,3 +97,27 @@ snippet pdb
 	import vimpdb; vimpdb.set_trace()
 snippet todo
 	# TODO 
+
+snippet pu
+	import sys
+	from PyQt4 import QtGui
+	from ${1:MyUi2PythonFile} import Ui_MainWindow
+	class Main(QtGui.QMainWindow):
+		"""
+		${2:docstring for Main}
+		"""
+		def __init__(self):
+			QtGui.QMainWindow.__init__(self)
+			self.ui = Ui_MainWindow()
+			self.ui.setupUi(self)
+			# self.ui.btnSayHello.clicked.connect(self.btnSayHello_Clicked)
+
+		# def btnSayHello_Clicked(self):
+			# self.ui.txtHelloWorld.setText("hello world!!")
+			# pass
+
+	if __name__ == '__main__':
+		app = QtGui.QApplication(sys.argv)
+		window = Main()
+		window.show()
+		sys.exit(app.exec_())
