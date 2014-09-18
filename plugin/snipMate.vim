@@ -123,6 +123,12 @@ fun s:DefineSnips(dir, aliasft, realft)
 endf
 
 fun! TriggerSnippet()
+
+	if getline('.')[col('.')-2] == '.'
+		return "\<C-X>\<C-O>"
+	endif
+
+
 	if exists('g:SuperTabMappingForward')
 		if g:SuperTabMappingForward == "<tab>"
 			let SuperTabKey = "\<c-n>"
