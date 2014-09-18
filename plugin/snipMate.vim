@@ -124,7 +124,7 @@ endf
 
 fun! TriggerSnippet()
 
-	if getline('.')[col('.')-2] == '.'
+	if getline('.')[col('.')-2] == '.' && getline('.')[col('.')-3] =~#"[^0-9]"
 		return "\<C-X>\<C-O>"
 	endif
 
