@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='C:/Users/Administrator/vimfiles/plugin/MyVim/candidates'
+let g:netrw_dirhist_2='C:\Workspace\python\project2\findoptimal\optimalpath'
+let g:netrw_dirhist_3='C:/Workspace/python/project2/findoptimal'
+let g:netrw_dirhist_4='C:/Workspace/python/project2/findoptimal/matlablib'
+let g:netrw_dirhist_5='C:\Workspace\python\project2\findoptimal\matlablib'
+let g:netrw_dirhist_6='D:\Workspace\meeting-order\r0616\doc'
+let g:netrw_dirhist_7='C:\Workspace\python\project2\findoptimal\optimalpath'
+let g:netrw_dirhist_8='C:/Workspace/python/project2/findoptimal/optimalpath'
+let g:netrw_dirhist_9='C:\Workspace\python\project2\findoptimal\optimalpath'

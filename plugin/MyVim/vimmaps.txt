@@ -1,0 +1,879 @@
+
+
+
+C:\Vim\vimfiles\plugin\MyVim
+
+
+Error detected while processing function netrw#Explore..netrw#LocalBrowseCheck..<SNR>90_NetrwBrowse..<SNR>90_NetrwGetBuffer:
+line  125:
+E95: Buffer with this name already exists
+Error detected while processing function <SNR>7_BMRemove:
+line    9:
+E329: No menu "[No file] (27)	."
+"[Scratch]" --No lines in buffer--
+"[Scratch]" --No lines in buffer--
+Error detected while processing function netrw#Explore..netrw#LocalBrowseCheck..<SNR>90_NetrwBrowse..<SNR>90_NetrwMaps:
+line  124:
+E225: global mapping already exists for 
+Error detected while processing function netrw#Explore..netrw#LocalBrowseCheck..<SNR>90_NetrwBrowse..<SNR>90_NetrwMaps:
+line  125:
+E225: global mapping already exists for 
+Error detected while processing function netrw#Explore..netrw#LocalBrowseCheck..<SNR>90_NetrwBrowse..<SNR>90_NetrwMaps:
+line  129:
+E225: global mapping already exists for 
+Pattern not found: ^$
+Pattern not found: ^\d\{3}ÿ\d\{3}\/
+Pattern not found: \.h$
+Pattern not found: ^\d\{3}ÿ\d\{3}\/
+Pattern not found: \.c$
+Pattern not found: ^\d\{3}ÿ\d\{3}\/
+Pattern not found: \.cpp$
+Pattern not found: ^\d\{3}ÿ\d\{3}\/
+Pattern not found: \.o$
+Pattern not found: ^\d\{3}ÿ\d\{3}\/
+Pattern not found: \.obj$
+Pattern not found: ^\d\{3}ÿ\d\{3}\/
+Pattern not found: \.info$
+Pattern not found: ^\d\{3}ÿ\d\{3}\/
+Pattern not found: \.swp$
+Pattern not found: ^\d\{3}ÿ\d\{3}\/
+Pattern not found: ^\d\{3}ÿ\d\{3}\/
+Pattern not found: ^\d\{3}ÿ\d\{3}\/
+Error detected while processing function netrw#Explore..netrw#LocalBrowseCheck..<SNR>90_NetrwBrowse..<SNR>90_PerformListing..<SNR>90_NetrwWideListing:
+line   60:
+E31: No such mapping
+Error detected while processing function netrw#Explore..netrw#LocalBrowseCheck..<SNR>90_NetrwBrowse..<SNR>90_PerformListing..<SNR>90_NetrwWideListing:
+line   63:
+E31: No such mapping
+ 
+/txt
+
+/txt
+
+/txt
+
+/txt
+
+/txt
+
+
+"vimmaps.txt" 
+"vimmaps.txt" [readonly][converted] 0L, 0C
+
+n  ,<C-D>       @:call EasyMoveToggle($buf.count)<CR>
+v  ["          *@:<C-U>exe "normal! gv"|call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")<CR>
+n  ["          *@:call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")<CR>
+v  []          *@m':<C-U>exe "normal! gv"|call search('^\s*endf*\%[unction]\>', "bW")<CR>
+n  []          *@m':call search('^\s*endf*\%[unction]\>', "bW")<CR>
+v  [[          *@m':<C-U>exe "normal! gv"|call search('^\s*fu\%[nction]\>', "bW")<CR>
+n  [[          *@m':call search('^\s*fu\%[nction]\>', "bW")<CR>
+v  ]"          *@:<C-U>exe "normal! gv"|call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")<CR>
+n  ]"          *@:call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")<CR>
+v  ][          *@m':<C-U>exe "normal! gv"|call search('^\s*endf*\%[unction]\>', "W")<CR>
+n  ][          *@m':call search('^\s*endf*\%[unction]\>', "W")<CR>
+v  ]]          *@m':<C-U>exe "normal! gv"|call search('^\s*fu\%[nction]\>', "W")<CR>
+n  ]]          *@m':call search('^\s*fu\%[nction]\>', "W")<CR>
+v  <C-C>         "*yy
+n  <C-C>         "*yy
+n  <C-H>         <C-W>h
+s  <Tab>       * <Esc>i<Right><C-R>=TriggerSnippet()<CR>
+n  <Tab><Tab>    <C-PageUp><Space>
+n  <NL>          <C-W>j
+n  <C-K>         <C-W>k
+v  <C-K>         :call MakeBufferSpace('visual')<CR>
+n  <C-L>         <C-W>l
+v  <C-L><NL>   * <Esc>
+n  <C-P>         <C-X><C-]>
+n  <C-Q>         : call LocatePos(1,1)<CR>i
+n  <C-S>         ggVG
+v  <C-V>         "*p
+s  <C-X>       * b<BS><C-X>
+x  <C-X>         "*d
+n  <C-Z>         <C-X><Right><Left>
+n  <C-\><C-\>    :Align&<CR>
+n  <C-\>d        :cs find d <C-R>=expand("<cword>")<CR><CR><Tab>
+n  <C-\>i        :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+n  <C-\>f        :cs find f <C-R>=expand("<cfile>")<CR><CR><Tab>
+n  <C-\>e        :cs find e <C-R>=expand("<cword>")<CR><CR><Tab>
+n  <C-\>t        :cs find t <C-R>=expand("<cword>")<CR><CR><Tab>
+n  <C-\>c        :cs find c <C-R>=expand("<cword>")<CR><CR><Tab>
+n  <C-\>g        :cs find g <C-R>=expand("<cword>")<CR><CR><Tab>
+n  <C-\>s        :cs find s <C-R>=expand("<cword>")<CR><CR><Tab>
+   <C-_>         :cstag <C-R>=expand("<cword>")<CR><CR>
+v  <Space>}      c{ <C-R>" }<Esc>
+v  <Space>)      c( <C-R>" )<Esc>
+v  <Space>]      c[ <C-R>" ]<Esc>
+n  !             :tabclose<CR>
+n  #           * :if !<SNR>39_SearchNext("b")|execute "norm! #"|endif<CR>
+s  %           * b<BS>%
+s  '           * b<BS>'
+x  '             c'<C-R>"'<Esc>
+v  )             c(<C-R>")<Esc>
+n  *           * :if !<SNR>39_SearchNext()|execute "norm! *"|endif<CR>
+n  ,vv           <Plug>EgMapGrepCurrentWord_v
+n  ,vV           <Plug>EgMapGrepCurrentWord_V
+n  ,va           <Plug>EgMapGrepCurrentWord_a
+n  ,vA           <Plug>EgMapGrepCurrentWord_A
+n  ,vr           <Plug>EgMapReplaceCurrentWord_r
+n  ,vR           <Plug>EgMapReplaceCurrentWord_R
+   ,zT           <Plug>TaskList
+n  ,ca           <Plug>NERDCommenterAltDelims
+v  ,cA           <Plug>NERDCommenterAppend
+n  ,cA           <Plug>NERDCommenterAppend
+v  ,c$           <Plug>NERDCommenterToEOL
+n  ,c$           <Plug>NERDCommenterToEOL
+v  ,cu           <Plug>NERDCommenterUncomment
+n  ,cu           <Plug>NERDCommenterUncomment
+v  ,cn           <Plug>NERDCommenterNest
+n  ,cn           <Plug>NERDCommenterNest
+v  ,cb           <Plug>NERDCommenterAlignBoth
+n  ,cb           <Plug>NERDCommenterAlignBoth
+v  ,cl           <Plug>NERDCommenterAlignLeft
+n  ,cl           <Plug>NERDCommenterAlignLeft
+v  ,cy           <Plug>NERDCommenterYank
+n  ,cy           <Plug>NERDCommenterYank
+v  ,ci           <Plug>NERDCommenterInvert
+n  ,ci           <Plug>NERDCommenterInvert
+v  ,cs           <Plug>NERDCommenterSexy
+n  ,cs           <Plug>NERDCommenterSexy
+v  ,cm           <Plug>NERDCommenterMinimal
+n  ,cm           <Plug>NERDCommenterMinimal
+v  ,c<Space>     <Plug>NERDCommenterToggle
+n  ,c<Space>     <Plug>NERDCommenterToggle
+v  ,cc           <Plug>NERDCommenterComment
+n  ,cc           <Plug>NERDCommenterComment
+n  ,.r           :call DefaultPosSize()<CR>
+n  ,.z           :call ShutDown()<CR>
+n  ,ssj          :call SetaSideDown()<CR>
+n  ,ssk          :call SetaSideUp()<CR>
+n  ,ssh          :call SetaSideLeft()<CR>
+n  ,ssl          :call SetaSideRight()<CR>
+n  ,.3           :call Maximize()<CR>
+n  ,.`           :call DefaultPosSize()<CR>:call To2nd()<CR>
+n  ,.2           :call DefaultSize()<CR>
+n  ,E            :!C:/Panda3D-1.7.2/python/python %<CR>
+n  ,,d           Opdb<Tab><Esc>,e
+n  ,<C-S>        :call TagSelection()<CR>
+n  ,<C-V>        :call RemoveVM()<CR>
+n  ,<C-W>        :call AltMap()<CR>
+n  ,<F2>         <S-F3><M-F7>
+n  ,<C-F>        :call EncToggle()<CR>
+n  ,<C-R>        :call ConfirmClear()<CR>
+n  ,<C-T>        :call SetTags()<CR>
+n  ,<F4>       * :set cursorline! cursorcolumn!<CR>
+n  ,vp           :vs<CR>
+n  ,sp           :sp<CR>
+n  ,d            :call prgenv#Debug()<CR>
+n  ,e            :call prgenv#Execute($buf.count)<CR>
+n  ,4            :tabnew ./doc/email.txt<CR>
+n  ,q            @e
+n  ,help         :call RemindMapping()<CR>
+n  ,pr           :call prgenv#MakePYSMELLSbeReady()<CR>
+v  ,<Space>      :call <SNR>44_StripTrailingWhitespace()<CR>
+n  ,<Space>      :call <SNR>44_StripTrailingWhitespace()<CR>
+n  ,\,           :call Restore()<CR>
+n  ,s,           :call Save()<CR>
+n  ,w            :w!<CR>
+n  ,pf           :call prgenv#SelectOmnifuncPython()<CR>
+v  ,b            :call RangeCount()<CR>
+n  ,3            :cd %:h<CR>:w<CR>:!C:\Python33\python %<CR>
+n  ,p3           :call Omni_python()<CR>:set omnifunc<CR>
+n  ,p2           :call Omni_pysmell()<CR>:set omnifunc<CR>
+n  ,p1           :call Omni_rope()<CR>:set omnifunc<CR>
+n  ,fw           :call Set_font_monaCo()<CR>,mw
+n  ,fe           :call Set_font_Sans()<CR>,mw
+n  ,mw           :echo &guifont<CR>
+n  ,mq           :colorscheme<CR>
+n  ,5`           ,55,``
+n  ,55           :call CD5()<CR>:cd<CR>
+n  ,4`           ,44,``
+n  ,44           :call CD4()<CR>:cd<CR>
+n  ,3`           ,33,``
+n  ,33           :call CD3()<CR>:cd<CR>
+n  ,2`           ,22,``
+n  ,22           :call CD2()<CR>:cd<CR>
+n  ,1`           ,11,``
+n  ,11           :call CD1()<CR>:cd<CR>
+n  ,``           :VE<CR><CR>:cd<CR>
+n  ,<F1>         <S-F2><M-F6>
+n  ,<Tab>        :set expandtab! expandtab?<CR>
+   ,s3           :runtime! syntax/c.vim<CR>
+   ,s2           :runtime! syntax/python.vim<CR>
+   ,s1           :runtime! syntax/perl.vim<CR>
+   ,a1           :runtime! syntax/ruby.vim<CR>
+   ,a`           :set guifont<CR>
+n  ,/?           :set guifont<CR>
+n  ,,3           :o ./doc/REPORT.txt<CR>
+n  ,,2           :o ./doc/READING.txt<CR>
+n  ,,1           :o ./doc/TODO_LIST.txt<CR>
+n  ,sj           :rightbelow new<CR>
+n  ,sk           :leftabove  new<CR>
+n  ,sl           :rightbelow vnew<CR>
+n  ,sh           :leftabove  vnew<CR>
+n  ,,s           ko---------------------------------------------------------------------------------<CR><Esc>dd
+n  ,,r           :source $VIMRUNTIME/../vimfiles/plugin/mark.vim<CR>
+n  ,,zo          ggvGzoggvGzoggM
+n  ,zo           ggvGzoM
+v  ,<M-"><M-:>   :call WordsEncapsV(g:ListDuo,g:ListForQuote,'each')<CR>
+v  ,<M-'><M-;>   :call WordsEncapsV(g:ListSma,g:ListForQuote,'each')<CR>
+v  ,<M-}><M-{>   :call WordsEncapsV(g:ListCur,g:ListForBracket,'each')<CR>
+v  ,<M-]><M-[>   :call WordsEncapsV(g:ListRec,g:ListForBracket,'each')<CR>
+v  ,<M->><M-lt>   :call WordsEncapsV(g:ListSha,g:ListForBracket,'each')<CR>
+v  ,<M-)><M-(>   :call WordsEncapsV(g:ListBra,g:ListForBracket,'each')<CR>
+n  ,a            <Plug>ToggleAutoCloseMappings
+n  ,?          * :call <SNR>39_SearchAnyMark("b")<CR>
+n  ,/          * :call <SNR>39_SearchAnyMark()<CR>
+n  ,#          * :call <SNR>39_SearchCurrentMark("b")<CR>
+n  ,*          * :call <SNR>39_SearchCurrentMark()<CR>
+n  ,caL          <Plug>CalendarH
+n  ,cal          <Plug>CalendarV
+   ,\rwp         <Plug>RestoreWinPosn
+   ,\swp         <Plug>SaveWinPosn
+v  ,tt           :call AlignMaps#Vis("tt")<CR>
+n  ,tt           <Plug>AM_tt
+v  ,tsq          :call AlignMaps#Vis("tsq")<CR>
+n  ,tsq          <Plug>AM_tsq
+v  ,tsp          :call AlignMaps#Vis("tsp")<CR>
+n  ,tsp          <Plug>AM_tsp
+v  ,tml          :call AlignMaps#Vis("tml")<CR>
+n  ,tml          <Plug>AM_tml
+v  ,tab          :call AlignMaps#Vis("tab")<CR>
+n  ,tab          <Plug>AM_tab
+v  ,m=           :call AlignMaps#Vis("m=")<CR>
+n  ,m=           <Plug>AM_m=
+v  ,tW@          :call AlignMaps#Vis("tW@")<CR>
+n  ,tW@          <Plug>AM_tW@
+v  ,t@           :call AlignMaps#Vis("t@")<CR>
+n  ,t@           <Plug>AM_t@
+v  ,t~           :call AlignMaps#Vis("t~")<CR>
+n  ,t~           <Plug>AM_t~
+v  ,t?           :call AlignMaps#Vis("t?")<CR>
+n  ,t?           <Plug>AM_t?
+v  ,;w=          :call AlignMaps#Vis(";w=")<CR>
+n  ,;w=          <Plug>AM_;w=
+v  ,ts=          :call AlignMaps#Vis("ts=")<CR>
+n  ,ts=          <Plug>AM_ts=
+v  ,ts<          :call AlignMaps#Vis("ts<")<CR>
+n  ,ts<          <Plug>AM_ts<
+v  ,ts;          :call AlignMaps#Vis("ts;")<CR>
+n  ,ts;          <Plug>AM_ts;
+v  ,ts:          :call AlignMaps#Vis("ts:")<CR>
+n  ,ts:          <Plug>AM_ts:
+v  ,ts,          :call AlignMaps#Vis("ts,")<CR>
+n  ,ts,          <Plug>AM_ts,
+v  ,t=           :call AlignMaps#Vis("t=")<CR>
+n  ,t=           <Plug>AM_t=
+v  ,t<           :call AlignMaps#Vis("t<")<CR>
+n  ,t<           <Plug>AM_t<
+v  ,t;           :call AlignMaps#Vis("t;")<CR>
+n  ,t;           <Plug>AM_t;
+v  ,t:           :call AlignMaps#Vis("t:")<CR>
+n  ,t:           <Plug>AM_t:
+v  ,t,           :call AlignMaps#Vis("t,")<CR>
+n  ,t,           <Plug>AM_t,
+v  ,t#           :call AlignMaps#Vis("t#")<CR>
+n  ,t#           <Plug>AM_t#
+v  ,t|           :call AlignMaps#Vis("t|")<CR>
+n  ,t|           <Plug>AM_t|
+v  ,T~           :call AlignMaps#Vis("T~")<CR>
+n  ,T~           <Plug>AM_T~
+v  ,Tsp          :call AlignMaps#Vis("Tsp")<CR>
+n  ,Tsp          <Plug>AM_Tsp
+v  ,Tab          :call AlignMaps#Vis("Tab")<CR>
+n  ,Tab          <Plug>AM_Tab
+v  ,TW@          :call AlignMaps#Vis("TW@")<CR>
+n  ,TW@          <Plug>AM_TW@
+v  ,T@           :call AlignMaps#Vis("T@")<CR>
+n  ,T@           <Plug>AM_T@
+v  ,T?           :call AlignMaps#Vis("T?")<CR>
+n  ,T?           <Plug>AM_T?
+v  ,T=           :call AlignMaps#Vis("T=")<CR>
+n  ,T=           <Plug>AM_T=
+v  ,T<           :call AlignMaps#Vis("T<")<CR>
+n  ,T<           <Plug>AM_T<
+v  ,T;           :call AlignMaps#Vis("T;")<CR>
+n  ,T;           <Plug>AM_T;
+v  ,T:           :call AlignMaps#Vis("T:")<CR>
+n  ,T:           <Plug>AM_T:
+v  ,Ts,          :call AlignMaps#Vis("Ts,")<CR>
+n  ,Ts,          <Plug>AM_Ts,
+v  ,T,           :call AlignMaps#Vis("T,")<CR>
+n  ,T,           <Plug>AM_T,
+v  ,T#           :call AlignMaps#Vis("T#")<CR>
+n  ,T#           <Plug>AM_T#
+v  ,T|           :call AlignMaps#Vis("T|")<CR>
+n  ,T|           <Plug>AM_T|
+   ,Htd          <Plug>AM_Htd
+v  ,anum         :call AlignMaps#Vis("anum")<CR>
+n  ,anum         <Plug>AM_anum
+v  ,aenum        :call AlignMaps#Vis("aenum")<CR>
+n  ,aenum        <Plug>AM_aenum
+v  ,aunum        :call AlignMaps#Vis("aunum")<CR>
+n  ,aunum        <Plug>AM_aunum
+v  ,afnc         :call AlignMaps#Vis("afnc")<CR>
+n  ,afnc         <Plug>AM_afnc
+v  ,adef         :call AlignMaps#Vis("adef")<CR>
+n  ,adef         <Plug>AM_adef
+v  ,adec         :call AlignMaps#Vis("adec")<CR>
+n  ,adec         <Plug>AM_adec
+v  ,ascom        :call AlignMaps#Vis("ascom")<CR>
+n  ,ascom        <Plug>AM_ascom
+v  ,aocom        :call AlignMaps#Vis("aocom")<CR>
+n  ,aocom        <Plug>AM_aocom
+v  ,adcom        :call AlignMaps#Vis("adcom")<CR>
+n  ,adcom        <Plug>AM_adcom
+v  ,acom         :call AlignMaps#Vis("acom")<CR>
+n  ,acom         <Plug>AM_acom
+v  ,abox         :call AlignMaps#Vis("abox")<CR>
+n  ,abox         <Plug>AM_abox
+v  ,a(           :call AlignMaps#Vis("a(")<CR>
+n  ,a(           <Plug>AM_a(
+v  ,a=           :call AlignMaps#Vis("a=")<CR>
+n  ,a=           <Plug>AM_a=
+v  ,a<           :call AlignMaps#Vis("a<")<CR>
+n  ,a<           <Plug>AM_a<
+v  ,a,           :call AlignMaps#Vis("a,")<CR>
+n  ,a,           <Plug>AM_a,
+v  ,a?           :call AlignMaps#Vis("a?")<CR>
+n  ,a?           <Plug>AM_a?
+v  ,e          * :python debugger.handle_visual_eval()<CR>
+n  ,vy*          :call <SNR>19_ToggleFileAssociationsInExplorer()<CR>
+n  ,vy|          :call <SNR>19_EchoOptionsSet()<CR>
+n  ,vyv          :call <SNR>19_EchoGrepCommand()<CR>
+n  ,vy?          :call <SNR>19_ToggleOptionsDisplay()<CR>
+n  ,vym          :call <SNR>19_ToggleReplaceWindowMode()<CR>
+n  ,vys          :call <SNR>19_Sort()<CR>
+n  ,vye          :call <SNR>19_EchoFilesSearched()<CR>
+n  ,vy!          :call <SNR>19_ToggleWholeWord()<CR>
+n  ,vyp          :call <SNR>19_ToggleJumpToMatch()<CR>
+n  ,vyg          :call <SNR>19_ToggleEveryMatch()<CR>
+n  ,vyo          :call <SNR>19_ToggleOpenWindow()<CR>
+n  ,vyw          :call <SNR>19_ToggleWindow()<CR>
+n  ,vyh          :call <SNR>19_ToggleHidden()<CR>
+n  ,vyi          :call <SNR>19_ToggleIgnoreCase()<CR>
+n  ,vyd          :call <SNR>19_ToggleBufferDirectories()<CR>
+n  ,vyr          :call <SNR>19_ToggleRecursion()<CR>
+n  ,vyc          :call <SNR>19_ToggleCommand()<CR>
+n  ,vyx          :call <SNR>19_SetFilesToExclude()<CR>
+n  ,vyu          :call <SNR>19_ActivateUser()<CR>
+n  ,vyt          :call <SNR>19_ActivateTracked()<CR>
+n  ,vyb          :call <SNR>19_ActivateBuffers()<CR>
+n  ,vya          :call <SNR>19_ActivateAll()<CR>
+v  ,vR           <Plug>EgMapReplaceSelection_R
+o  ,vR           <Plug>EgMapReplaceCurrentWord_R
+v  ,vr           <Plug>EgMapReplaceSelection_r
+o  ,vr           <Plug>EgMapReplaceCurrentWord_r
+v  ,vA           <Plug>EgMapGrepSelection_A
+o  ,vA           <Plug>EgMapGrepCurrentWord_A
+v  ,va           <Plug>EgMapGrepSelection_a
+o  ,va           <Plug>EgMapGrepCurrentWord_a
+v  ,vV           <Plug>EgMapGrepSelection_V
+o  ,vV           <Plug>EgMapGrepCurrentWord_V
+v  ,vv           <Plug>EgMapGrepSelection_v
+o  ,vv           <Plug>EgMapGrepCurrentWord_v
+   ,vo           <Plug>EgMapGrepOptions
+v  ,TA:          :Tabularize /:\zs<CR>               ,l
+n  ,TA:          :Tabularize /:\zs<CR>
+v  ,TA=          :Tabularize /=<CR>
+n  ,TA=          :Tabularize /=<CR>
+v  ,TA|          :Tabularize /|<CR>
+n  ,TA|          :Tabularize /|<CR>
+n  0             :q!<CR>
+n  ?             [i
+n  D             viwd
+v  Q             gq
+n  Q             :let @e=''<CR>qe
+o  Q             gq
+x  S             <Plug>VSurround
+   T             :TaskList<CR>
+s  U           * b<BS>U
+n  W             :w!<CR>
+n  Y             wbve<C-C>
+n  Z             :call ToggleSetList()<CR>
+n  [o            300<C-W>>z100<CR>
+n  [p            300<C-W><z0<CR>
+s  \           * b<BS>\
+n  \g            :call prgenv#VimgrepEXE()<CR>
+n  \x            :call prgenv#GetFoo()<CR>:exe "/" . Foo<CR>
+   \o            ,\rwp
+   \s            ,\swp<Esc>h<Space>
+n  \p            :set spell!<CR>
+n  \=            1GVG=
+n  \\w           <C-W>=         " even windows
+n  \\<BS>        \\\Q
+n  \\\           :Calendar<CR>
+n  \rr           :cd %:h<CR>:RopeOpenProject<CR>
+s  ^           * b<BS>^
+s  `           * b<BS>`
+n  `h            <C-W>h
+n  `l            <C-W>l
+n  `k            <C-W>k
+n  `j            <C-W>j
+n  `<F7>         :call ToggleAutoComplete()<CR>
+x  `           * :!python<CR>
+n  `<Space>      :call ClearBuzzAndIdent()<CR>
+n  `;            :ConqueTermVSplit cmd<CR>
+n  `'            :ConqueTermSplit python<CR>
+n  `0            :q!<CR>
+n  `<M-j>        <F21>w
+n  `<M-k>        <F21>gE
+   `p            :TlistToggle<CR>
+n  `n            <Plug>MarkClear
+v  `\            <Plug>MarkRegex
+n  `\            <Plug>MarkRegex
+v  `m            <Plug>MarkSet
+n  `m            <Plug>MarkSet
+n  cs            <Plug>Csurround
+n  cdp           :cd $DRIVE/Workspace/Python/Project1<CR>:cd<CR>
+n  cdc           :cd<CR>
+n  cdd           :cd %:p:h<CR>:cd<CR>
+n  ds            <Plug>Dsurround
+n  du            :cd ..<CR>:cd<CR>
+n  d9            ,`<C-H><Tab>d0<Tab>M
+n  d0            ,,3,,2,,1
+n  do            :tabnew<CR>
+n  gx            <Plug>NetrwBrowseX
+x  gS            <Plug>VgSurround
+n  go            :call GoDirect($buf.count)<CR>
+n  mkso          :call MakeDLLcall()<CR>
+v  qi            c<<C-R>"><Esc>
+v  ql            c{<C-R>"}<Esc>
+v  qk            c[<C-R>"]<Esc>
+v  qj            c(<C-R>")<Esc>%i
+v  qq            c"<C-R>""<Esc>
+v  qs            c'<C-R>"'<Esc>
+n  tdo           F)hdi(i
+n  to            F)i
+n  tdi           f)hdi(i
+n  ti            f)i
+n  tm            :call prgenv#TagMake()<CR>cdc
+n  ySS           <Plug>YSsurround
+n  ySs           <Plug>YSsurround
+n  yss           <Plug>Yssurround
+n  yS            <Plug>YSurround
+n  ys            <Plug>Ysurround
+n  yC            v$y
+v  }             c{<C-R>"}<Esc>
+v  <C-F9>        :call CscopePythonSettingVariation()<CR>
+v  <M-J>         j<C-E>
+v  <M-K>         k<C-Y>
+ov <F10>       * :set hlsearch! hlsearch?<CR>
+ov <F5>        * :python debugger.run()<CR>
+n  <C-F21>       :call Switchup()<CR>
+n  <C-F5>        :call PydbgEXEtoggle()<CR><Space>
+v  <M-]><M-[>    :call WordsEncapsV(g:ListRec,g:ListForBracket,'onepair')<CR>
+n  <M-]><M-[>    :call WordsEncapsN(g:ListRec,g:ListForBracket)<CR>
+s  <Left>      * <Esc>bi
+s  <Right>     * <Esc>a
+s  <BS>        * b<BS>
+s  <S-Tab>     * <Esc>i<Right><C-R>=BackwardsSnippet()<CR>
+n  <Plug>NetrwBrowseX * :call netrw#NetrwBrowseX(expand("<cWORD>"),0)<CR>
+n  <Plug>TaskList & :TaskList<CR>
+v  <Plug>VgSurround * :<C-U>call <SNR>58_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR>
+v  <Plug>VSurround * :<C-U>call <SNR>58_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR>
+n  <Plug>YSurround * :<C-U>set opfunc=<SNR>58_opfunc2<CR>g@
+n  <Plug>Ysurround * :<C-U>set opfunc=<SNR>58_opfunc<CR>g@
+n  <Plug>YSsurround * :<C-U>call <SNR>58_opfunc2(v:count1)<CR>
+n  <Plug>Yssurround * :<C-U>call <SNR>58_opfunc(v:count1)<CR>
+n  <Plug>Csurround * :<C-U>call <SNR>58_changesurround()<CR>
+n  <Plug>Dsurround * :<C-U>call <SNR>58_dosurround(<SNR>58_inputtarget())<CR>
+n  <Plug>SurroundRepeat * .
+n  <Plug>NERDCommenterAppend   :call NERDComment(0, "append")<CR>
+n  <Plug>NERDCommenterToEOL * :call NERDComment(0, "toEOL")<CR>
+v  <Plug>NERDCommenterUncomment * :call NERDComment(1, "uncomment")<CR>
+n  <Plug>NERDCommenterUncomment * :call NERDComment(0, "uncomment")<CR>
+v  <Plug>NERDCommenterNest * <Esc>:call NERDComment(1, "nested")<CR>
+n  <Plug>NERDCommenterNest * :call NERDComment(0, "nested")<CR>
+v  <Plug>NERDCommenterAlignBoth * <Esc>:call NERDComment(1, "alignBoth")<CR>
+n  <Plug>NERDCommenterAlignBoth * :call NERDComment(0, "alignBoth")<CR>
+v  <Plug>NERDCommenterAlignLeft * <Esc>:call NERDComment(1, "alignLeft")<CR>
+n  <Plug>NERDCommenterAlignLeft * :call NERDComment(0, "alignLeft")<CR>
+v  <Plug>NERDCommenterYank   <Esc>:call NERDComment(1, "yank")<CR>
+n  <Plug>NERDCommenterYank   :call NERDComment(0, "yank")<CR>
+v  <Plug>NERDCommenterInvert * <Esc>:call NERDComment(1, "invert")<CR>
+n  <Plug>NERDCommenterInvert * :call NERDComment(0, "invert")<CR>
+v  <Plug>NERDCommenterSexy * <Esc>:call NERDComment(1, "sexy")<CR>
+n  <Plug>NERDCommenterSexy * :call NERDComment(0, "sexy")<CR>
+v  <Plug>NERDCommenterMinimal * <Esc>:call NERDComment(1, "minimal")<CR>
+n  <Plug>NERDCommenterMinimal * :call NERDComment(0, "minimal")<CR>
+v  <Plug>NERDCommenterToggle * <Esc>:call NERDComment(1, "toggle")<CR>
+n  <Plug>NERDCommenterToggle * :call NERDComment(0, "toggle")<CR>
+v  <Plug>NERDCommenterComment * <Esc>:call NERDComment(1, "norm")<CR>
+n  <Plug>NERDCommenterComment * :call NERDComment(0, "norm")<CR>
+n  <Plug>NERDCommenterAltDelims * :call <SNR>50_SwitchToAlternativeDelimiters(1)<CR>
+n  <S-Tab>       <C-PageDown>  <Space>
+n  <M-q>         "Ayy
+v  <M-q>         V"Ayy
+n  <M-e>         :E<CR>
+n  <C-0>         <C-PageDown>
+n  <C-9>         <C-PageUp>
+n  <M-J>         <C-PageDown>
+n  <M-K>         <C-PageUp>
+n  <C-F11>       :TrinityToggleNERDTree<CR><Space>
+n  <C-F10>       :TrinityToggleTagList<CR><Space>
+n  <C-F9>        :TrinityToggleSourceExplorer<CR><Space>
+n  <C-F8>        :call TrinityOn()<CR>
+   <S-F5>        :execute "grep /" . expand("<cword>") . "/j **" | cw<CR>
+n  <M-m>         nz.
+n  <M-t>         nz+
+n  <M-b>         nz-
+v  <M-.>       * <Esc>
+o  <M-K>         k<C-Y>
+o  <M-J>         j<C-E>
+n  <C-Up>        :colder<CR>
+n  <C-Down>      :cnewer<CR>
+n  <C-Left>      :cpfile<CR>
+n  <C-Right>     :cnfile<CR>
+n  <M-Up>        :cfirst<CR>
+n  <M-Down>      :clast<CR>
+n  <M-Left>      :cprev<CR>
+n  <M-Right>     :cnext<CR>
+o  <C-F9>        :call CscopePythonSettingVariation()<CR>
+n  <M-F9>        :call prgenv#CscopePythonSettingOrigin()<CR>
+n  <S-F12>       :FF<CR>
+n  <S-F7>        <Esc>:syntax on<CR>
+n  <C-F12>       <Plug>ToggleAutoCloseMappings
+n  <C-Del>       :tabo!<CR>
+n  <C-Insert>    :only!<CR>
+n  <M-PageUp>    <C-S-Tab>
+n  <M-PageDown>   <C-Tab>
+n  <M-`>       * :silent !start explorer c:\vim\vimfiles\plugin\MyVim<CR>
+n  <M-Del>       :tabo!<CR>
+n  <M-F8>        :call ToggleTransparent()<CR>
+v  <M-Bslash>    :Align=<CR>
+n  <M-F12>       :call QuitAll()<CR>
+n  <M-F1>        :cd %:p:h<CR>:silent !start cmd<CR>
+n  <F1>          :silent !start explorer /select,%:p<CR>
+n  <M-0>         :source ~/vim_session3<CR>     " And load session with F3
+n  <M-9>         :source ~/vim_session2<CR>     " And load session with F3
+n  <M-8>         :source ~/vim_session1<CR>     " And load session with F3
+n  <M-3>         :mksession! ~/vim_session3<CR> " Quick write session with F2
+n  <M-2>         :mksession! ~/vim_session2<CR> " Quick write session with F2
+n  <M-1>         :mksession! ~/vim_session1<CR> " Quick write session with F2
+n  <M-L>         :tabnew $HOME/.ve_favorite<CR>
+n  <S-F4>        :colorscheme peachpuff<CR>:call RecoverMarkAndCyan()<CR>
+n  <S-F3>        :colorscheme darkblue<CR> :call RecoverMarkAndCyan()<CR>
+n  <S-F2>        :colorscheme darkblue2<CR>:call RecoverMarkAndCyan()<CR>
+n  <S-F1>        :colorscheme oceandeep<CR>:call RecoverMarkAndCyan()<CR>
+n  <M-F7>        :call FontSelect('bit')<CR>
+n  <M-F6>        :call FontSelect('mon')<CR>
+n  <M-F5>        :call FontSelect('fix')<CR>
+n  <C-F7>        :tabnew $MYENV<CR>
+n  <M-F11>       :tabnew $MYKEYS<CR>
+n  <M-F10>       :tabnew $MYVIMRC<CR>
+n  <S-Esc>       :TMiniBufExplorer<CR>
+   <F12>         :set wrap! wrap?<CR>
+n  <M-.>         <End>
+n  <M-,>         <Home>
+n  <M-l>         3w
+n  <M-h>         3b
+n  <M-j>         z.5jz.
+n  <M-k>         z.5kz.
+n  <S-Down>      1<C-W>-
+n  <S-Up>        1<C-W>+
+n  <S-Right>     2<C-W>>
+n  <S-Left>      2<C-W><
+n  <C-Home>    * :call Resize(-1)<CR>
+n  <C-End>     * :call Resize(+1)<CR>
+n  <M-o>         :call Uncommentify()<CR>:call RecoverOrigin()<CR>==
+n  <M-u>         :call Commentify($buf.count)<CR>
+v  <M-o>         :call Uncommentify()<CR>:call RecoverOrigin()<CR>==
+v  <M-u>         :call Commentify(-1)<CR>
+v  <M-i>         :call InsertAlterMulti(-1)<CR>3w
+n  <M-i>         :call InsertAlterMulti($buf.count)<CR>
+v  <M-'><M-'>    :call EraseEncaps(g:ListSma,'visual')<CR>
+v  <M-"><M-">    :call EraseEncaps(g:ListDuo,'visual')<CR>
+v  <M-]><M-]>    :call EraseEncaps(g:ListRec,'visual')<CR>
+v  <M-}><M-}>    :call EraseEncaps(g:ListCur,'visual')<CR>
+v  <M->><M->>    :call EraseEncaps(g:ListSha,'visual')<CR>
+v  <M-)><M-)>    :call EraseEncaps(g:ListBra,'visual')<CR>
+n  <M-'><M-'>    :call EraseEncaps(g:ListSma,'normal')<CR>
+n  <M-"><M-">    :call EraseEncaps(g:ListDuo,'normal')<CR>
+n  <M-]><M-]>    :call EraseEncaps(g:ListRec,'normal')<CR>
+n  <M-}><M-}>    :call EraseEncaps(g:ListCur,'normal')<CR>
+n  <M->><M->>    :call EraseEncaps(g:ListSha,'normal')<CR>
+n  <M-)><M-)>    :call EraseEncaps(g:ListBra,'normal')<CR>
+v  <M-;><M-;>    x:call DeleteContents(g:ListSma,'visual')<CR>
+v  <M-:><M-:>    x:call DeleteContents(g:ListDuo,'visual')<CR>
+v  <M-[><M-[>    x:call DeleteContents(g:ListRec,'visual')<CR>
+v  <M-{><M-{>    x:call DeleteContents(g:ListCur,'visual')<CR>
+v  <M-lt><M-lt>   x:call DeleteContents(g:ListSha,'visual')<CR>
+v  <M-(><M-(>    x:call DeleteContents(g:ListBra,'visual')<CR>
+n  <M-;><M-;>    :call DeleteContents(g:ListSma,'normal')<CR>
+n  <M-:><M-:>    :call DeleteContents(g:ListDuo,'normal')<CR>
+n  <M-[><M-[>    :call DeleteContents(g:ListRec,'normal')<CR>
+n  <M-{><M-{>    :call DeleteContents(g:ListCur,'normal')<CR>
+n  <M-lt><M-lt>   :call DeleteContents(g:ListSha,'normal')<CR>
+n  <M-(><M-(>    :call DeleteContents(g:ListBra,'normal')<CR>
+v  <M-"><M-:>    :call WordsEncapsV(g:ListDuo,g:ListForQuote,'onepair')<CR>
+v  <M-'><M-;>    :call WordsEncapsV(g:ListSma,g:ListForQuote,'onepair')<CR>
+v  <M-}><M-{>    :call WordsEncapsV(g:ListCur,g:ListForBracket,'onepair')<CR>
+v  <M->><M-lt>   :call WordsEncapsV(g:ListSha,g:ListForBracket,'onepair')<CR>
+v  <M-)><M-(>    :call WordsEncapsV(g:ListBra,g:ListForBracket,'onepair')<CR>
+n  <M-"><M-:>    :call WordsEncapsN(g:ListDuo,g:ListForQuote)<CR>
+n  <M-'><M-;>    :call WordsEncapsN(g:ListSma,g:ListForQuote)<CR>
+n  <M-}><M-{>    :call WordsEncapsN(g:ListCur,g:ListForBracket)<CR>
+n  <M->><M-lt>   :call WordsEncapsN(g:ListSha,g:ListForBracket)<CR>
+n  <M-)><M-(>    :call WordsEncapsN(g:ListBra,g:ListForBracket)<CR>
+n  <M-[><M-]>    :call DeleteInBraOnce(g:ListBraTotal)<CR>i
+n  <M-;><M-'>    :call DeleteInQuoteOnce(avoidList)<CR>i
+n  <Plug>ToggleAutoCloseMappings   :call <SNR>40_ToggleAutoCloseMappings()<CR>
+n  <Plug>MarkClear * :call <SNR>39_DoMark(<SNR>39_CurrentMark())<CR>
+v  <Plug>MarkRegex * <C-\><C-N>:call <SNR>39_MarkRegex(<SNR>39_GetVisualSelectionEscaped("N"))<CR>
+n  <Plug>MarkRegex * :call <SNR>39_MarkRegex()<CR>
+v  <Plug>MarkSet * <C-\><C-N>:call <SNR>39_DoMark(<SNR>39_GetVisualSelectionEscaped("enV"))<CR>
+n  <Plug>MarkSet * :call <SNR>39_MarkCurrentWord()<CR>
+n  <C-Space><C-Space>d   :vert scs find d <C-R>=expand("<cword>")<CR><CR>
+n  <C-Space><C-Space>i   :vert scs find i ^<C-R>=expand("<cfile>")<CR>$<CR><Tab>
+n  <C-Space><C-Space>f   :vert scs find f <C-R>=expand("<cfile>")<CR><CR><Tab>
+n  <C-Space><C-Space>e   :vert scs find e <C-R>=expand("<cword>")<CR><CR>
+n  <C-Space><C-Space>t   :vert scs find t <C-R>=expand("<cword>")<CR><CR>
+n  <C-Space><C-Space>c   :vert scs find c <C-R>=expand("<cword>")<CR><CR>
+n  <C-Space><C-Space>g   :vert scs find g <C-R>=expand("<cword>")<CR><CR>
+n  <C-Space><C-Space>s   :vert scs find s <C-R>=expand("<cword>")<CR><CR>
+n  <C-Space>d    :scs find d <C-R>=expand("<cword>")<CR><CR><Tab>
+n  <C-Space>i    :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR><Tab>
+n  <C-Space>f    :scs find f <C-R>=expand("<cfile>")<CR><CR><Tab>
+n  <C-Space>e    :scs find e <C-R>=expand("<cword>")<CR><CR><Tab>
+n  <C-Space>t    :scs find t <C-R>=expand("<cword>")<CR><CR><Tab>
+n  <C-Space>c    :scs find c <C-R>=expand("<cword>")<CR><CR><Tab>
+n  <C-Space>g    :scs find g <C-R>=expand("<cword>")<CR><CR><Tab>
+n  <C-Space>s    :scs find s <C-R>=expand("<cword>")<CR><CR><Tab>
+   <F11>         :set nu! nu?<CR>
+n  <Plug>CalendarH * :cal Calendar(1)<CR>
+n  <Plug>CalendarV * :cal Calendar(0)<CR>
+n  <Plug>RestoreWinPosn   :call RestoreWinPosn()<CR>
+n  <Plug>SaveWinPosn   :call SaveWinPosn()<CR>
+n  <Plug>AM_tt & <SNR>27_WS:AlignCtrl mIp1P1=l \\\@<!& \\\\<CR>:'a,.Align<CR><SNR>27_WE
+n  <Plug>AM_tsq & <SNR>27_WS:'a,.AlignReplaceQuotedSpaces<CR>:keepj 'a,.s/^\(\s*\)\(.*\)/\=submatch(1).substitute(submatch(2),'\s\+','@','g')/<CR>:AlignCtrl mIp0P0=l @<CR>:'a,.Align<CR>:keepj 'y+1,'z-1s/[%@]/ /g<CR><SNR>27_WE
+n  <Plug>AM_tsp & <SNR>27_WS:keepj 'a,.s/^\(\s*\)\(.*\)/\=submatch(1).escape(substitute(submatch(2),'\s\+','@','g'),'\')/<CR>:AlignCtrl mI=lp0P0 @<CR>:'a,.Align<CR>:keepj 'y+1,'z-1s/@/ /g<CR><SNR>27_WE
+n  <Plug>AM_tml & <SNR>27_WS:AlignCtrl mWp1P0=l \\\@<!\\\s*$<CR>:'a,.Align<CR><SNR>27_WE
+n  <Plug>AM_tab & <SNR>27_WS:'a,.s/^\(\t*\)\(.*\)$/\=submatch(1).escape(substitute(submatch(2),'\t',"\<C-O>",'g'),'\')/<CR>:if &ts == 1|exe "AlignCtrl mI=lp0P0 \<C-O>"|else|exe "AlignCtrl mI=l"|endif<CR>:'a,.Align <C-O><CR>:exe "'y+1,'z-1s/\<C-O>/".((&ts == 1)? '\t' : ' ')."/g"<CR><SNR>27_WE
+n  <Plug>AM_m= & <SNR>27_WS:'a,'zs/\s\+\([*/+\-%|&\~^]\==\)/ \1/e<CR>:'a,'zs@ \+\([*/+\-%|&\~^]\)=@\1=@ge<CR>:'a,'zs/==/\="\<C-O>\<C-O>"/ge<CR>:'a,'zs/!=/\="!\<C-O>"/ge<CR>'zk:AlignCtrl mIp1P1=l =<CR>:AlignCtrl g =<CR>:'a,'z-1Align<CR>:'a,'z-1s@\([*/+\-%|&\~^!=]\)\( \+\)=@\2\1=@ge<CR>:'a,'z-1s/\( \+\);/;\1/ge<CR>:'a,'z-s/%\ze[^=]/ @%@ /e<CR>'zk:call AlignMaps#StdAlign(1)<CR>:'y,'zs/^\(\s*\) @/\1/e<CR>:'a,'z-1s/\xff/=/ge<CR>:'y,'zs/ @//eg<CR><SNR>27_WE
+n  <Plug>AM_tW@ & <SNR>27_WS:call AlignMaps#StdAlign(2)<CR><SNR>27_WE
+n  <Plug>AM_t@ & <SNR>27_WS:call AlignMaps#StdAlign(1)<CR><SNR>27_WE
+n  <Plug>AM_t~ & <SNR>27_WS:AlignCtrl mIp0P0=l ~<CR>:'a,.Align<CR>:'y,'zs/ \( *\);/;\1/ge<CR><SNR>27_WE
+n  <Plug>AM_t? & <SNR>27_WS:AlignCtrl mIp0P0=l ?<CR>:'a,.Align<CR>:.,'zs/ \( *\);/;\1/ge<CR><SNR>27_WE
+n  <Plug>AM_w= & <SNR>27_WS:'a,'zg/=/s/\s\+\([*/+\-%|&\~^]\==\)/ \1/e<CR>:'a,'zg/=/s@ \+\([*/+\-%|&\~^]\)=@\1=@ge<CR>:'a,'zg/=/s/==/\="\<C-O>\<C-O>"/ge<CR>:'a,'zg/=/s/!=/\="!\<C-O>"/ge<CR>'zk:AlignCtrl mWp1P1=l =<CR>:AlignCtrl g =<CR>:'a,'z-1g/=/Align<CR>:'a,'z-1g/=/s@\([*/+\-%|&\~^!=]\)\( \+\)=@\2\1=@ge<CR>:'a,'z-1g/=/s/\( \+\);/;\1/ge<CR>:'a,'z-1v/^\s*\/[*/]/s/\/[*/]/@&@/e<CR>:'a,'z-1v/^\s*\/[*/]/s/\*\//@&/e<CR>'zk:call AlignMaps#StdAlign(1)<CR>:'y,'zs/^\(\s*\) @/\1/e<CR>:'a,'z-1g/=/s/\xff/=/ge<CR>:'y,'zg/=/s/ @//eg<CR><SNR>27_WE
+n  <Plug>AM_ts= & <SNR>27_WS:AlignCtrl mIp1P1=l =\zs<CR>:'a,.Align<CR><SNR>27_WE
+n  <Plug>AM_ts< & <SNR>27_WS:AlignCtrl mIp1P1=l <\zs<CR>:'a,.Align<CR><SNR>27_WE
+n  <Plug>AM_ts; & <SNR>27_WS:AlignCtrl mIp1P1=l ;\zs<CR>:'a,.Align<CR><SNR>27_WE
+n  <Plug>AM_ts: & <SNR>27_WS:AlignCtrl mIp1P1=l :\zs<CR>:'a,.Align<CR><SNR>27_WE
+n  <Plug>AM_ts, & <SNR>27_WS:AlignCtrl mIp0P1=l ,\zs<CR>:'a,.Align<CR><SNR>27_WE
+n  <Plug>AM_t= & <SNR>27_WS:call AlignMaps#Equals()<CR><SNR>27_WE
+n  <Plug>AM_t< & <SNR>27_WS:AlignCtrl mIp0P0=l <<CR>:'a,.Align<CR><SNR>27_WE
+n  <Plug>AM_t; & <SNR>27_WS:AlignCtrl mIp0P1=l ;<CR>:'a,.Align<CR>:sil 'y,'zs/\( *\);/;\1/ge<CR><SNR>27_WE
+n  <Plug>AM_t: & <SNR>27_WS:AlignCtrl mIp1P1=l :<CR>:'a,.Align<CR><SNR>27_WE
+n  <Plug>AM_t, & <SNR>27_WS:AlignCtrl mIp0P1=l ,<CR>:'a,.Align<CR><SNR>27_WE
+n  <Plug>AM_t# & <SNR>27_WS:AlignCtrl mIp0P0=l #<CR>:'a,.Align<CR><SNR>27_WE
+n  <Plug>AM_t| & <SNR>27_WS:AlignCtrl mIp0P0=l |<CR>:'a,.Align<CR><SNR>27_WE
+n  <Plug>AM_T~ & <SNR>27_WS:AlignCtrl mIp0P0=r ~<CR>:'a,.Align<CR>:'y,'zs/ \( *\);/;\1/ge<CR><SNR>27_WE
+n  <Plug>AM_Tsp & <SNR>27_WS:'a,.s/^\(\s*\)\(.*\)/\=submatch(1).escape(substitute(submatch(2),'\s\+','@','g'),'\')/<CR>:AlignCtrl mI=r @<CR>:'a,.Align<CR>:'y+1,'z-1s/@/ /g<CR><SNR>27_WE
+n  <Plug>AM_Tab & <SNR>27_WS:'a,.s/^\(\t*\)\(.*\)/\=submatch(1).escape(substitute(submatch(2),'\t','@','g'),'\')/<CR>:AlignCtrl mI=r @<CR>:'a,.Align<CR>:'y+1,'z-1s/@/ /g<CR><SNR>27_WE
+n  <Plug>AM_TW@ & <SNR>27_WS:AlignCtrl mWp0P0=r @<CR>:'a,.Align<CR><SNR>27_WE
+n  <Plug>AM_T@ & <SNR>27_WS:AlignCtrl mIp0P0=r @<CR>:'a,.Align<CR><SNR>27_WE
+n  <Plug>AM_T? & <SNR>27_WS:AlignCtrl mIp0P0=r ?<CR>:'a,.Align<CR>:'y,'zs/ \( *\);/;\1/ge<CR><SNR>27_WE
+n  <Plug>AM_T= & <SNR>27_WS:'a,'z-1s/\s\+\([*/+\-%|&\~^]\==\)/ \1/e<CR>:'a,'z-1s@ \+\([*/+\-%|&\~^]\)=@\1=@ge<CR>:'a,'z-1s/; */;@/e<CR>:'a,'z-1s/==/\="\<C-O>\<C-O>"/ge<CR>:'a,'z-1s/!=/\x="!\<C-O>"/ge<CR>:AlignCtrl mIp1P1=r = @<CR>:AlignCtrl g =<CR>:'a,'z-1Align<CR>:'a,'z-1s/; *@/;/e<CR>:'a,'z-1s/; *$/;/e<CR>:'a,'z-1s@\([*/+\-%|&\~^]\)\( \+\)=@\2\1=@ge<CR>:'a,'z-1s/\( \+\);/;\1/ge<CR>:'a,'z-1s/\xff/=/ge<CR><SNR>27_WE:exe "norm <Plug>acom"
+n  <Plug>AM_T< & <SNR>27_WS:AlignCtrl mIp0P0=r <<CR>:'a,.Align<CR><SNR>27_WE
+n  <Plug>AM_T; & <SNR>27_WS:AlignCtrl mIp0P0=r ;<CR>:'a,.Align<CR><SNR>27_WE
+n  <Plug>AM_T: & <SNR>27_WS:AlignCtrl mIp1P1=r :<CR>:'a,.Align<CR><SNR>27_WE
+n  <Plug>AM_Ts, & <SNR>27_WS:AlignCtrl mIp0P1=r ,<CR>:'a,.Align<CR>:'a,.s/\(\s*\),/,\1/ge<CR><SNR>27_WE
+n  <Plug>AM_T, & <SNR>27_WS:AlignCtrl mIp0P1=r ,<CR>:'a,.Align<CR><SNR>27_WE
+n  <Plug>AM_T# & <SNR>27_WS:AlignCtrl mIp0P0=r #<CR>:'a,.Align<CR><SNR>27_WE
+n  <Plug>AM_T| & <SNR>27_WS:AlignCtrl mIp0P0=r |<CR>:'a,.Align<CR><SNR>27_WE
+   <Plug>AM_Htd & <SNR>27_WS:'y,'zs%<[tT][rR]><[tT][dD][^>]\{-}>\|</[tT][dD]><[tT][dD][^>]\{-}>\|</[tT][dD]></[tT][rR]>%@&@%g<CR>'yjma'zk:AlignCtrl m=Ilp1P0 @<CR>:'a,.Align<CR>:'y,'zs/ @/@/<CR>:'y,'zs/@ <[tT][rR]>/<[tT][rR]>/ge<CR>:'y,'zs/@//ge<CR><SNR>27_WE
+n  <Plug>AM_aenum & <SNR>27_WS:'a,'zs/\([-+]\=\d\+\)\([eE][-+]\d\+\)\=/\1#\2/ge<CR>:'a,'zs/\([,eE][-+]\=\d\+\)#/\1/ge<CR>:'a,'zs/#,/,/ge<CR>:'a,'zs/[-+]\=\%(\d\+\%([,#]\d*\)\=\|[,#]\d\+\)\%([eE][-+]\=\d\+\)\=/@&@/ge<CR>:AlignCtrl Imp0P0r<CR>:'a,'zAlign [@#,]<CR>:'a,'zs/\([,#]\)\(\s\+\)\(\d*\%([eE][-+]\=\d\+\)\=\)@/\1\3\2@/ge<CR>:'a,'zs/@//<CR>:'a,'zs/[#@]/ /ge<CR><SNR>27_WE
+n  <Plug>AM_aunum & <SNR>27_WS:'a,'zs/\([-+]\=\d\+\)\([eE][-+]\d\+\)\=/\1#\2/ge<CR>:'a,'zs/\([.eE][-+]\=\d\+\)#/\1/ge<CR>:'a,'zs/#\././ge<CR>:'a,'zs/[-+]\=\%(\d\+\%([.#]\d*\)\=\|[.#]\d\+\)\%([eE][-+]\=\d\+\)\=/@&@/ge<CR>:AlignCtrl Imp0P0r<CR>:'a,'zAlign [@#.]<CR>:'a,'zs/\([.#]\)\(\s\+\)\(\d*\%([eE][-+]\=\d\+\)\=\)@/\1\3\2@/ge<CR>:'a,'zs/@//<CR>:'a,'zs/[#@]/ /ge<CR><SNR>27_WE
+n  <Plug>AM_afnc & :<C-U>set lz<CR>:silent call AlignMaps#Afnc()<CR>:set nolz<CR>
+n  <Plug>AM_adef & <SNR>27_WS:AlignPush<CR>:AlignCtrl v ^\s*\(\/\*\|\/\/\)<CR>:'a,.v/^\s*\(\/\*\|\/\/\)/s/^\(\s*\)#\(\s\)*define\s*\(\I[a-zA-Z_0-9(),]*\)\s*\(.\{-}\)\($\|\/\*\)/#\1\2define @\3@\4@\5/e<CR>:'a,.v/^\s*\(\/\*\|\/\/\)/s/\($\|\*\/\)/@&/e<CR>'zk:call AlignMaps#StdAlign(1)<CR>'yjma'zk:'a,.v/^\s*\(\/\*\|\/\/\)/s/ @//g<CR><SNR>27_WE
+n  <Plug>AM_adec & <SNR>27_WS:'a,'zs/\([^ \t/(]\)\([*&]\)/\1 \2/e<CR>:'y,'zv/^\//s/\([^ \t]\)\s\+/\1 /ge<CR>:'y,'zv/^\s*[*/]/s/\([^/][*&]\)\s\+/\1/ge<CR>:'y,'zv/^\s*[*/]/s/^\(\s*\%([a-zA-Z_][a-zA-Z_0-9<>:]*\s\+\%([a-zA-Z_*(&]\)\@=\)\+\)\([*(&]*\)\s*\([a-zA-Z0-9_()<>:]\+\)\s*\(\(\[.\{-}]\)*\)\s*\(=\)\=\s*\(.\{-}\)\=\s*;/\1@\2#@\3\4@\6@\7;@/e<CR>:'y,'zv/^\s*[*/]/s/\*\/\s*$/@*\//e<CR>:'y,'zv/^\s*[*/]/s/^\s\+\*/@@@@@* /e<CR>:'y,'zv/^\s*[*/]/s/^@@@@@\*\(.*[^*/]\)$/&@*/e<CR>'yjma'zk:AlignCtrl v ^\s*[*/#]<CR>:call AlignMaps#StdAlign(1)<CR>:'y,'zv/^\s*[*/]/s/@ //ge<CR>:'y,'zv/^\s*[*/]/s/\(\s*\);/;\1/e<CR>:'y,'zv/^#/s/# //e<CR>:'y,'zv/^\s\+[*/#]/s/\([^/*]\)\(\*\+\)\( \+\)/\1\3\2/e<CR>:'y,'zv/^\s\+[*/#]/s/\((\+\)\( \+\)\*/\2\1*/e<CR>:'y,'zv/^\s\+[*/#]/s/^\(\s\+\) \*/\1*/e<CR>:'y,'zv/^\s\+[*/#]/s/[ \t@]*$//e<CR>:'y,'zs/^[*]/ */e<CR><SNR>27_WE
+n  <Plug>AM_ascom & <SNR>27_WS:'a,.s/\/[*/]/@&@/e<CR>:'a,.s/\*\//@&/e<CR>:silent! 'a,.g/^\s*@\/[*/]/s/@//ge<CR>:AlignCtrl v ^\s*\/[*/]<CR>:AlignCtrl g \/[*/]<CR>'zk:call AlignMaps#StdAlign(2)<CR>:'y,'zs/^\(\s*\) @/\1/e<CR>:'y,'zs/ @//eg<CR><SNR>27_WE
+n  <Plug>AM_aocom & <SNR>27_WS:AlignPush<CR>:AlignCtrl g /[*/]<CR>:exe "norm \<Plug>AM_acom"<CR>:AlignPop<CR><SNR>27_WE
+n  <Plug>AM_adcom & <SNR>27_WS:'a,.v/^\s*\/[/*]/s/\/[*/]\*\=/@&@/e<CR>:'a,.v/^\s*\/[/*]/s/\*\//@&/e<CR>:'y,'zv/^\s*\/[/*]/s/^\( *\) @/\1@/e<CR>'zk:call AlignMaps#StdAlign(3)<CR>:'y,'zv/^\s*\/[/*]/s/^\(\s*\) @/\1/e<CR>:'y,'zs/ @//eg<CR><SNR>27_WE
+n  <Plug>AM_acom & <SNR>27_WS:'a,.s/\/[*/]\/\=/@&@/e<CR>:'a,.s/\*\//@&/e<CR>:'y,'zs/^\( *\) @/\1@/e<CR>'zk:call AlignMaps#StdAlign(2)<CR>:'y,'zs/^\(\s*\) @/\1/e<CR>:'y,'zs/ @//eg<CR><SNR>27_WE
+n  <Plug>AM_abox & <SNR>27_WS:let g:alignmaps_iws=substitute(getline("'a"),'^\(\s*\).*$','\1','e')<CR>:'a,'z-1s/^\s\+//e<CR>:'a,'z-1s/^.*$/@&@/<CR>:AlignCtrl m=p01P0w @<CR>:'a,.Align<CR>:'a,'z-1s/@/ * /<CR>:'a,'z-1s/@$/*/<CR>'aYP:s/./*/g<CR>0r/'zkYp:s/./*/g<CR>0r A/<Esc>:exe "'a-1,'z-1s/^/".g:alignmaps_iws."/e"<CR><SNR>27_WE
+n  <Plug>AM_a= & <SNR>27_WS:AlignCtrl mIp1P1=l<CR>:AlignCtrl g :=<CR>:'a,'zAlign :\==<CR><SNR>27_WE
+n  <Plug>AM_a( & <SNR>27_WS:AlignCtrl mIp0P1=l<CR>:'a,.Align [(,]<CR>:sil 'y+1,'z-1s/\(\s\+\),/,\1/ge<CR><SNR>27_WE
+n  <Plug>AM_a< & <SNR>27_WS:AlignCtrl mIp1P1=l << >><CR>:'a,.Align<CR><SNR>27_WE
+n  <Plug>AM_a, & <SNR>27_WS:'y,'zs/\(\S\)\s\+/\1 /ge<CR>'yjma'zk:call AlignMaps#CharJoiner(",")<CR>:silent 'y,'zg/,/call AlignMaps#FixMultiDec()<CR>'z:exe "norm \<Plug>AM_adec"<CR><SNR>27_WE
+n  <Plug>AM_a? & <SNR>27_WS:AlignCtrl mIp1P1lC ? : : : : <CR>:'a,.Align<CR>:'a,'z-1s/\(\s\+\)? /?\1/e<CR><SNR>27_WE
+n  <Plug>AlignMapsWrapperEnd & :call AlignMaps#WrapperEnd()<CR>:set nolz<CR>
+n  <SNR>27_WE    <Plug>AlignMapsWrapperEnd
+v  <Plug>AlignMapsWrapperStart & :<C-U>set lz<CR>:call AlignMaps#WrapperStart(1)<CR>
+n  <Plug>AlignMapsWrapperStart & :set lz<CR>:call AlignMaps#WrapperStart(0)<CR>
+   <SNR>27_WS    <Plug>AlignMapsWrapperStart
+v  <F21>w      * :<C-U>call EasyMotion#WB(1, 0)<CR>
+o  <F21>w      * :call EasyMotion#WB(0, 0)<CR>
+n  <F21>w      * :call EasyMotion#WB(0, 0)<CR>
+v  <F21>t      * :<C-U>call EasyMotion#T(1, 0)<CR>
+o  <F21>t      * :call EasyMotion#T(0, 0)<CR>
+n  <F21>t      * :call EasyMotion#T(0, 0)<CR>
+v  <F21>n      * :<C-U>call EasyMotion#Search(1, 0)<CR>
+o  <F21>n      * :call EasyMotion#Search(0, 0)<CR>
+n  <F21>n      * :call EasyMotion#Search(0, 0)<CR>
+v  <F21>k      * :<C-U>call EasyMotion#JK(1, 1)<CR>
+o  <F21>k      * :call EasyMotion#JK(0, 1)<CR>
+n  <F21>k      * :call EasyMotion#JK(0, 1)<CR>
+v  <F21>j      * :<C-U>call EasyMotion#JK(1, 0)<CR>
+o  <F21>j      * :call EasyMotion#JK(0, 0)<CR>
+n  <F21>j      * :call EasyMotion#JK(0, 0)<CR>
+v  <F21>gE     * :<C-U>call EasyMotion#EW(1, 1)<CR>
+o  <F21>gE     * :call EasyMotion#EW(0, 1)<CR>
+n  <F21>gE     * :call EasyMotion#EW(0, 1)<CR>
+v  <F21>f      * :<C-U>call EasyMotion#F(1, 0)<CR>
+o  <F21>f      * :call EasyMotion#F(0, 0)<CR>
+n  <F21>f      * :call EasyMotion#F(0, 0)<CR>
+v  <F21>e      * :<C-U>call EasyMotion#E(1, 0)<CR>
+o  <F21>e      * :call EasyMotion#E(0, 0)<CR>
+n  <F21>e      * :call EasyMotion#E(0, 0)<CR>
+v  <F21>b      * :<C-U>call EasyMotion#WB(1, 1)<CR>
+o  <F21>b      * :call EasyMotion#WB(0, 1)<CR>
+n  <F21>b      * :call EasyMotion#WB(0, 1)<CR>
+v  <F21>W      * :<C-U>call EasyMotion#WBW(1, 0)<CR>
+o  <F21>W      * :call EasyMotion#WBW(0, 0)<CR>
+n  <F21>W      * :call EasyMotion#WBW(0, 0)<CR>
+v  <F21>T      * :<C-U>call EasyMotion#T(1, 1)<CR>
+o  <F21>T      * :call EasyMotion#T(0, 1)<CR>
+n  <F21>T      * :call EasyMotion#T(0, 1)<CR>
+v  <F21>N      * :<C-U>call EasyMotion#Search(1, 1)<CR>
+o  <F21>N      * :call EasyMotion#Search(0, 1)<CR>
+n  <F21>N      * :call EasyMotion#Search(0, 1)<CR>
+v  <F21>ge     * :<C-U>call EasyMotion#E(1, 1)<CR>
+o  <F21>ge     * :call EasyMotion#E(0, 1)<CR>
+n  <F21>ge     * :call EasyMotion#E(0, 1)<CR>
+v  <F21>F      * :<C-U>call EasyMotion#F(1, 1)<CR>
+o  <F21>F      * :call EasyMotion#F(0, 1)<CR>
+n  <F21>F      * :call EasyMotion#F(0, 1)<CR>
+v  <F21>E      * :<C-U>call EasyMotion#EW(1, 0)<CR>
+o  <F21>E      * :call EasyMotion#EW(0, 0)<CR>
+n  <F21>E      * :call EasyMotion#EW(0, 0)<CR>
+v  <F21>B      * :<C-U>call EasyMotion#WBW(1, 1)<CR>
+o  <F21>B      * :call EasyMotion#WBW(0, 1)<CR>
+n  <F21>B      * :call EasyMotion#WBW(0, 1)<CR>
+v  <Plug>EgMapReplaceSelection_R & y:call <SNR>19_ReplaceSelection(1)<CR>
+n  <Plug>EgMapReplaceCurrentWord_R & :call <SNR>19_ReplaceCurrentWord(1)<CR>
+v  <Plug>EgMapReplaceSelection_r & y:call <SNR>19_ReplaceSelection(0)<CR>
+n  <Plug>EgMapReplaceCurrentWord_r & :call <SNR>19_ReplaceCurrentWord(0)<CR>
+v  <Plug>EgMapGrepSelection_A & y:call <SNR>19_GrepSelection("add", 1)<CR>
+n  <Plug>EgMapGrepCurrentWord_A & :call <SNR>19_GrepCurrentWord("add", 1)<CR>
+v  <Plug>EgMapGrepSelection_a & y:call <SNR>19_GrepSelection("add", 0)<CR>
+n  <Plug>EgMapGrepCurrentWord_a & :call <SNR>19_GrepCurrentWord("add", 0)<CR>
+v  <Plug>EgMapGrepSelection_V & y:call <SNR>19_GrepSelection("", 1)<CR>
+n  <Plug>EgMapGrepCurrentWord_V & :call <SNR>19_GrepCurrentWord("", 1)<CR>
+v  <Plug>EgMapGrepSelection_v & y:call <SNR>19_GrepSelection("", 0)<CR>
+n  <Plug>EgMapGrepCurrentWord_v & :call <SNR>19_GrepCurrentWord("", 0)<CR>
+n  <Plug>EgMapGrepOptions & :call <SNR>19_GrepOptions()<CR>
+v  <C-Del>       "*d
+v  <S-Del>       "*d
+v  <C-Insert>    "*y
+v  <S-Insert>    "-d"*P
+n  <S-Insert>    "*P
+
+i  <S-Tab>     * <C-R>=BackwardsSnippet()<CR>
+i  <Plug>ISurround * <C-R>=<SNR>58_insert(1)<CR>
+i  <Plug>Isurround * <C-R>=<SNR>58_insert()<CR>
+i  <Plug>NERDCommenterInInsert * <Space><BS><Esc>:call NERDComment(0, "insert")<CR>
+i  <C-Space>     <C-R>=SuperSpace('=')<CR>
+i  <M-.>       * <Esc>
+i  <M-p>         <Esc>pa
+i  <M-F12>       <Esc>:call QuitAll()<CR>
+i  <M-F1>      * <Esc><M-F1>
+i  <F1>        * <Esc><F1>
+i  <M-K>       * pumvisible() ? "\<C-P>\<C-P>\<C-P>\<C-P>\<C-P>\<C-P>\<C-P>\<C-P>\<C-P>\<C-P>\<C-P>\<C-P>\<C-P>\<C-P>\<C-P>" : "\<M-K>"
+i  <M-J>       * pumvisible() ? "\<C-N>\<C-N>\<C-N>\<C-N>\<C-N>\<C-N>\<C-N>\<C-N>\<C-N>\<C-N>\<C-N>\<C-N>\<C-N>\<C-N>\<C-N>" : "\<M-J>"
+i  <M-k>       * pumvisible() ? "\<C-P>\<C-P>\<C-P>\<C-P>\<C-P>" : "\<M-k>"
+i  <M-j>       * pumvisible() ? "\<C-N>\<C-N>\<C-N>\<C-N>\<C-N>" : "\<M-j>"
+i  <BS>        * <C-R>=<SNR>40_OpenCloseBackspace()<CR>
+!  <S-Insert>    <C-R><C-O>*
+i  <C-A>       * <Esc>$a
+i  <C-B>       * <Del>
+i  <C-C>       * <Esc>
+i  <C-E>         <Esc>lC<Esc>O<Esc>P
+i  <C-F>       * <C-R>=EasyThroughBack()<CR>
+i  <C-G>S        <Plug>ISurround
+i  <C-G>s        <Plug>Isurround
+i  <C-H>       * <C-R>=<SNR>40_OpenCloseBackspace()<CR>
+i  <Tab>       * <C-R>=TriggerSnippet()<CR>
+i  <NL>        * <C-R>=EasyThrough()<CR>
+i  <C-L><C-S>    <Esc>^C
+i  <C-L><C-D>    <Esc>kA
+i  <C-L><C-L>    <Esc><C-E>o
+i  <C-L><NL>   * <Esc>
+i  <C-O><C-O>    <Esc>O
+i  <C-O>       * pumvisible() ? "\<C-X>\<C-O>" : "\<C-O>"
+i  <C-Q>         <Esc> : call LocatePos(1,1)<CR>i
+i  <C-R><Tab>  * <C-R>=ShowAvailableSnips()<CR>
+i  <C-S>         <Esc>ggVG
+i  <C-U>       * <C-G>u<C-U>
+i  <C-V>         <Esc>"*p
+i  <Esc>       * <C-R>=<SNR>40_CloseStackPop('')<CR><Esc>
+i  "           * <C-R>=<SNR>40_QuoteDelim('"')<CR>
+i  '           * <C-R>=match(getline('.')[col('.') - 2],'\w') == 0 && getline('.')[col('.')-1] != "'" ? "'" : <SNR>40_QuoteDelim("'")<CR>
+i  (           * (<C-R>=<SNR>40_CloseStackPush(')')<CR>
+i  )           * <C-R>=<SNR>40_CloseStackPop(')')<CR>
+i  ,/<C-Space>   <C-R>=SuperSpace('/=')<CR>
+i  ,s<C-Space>   <C-R>=SuperSpace('-=')<CR>
+i  ,f<C-Space>   <C-R>=SuperSpace('+=')<CR>
+i  ,d<C-Space>   <C-R>=SuperSpace('*=')<CR>
+i  ,k<C-Space>   <C-R>=SuperSpace('<')<CR>
+i  ,j<C-Space>   <C-R>=SuperSpace('>')<CR>
+i  ,r<C-Space>   <C-R>=SuperSpace('|')<CR>
+i  ,n<C-Space>   <C-R>=SuperSpace('&')<CR>
+i  ;y            Y
+i  ;b            B
+i  ;g            G
+i  ;t            T
+i  ;v            V
+i  ;c            C
+i  ;x            X
+i  ;z            Z
+i  ;f            F
+i  ;d            D
+i  ;s            S
+i  ;a            A
+i  ;r            R
+i  ;e            E
+i  ;w            W
+i  ;q            Q
+i  ;;m           __
+i  ;m            _
+i  ;k            [
+i  ;l            {
+i  ;j            (
+i  ;i          * <<C-R>=<SNR>40_CloseStackPush('>')<CR>
+i  =           * =<C-R>=AutoAlign(1)<CR>
+i  [           * [<C-R>=<SNR>40_CloseStackPush(']')<CR>
+i  ]           * <C-R>=<SNR>40_CloseStackPop(']')<CR>
+i  `o            O
+i  `i            I
+i  `u            U
+i  `j            '
+i  `k            "
+i  `<Space>      <Esc>`<Space>
+i  `q            <Esc>:q!<CR>
+i  `0            <Esc>:q!<CR>
+i  ee<C-Space>   <C-R>=SuperSpace('==')<CR>
+i  fk            <C-R>=SuperSpace('<')<CR>
+i  fj            <C-R>=SuperSpace('>')<CR>
+i  ff<C-Space>   <C-R>=SuperSpace('!=')<CR>
+i  jq            <C-R>=SuperSpace('\')<CR>
+i  jg            <C-R>=SuperSpace('%')<CR>
+i  js            <C-R>=SuperSpace('-')<CR>
+i  jt            <C-R>=SuperSpace('^')<CR>
+i  jd            <C-R>=SuperSpace('*')<CR>
+i  jf            <C-R>=SuperSpace('+')<CR>
+i  jj<C-Space>   <C-R>=SuperSpace('>=')<CR>
+i  j           * pumvisible() ? "\<C-N>" : "j"
+i  kk            self.
+i  kk<C-Space>   <C-R>=SuperSpace('<=')<CR>
+i  k           * pumvisible() ? "\<C-P>" : "k"
+i  nn<C-Space>   <C-R>=SuperSpace('&&')<CR>
+i  q;            :
+i  qk            [
+i  ql            {
+i  qj            (
+i  qi            <
+i  rr<C-Space>   <C-R>=SuperSpace('||')<CR>
+i  {           * <C-R>=<SNR>40_OpenSpecial('{','}')<CR>
+i  |           * |<Esc>:call <SNR>1_align()<CR>a
+i  }           * <C-R>=<SNR>40_CloseStackPop('}')<CR>
