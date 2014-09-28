@@ -324,7 +324,6 @@ nmap <C-\><C-\> :Align&<CR>
 
 
 fun! Imapset()
-"{{{
 	au syntax tex imap <buffer>wf $
 	au syntax tex imap <buffer>// \\<C-j><CR>
 	imap <C-o><C-i> <ESC>O
@@ -334,21 +333,21 @@ fun! Imapset()
 	imap <C-l><C-d> <ESC>kA
     imap <C-l>j <ESC>
 
-	imap qj (
-	imap ql {
-	imap qk [
-	imap qi <"}}}
+	imap qj <M-(>
+	imap ql <M-{>
+	imap qk <M-[>
+	imap qi <M-<>
 
-	imap ;j (
-	imap ;h {
-	imap ;k [
+	imap ;j <M-(>
+	imap ;h <M-{>
+	imap ;k <M-[>
 	" imap ;i <
 	" au syntax tex imap <buffer>;f (
 	" au syntax tex imap <buffer>;3 {
 	" au syntax tex imap <buffer>;g _
 	" au syntax tex imap <buffer>;g _
-    imap `k "
-	imap `j '
+    imap `k <M-">
+	imap `j <M-'>
 
 	" imap r; :
 	" imap `; :
