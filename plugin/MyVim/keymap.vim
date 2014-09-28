@@ -1067,5 +1067,6 @@ nmap 0 :q!<CR>
 
 nmap _ :vs#<CR>
 nmap `_ :sp#<CR>
-nmap d<C-l> 9<S-right>
+nmap <C-L> 9<S-right>
+nmap <C-H> <C-w>=
 
