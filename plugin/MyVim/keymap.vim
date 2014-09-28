@@ -348,6 +348,7 @@ fun! Imapset()
 	" au syntax tex imap <buffer>;g _
     imap `k <M-">
 	imap `j <M-'>
+	" imap <C-p> <Del>
 
 	" imap r; :
 	" imap `; :
