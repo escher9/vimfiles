@@ -873,9 +873,9 @@ fun! RunConnectIPython()
     sleep 3000m
     IPython
 endfun
-nmap <silent>`<M-i><M-i> :IPythonRun<CR>
+nmap <silent>`<M-i> :IPythonRun<CR>
 " connect
-nmap <silent>`<M-i><M-p> :IPython<CR>
+nmap <silent>`<M-p> :IPython<CR>
 
 fun! OpenNetw()
     botright vs
@@ -891,8 +891,6 @@ imap <C-o><C-p> <ESC>A
 imap <C-o><C-k> <ESC>I
 
 nmap <M-r> ^f:wv$y
-nmap <C-CR> o<esc>k
-
 
 nmap <C-S-CR> O<esc><C-e>j
 
