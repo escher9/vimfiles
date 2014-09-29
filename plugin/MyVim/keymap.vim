@@ -256,14 +256,14 @@ nmap <A-F10> :e $MYVIMRC<CR>
 nmap <A-F11> :e $MYKEYS<CR>
 nmap <A-F12> :e $MYENV<CR>
 
-nmap <A-Right> :cnext<CR>
-nmap <A-Left>  :cprev<CR>
-nmap <A-Down>  :clast<CR>
-nmap <A-Up>    :cfirst<CR>
-nmap <C-Right> :cnfile<CR>
-nmap <C-Left>  :cpfile<CR>
-nmap <C-Down>  :cnewer<CR>
-nmap <C-Up>    :colder<CR>
+" nmap <A-Right> :cnext<CR>
+" nmap <A-Left>  :cprev<CR>
+" nmap <A-Down>  :clast<CR>
+" nmap <A-Up>    :cfirst<CR>
+" nmap <C-Right> :cnfile<CR>
+" nmap <C-Left>  :cpfile<CR>
+" nmap <C-Down>  :cnewer<CR>
+" nmap <C-Up>    :colder<CR>
 
 nmap <C-z> <C-x><Right><Left>
 nmap <leader>sp :sp<CR>
@@ -333,10 +333,10 @@ fun! Imapset()
 	imap <C-l><C-d> <ESC>kA
     imap <C-l>j <ESC>
 
-	imap qj <M-(>
-	imap ql <M-{>
-	imap qk <M-[>
-	imap qi <M-<>
+	" imap qj <M-(>
+	" imap ql <M-{>
+	" imap qk <M-[>
+	" imap qi <M-<>
 
 	imap ;j <M-(>
 	imap ;h <M-{>
@@ -513,8 +513,8 @@ nmap <A-e> :E<CR>
 fun! AltMap()
     nmap <A-k> z.5kz.
     nmap <A-j> z.5jz.
-    nmap <A-h> 3b
-    nmap <A-l> 3w
+    " nmap <A-h> 3b
+    " nmap <A-l> 3w
 
     nmap <A-F12> :tabnew $MYENV<CR>
     " nmap <A-F12> :tabnew C:\Vim\vimfiles\plugin\MyVim\pydbgmap.vim<CR>
@@ -628,7 +628,7 @@ fun! EasyMoveToggle(arg) range
         " exe 'nmap j'
     endif
 endfun
-nmap <leader><C-w> :call AltMap()<cr>
+" nmap <leader><C-w> :call AltMap()<cr>
 
 fun! RemoveVM() " remove carets
     %s/$//g
@@ -846,8 +846,6 @@ nmap vim :w!<CR>,sl:VimFilerCurrentDir<CR>
 nmap vmp :verbose map<space>
 nmap con :Breakpoint conditional<space>
 nmap vp viw
-imap <M-j> <C-[>l
-vmap <M-j> <C-[>
 
 nmap mc :MarkClear<CR>
 imap <C-\> <C-R>=strftime("%c %a")<CR><CR>
@@ -1067,6 +1065,17 @@ nmap 0 :q!<CR>
 
 nmap _ :vs#<CR>
 nmap `_ :sp#<CR>
-nmap <C-L> 9<S-right>
-nmap <C-H> <C-w>=
+let g:stretchtoggle = 1 
+fun! StretchToggle()
+    if g:stretchtoggle
+       exe "normal 97>"
+    else
+       exe "normal ="
+       " normal <C-w>= 
+    endif
+    let g:stretchtoggle = !g:stretchtoggle
+endfun
+nmap <M-h> :call StretchToggle()<CR>
 
+" call arpeggio#map('n','',1,'fh','<C-w>=')
+" call arpeggio#map('n','',1,'fl','9<S-right>')
