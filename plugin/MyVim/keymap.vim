@@ -36,8 +36,8 @@ nmap `j :rightbelow new<CR>
 map `p :TagbarToggle<CR>
 map T :TaskList<CR>jjfT
 
-nmap [p 300<C-w><z0<CR>
-nmap [o 300<C-w>>z100<CR>
+" nmap [p 300<C-w><z0<CR>
+" nmap [o 300<C-w>>z100<CR>
 
 command! XZ %!xxd
 command! XZZ %!xxd -r
