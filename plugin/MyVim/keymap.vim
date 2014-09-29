@@ -1069,6 +1069,7 @@ let g:stretchtoggle = 1
 fun! StretchToggle()
     if g:stretchtoggle
        exe "normal 97>"
+       exe "normal 97+"
     else
        exe "normal ="
        " normal <C-w>= 
