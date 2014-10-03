@@ -158,7 +158,7 @@ fun! WorkAroundTransDrag(arg)
 	endif
 endfun
 
-vmap <A-\> :Align, =<CR>
+vmap <A-\> :Align, = [ ] ( )<CR><M-0>
 
 command! H helptags $VIMRUNTIME/../vimfiles/doc
 
