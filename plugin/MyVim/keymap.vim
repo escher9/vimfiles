@@ -158,7 +158,7 @@ fun! WorkAroundTransDrag(arg)
 	endif
 endfun
 
-vmap <A-\> :Align=<CR>
+vmap <A-\> :Align, =<CR>
 
 command! H helptags $VIMRUNTIME/../vimfiles/doc
 
@@ -496,7 +496,7 @@ endfun
 nmap <silent><leader><C-t> :call SetTags()<CR>
 
 set grepprg=zsh\ -c\ 'grep\ -nH\ $*'
-map <s-F5> :execute "grep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+map <s-F5> :execute "grep /" . expand("<cword>") . "/j **" <Bar> copen<CR>
 
 map <C-_> :cstag <C-R>=expand("<cword>")<CR><CR>
 
@@ -1087,8 +1087,8 @@ fun! StretchToggle(dist)
     endif
     let g:stretchtoggle = !g:stretchtoggle
 endfun
-nmap <M-h> :call StretchToggle(120)<CR>
-nmap <M-l> :call StretchToggle(180)<CR>
+nmap <M-h> :call StretchToggle(70)<CR>
+nmap <M-l> :call StretchToggle(140)<CR>
 
 " call arpeggio#map('n','',1,'fh','<C-w>=')
 " call arpeggio#map('n" ','',1,'fl','9<S-right>')
