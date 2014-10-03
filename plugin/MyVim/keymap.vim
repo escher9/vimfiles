@@ -1063,18 +1063,32 @@ nmap 0 :q!<CR>
 
 nmap _ :vs#<CR>
 nmap `_ :sp#<CR>
+
 let g:stretchtoggle = 1 
-fun! StretchToggle()
-    if g:stretchtoggle
-       exe "normal 97>"
-       exe "normal 97+"
+fun! Exists_RightSplit()
+    let thiswin = winnr() 
+    exe "wincmd l"
+    let rightwin = winnr() 
+    if thiswin == rightwin
+        return 0
     else
-       exe "normal ="
-       " normal <C-w>= 
+        exe "wincmd p"
+        return 1
+    endif
+endfun
+fun! StretchToggle(dist)
+    if g:stretchtoggle
+       " if Exists_RightSplit()
+       exe a:dist . "wincmd>"
+       " endif
+       exe a:dist . "wincmd+"
+    else
+       exe "wincmd="
     endif
     let g:stretchtoggle = !g:stretchtoggle
 endfun
-nmap <M-h> :call StretchToggle()<CR>
+nmap <M-h> :call StretchToggle(120)<CR>
+nmap <M-l> :call StretchToggle(180)<CR>
 
 " call arpeggio#map('n','',1,'fh','<C-w>=')
-" call arpeggio#map('n','',1,'fl','9<S-right>')
+" call arpeggio#map('n" ','',1,'fl','9<S-right>')
