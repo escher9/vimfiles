@@ -158,7 +158,7 @@ fun! WorkAroundTransDrag(arg)
 	endif
 endfun
 
-vmap <A-\> :Align, = [ ] ( )<CR><M-0>
+vmap <A-\> :Align=<CR><M-0>
 
 command! H helptags $VIMRUNTIME/../vimfiles/doc
 
@@ -1087,8 +1087,8 @@ fun! StretchToggle(dist)
     endif
     let g:stretchtoggle = !g:stretchtoggle
 endfun
-nmap <M-h> :call StretchToggle(70)<CR>
-nmap <M-l> :call StretchToggle(140)<CR>
+nmap <M-l> :call StretchToggle(70)<CR>
+nmap <M-h> :call StretchToggle(140)<CR>
 
 " call arpeggio#map('n','',1,'fh','<C-w>=')
 " call arpeggio#map('n" ','',1,'fl','9<S-right>')
