@@ -1093,3 +1093,14 @@ nmap <M-h> :call StretchToggle(140)<CR>
 " call arpeggio#map('n','',1,'fh','<C-w>=')
 " call arpeggio#map('n" ','',1,'fl','9<S-right>')
 nmap ; zz
+
+let g:diffthistoggle=1
+fun! DiffToggle()
+    if g:diffthistoggle
+        diffthis
+    else
+        diffoff
+    endif
+    let g:diffthistoggle=!g:diffthistoggle
+endfun
+nmap <F12> :call DiffToggle()<cr>
