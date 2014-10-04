@@ -1092,3 +1092,4 @@ nmap <M-h> :call StretchToggle(140)<CR>
 
 " call arpeggio#map('n','',1,'fh','<C-w>=')
 " call arpeggio#map('n" ','',1,'fl','9<S-right>')
+nmap ; zz
