@@ -948,7 +948,7 @@ endfun
 nmap <M-0> :call ClearTrailingReturn()<cr>
 " nmap <M-0> :ClearTrailing<cr><C-o>
 "
-vmap al :Align
+vmap al :Align=<space>
 
 " fun! SwitchJediNeocomplete()
     " let g:jedi#show_call_signatures = !g:jedi#show_call_signatures
