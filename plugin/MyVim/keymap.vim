@@ -861,7 +861,7 @@ au filetype python imap lj self.
 fun! OpenIPython()
     " silent call asynccommand#run("start /b ipython qtconsole --ip=127.0.0.1") 
     silent! call system("start /b ipython qtconsole --ip=127.0.0.1") 
-    let l:total = 100
+    let l:total = 60
     let l:bar = "" 
     for i in range(l:total)
         redraw
