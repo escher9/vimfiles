@@ -875,7 +875,7 @@ fun! OpenIPython()
         elseif i%4==0
             let l:bar = "/"
         endif
-        echo "calling..." . l:bar .  "IPython"
+        echo "calling..." . l:bar .  " IP[y]:"
         sleep 30m
     endfor
     if &ft is 'python'
@@ -883,7 +883,7 @@ fun! OpenIPython()
         echo "Connecting to IPython..."
         IPython
         redraw
-        echo "Vim is connected with IPython."
+        echo "Vim is connected up with IPython."
     endif
 endfun
 nmap <silent>`<M-i> :call OpenIPython()<CR>
