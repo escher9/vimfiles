@@ -647,8 +647,8 @@ endfun
 " " au SwapExists * if (!hasmapto(":python debugger.close()<CR>") && !hasmapto("<C-PageUp>") && !hasmapto(":Dbg  into  <CR>"))| call RemapFreqUse() | endif
 au CursorHold * if (!hasmapto(":python debugger.close()<CR>") && !hasmapto("<C-PageUp>") && !hasmapto(":Dbg  into  <CR>"))| call RemapFreqUse() | endif
 
-nmap <M-p> :cprevious<CR>
-nmap <M-n> :cnext<CR>
+" nmap <M-p> :cprevious<CR>
+" nmap <M-n> :cnext<CR>
 
 
 nmap <C-S-F11> :RltvNmbr!<CR>
@@ -752,10 +752,6 @@ imap <A-h> <Left>
 map <A-l> <Right>
 imap <A-l> <Right>
 
- map  <A-n> ^
- imap <A-n> <ESC>^
- map  <A-p> $
- imap <A-p> <ESC>$
 
 
 imap <A-j> <Down>
@@ -847,6 +843,7 @@ nmap vim :w!<CR>,sl:VimFilerCurrentDir<CR>
 nmap vmp :verbose map<space>
 nmap con :Breakpoint conditional<space>
 nmap vp viw
+" nmap vp wbviw
 
 nmap mc :MarkClear<CR>
 imap <C-\> <C-R>=strftime("%c %a")<CR><CR>
@@ -862,21 +859,36 @@ au filetype python imap lj self.
 
 
 fun! OpenIPython()
-    redraw!
-    silent call system("start /b ipython qtconsole --ip=127.0.0.1") 
-    redraw!
+    " silent call asynccommand#run("start /b ipython qtconsole --ip=127.0.0.1") 
+    silent! call system("start /b ipython qtconsole --ip=127.0.0.1") 
+    let l:total = 95
+    let l:bar = "" 
+    for i in range(l:total)
+        redraw
+        " let l:bar = l:bar . "." 
+        if i%4 == 1
+            let l:bar = "-"
+        elseif i%4==2
+            let l:bar = "\\"
+        elseif i%4==3
+            let l:bar = "|"
+        elseif i%4==0
+            let l:bar = "/"
+        endif
+        echo "calling..." . l:bar .  "ipython"
+        sleep 30m
+    endfor
+    if &ft is 'python'
+        redraw
+        echo "Connecting to ipython..."
+        IPython
+        redraw
+        echo "Vim is connected with ipython."
+    endif
 endfun
-command! IPythonRun silent call OpenIPython()
-" command! IPythonRun silent call system("start /b ipython qtconsole --ip=127.0.0.1")
-" command! IPythonRun silent call asynccommand#run("start /b ipython qtconsole --ip=127.0.0.1")
-fun! RunConnectIPython()
-    IPythonRun
-    sleep 3000m
-    IPython
-endfun
-nmap <silent>`<M-i> :IPythonRun<CR>
-" connect
-nmap <silent>`<M-p> :IPython<CR>
+nmap <silent>`<M-i> :call OpenIPython()<CR>
+" " connect
+" nmap <silent>`<M-p> :IPython<CR>
 
 fun! OpenNetw()
     botright vs
@@ -890,6 +902,7 @@ nmap \q :q!<CR>
 
 imap <C-o><C-p> <ESC>A
 imap <C-o><C-k> <ESC>I
+
 
 nmap <M-r> ^f:wv$y
 
@@ -1105,3 +1118,12 @@ fun! DiffToggle()
     let g:diffthistoggle=!g:diffthistoggle
 endfun
 nmap <F12> :call DiffToggle()<cr>
+
+nmap <M-n> 17h
+imap <M-n> <ESC>17hi
+nmap <M-p> 17l
+imap <M-p> <ESC>17li
+nmap `<M-n> ^
+imap `<M-n> <ESC>^i
+nmap `<M-p> $
+imap `<M-p> <ESC>$i
