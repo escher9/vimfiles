@@ -1122,7 +1122,7 @@ fun! DiffToggle()
         diffthis
     else
         diffoff
-    endif
+    endif 
     let g:diffthistoggle=!g:diffthistoggle
 endfun
 nmap <F12> :call DiffToggle()<cr>
@@ -1139,3 +1139,11 @@ nmap `<M-n> ^
 imap `<M-n> <ESC>^i
 nmap `<M-p> $
 imap `<M-p> <ESC>$i
+
+
+" fun! Dwi()
+    " let cur_word = expand("<cword>") 
+    " echo cur_word
+" endfun
+" nmap cp :call Dwi()<cr>
+nmap cp dwi<space><Left><C-p>
