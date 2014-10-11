@@ -1147,3 +1147,4 @@ imap `<M-p> <ESC>$i
 " endfun
 " nmap cp :call Dwi()<cr>
 nmap cp dwi<space><Left><C-p>
+nmap <tab> zz
