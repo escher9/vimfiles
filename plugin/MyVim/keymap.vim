@@ -7,7 +7,7 @@ fun! Resize(arg)
 	elseif a:arg == -1
 		silent! let &guifont = substitute(&guifont, ':h\zs\d\+', '\=eval(submatch(0)-1)', '')
 	endif
-    redraw!
+    redrawstatus
 	if len(&guifont) == 10
 		echo '+------------+'
 		echo '| ' . &guifont . ' |'
@@ -566,7 +566,7 @@ fun! ConfirmClear()
     let a = input('This will blow up your registers data, are you sure? (g)o : ')
     if a == 'g'
         call RegClear()
-        redraw
+        redrawstatus
         echo 'Cleaned up registers~ (except windows copy & paste)'
     endif
 endfun
@@ -594,7 +594,7 @@ fun! EncToggle()
         set enc=cp949
     endif
     call AltMap()
-    redraw
+    redrawstatus
     echo currentenc . ' -> ' . &enc
 endfun
 nmap <leader><C-f> :call EncToggle()<CR>
@@ -616,7 +616,7 @@ fun! EasyMoveToggle(arg) range
         exe 'nmap k '.(jumpnumber).'<Up>zz'
 
         let g:easy_move_toggle_on = 0
-        redraw
+        redrawstatus
         echo '[ON] Easy moving ON!'
         exe 'nmap j'
     else
@@ -624,7 +624,7 @@ fun! EasyMoveToggle(arg) range
         unmap j
         unmap k
         let g:easy_move_toggle_on = 1
-        redraw!
+        redrawstatus
         echo '[OFF] Easy moving OFF!'
         " exe 'nmap j'
     endif
@@ -658,7 +658,7 @@ nmap <leader><C-g> :set guifont=*<cr>
 imap <C-r><C-r> ♣
 
 fun! DisplayEncFenc()
-    redraw!
+    redrawstatus
     set enc
     set fenc
 endfun
@@ -860,11 +860,17 @@ au filetype python imap lj self.
 
 fun! OpenIPython()
     " silent call asynccommand#run("start /b ipython qtconsole --ip=127.0.0.1") 
+    hi MyOrange  guifg=Orange  guibg=Black
+    hi MyCyan    guifg=Cyan    guibg=Black
+    hi MyGreen   guifg=Green   guibg=Black
+    hi MyYellow  guifg=Yellow  guibg=Black
+    hi MyPink    guifg=Pink    guibg=Black
+    hi MyNOTE    guifg=Black   guibg=Orange
     silent! call system("start /b ipython qtconsole --ip=127.0.0.1") 
     let l:total = 60
     let l:bar = "" 
+    redrawstatus!
     for i in range(l:total)
-        redraw
         " let l:bar = l:bar . "." 
         if i%4 == 1
             let l:bar = "-"
@@ -875,15 +881,17 @@ fun! OpenIPython()
         elseif i%4==0
             let l:bar = "/"
         endif
-        echo "calling..." . l:bar .  " IP[y]:"
-        sleep 25m
+        redraw
+        echohl MyCyan | echo "calling..." . l:bar .  " IP[y]:" | echohl None
+        sleep 24m
     endfor
     if &ft is 'python'
         redraw
-        echo "Connecting to IPython..."
+        echohl MyNOTE | echo "Connecting to IPython..." |echohl None
         IPython
         redraw
-        echo "Vim is connected up with IPython."
+        echohl MyYellow | echo "Vim is connected up with IPython. " | echohl None
+        echohl MyGreen  | echo "(qtconsole --ip=127.0.0.1)"         | echohl None
     endif
 endfun
 nmap <silent>`<M-i> :call OpenIPython()<CR>
@@ -919,7 +927,7 @@ function! HandleURL()
         echo s:uri
         echo s:cmd
         call system(s:cmd)
-        redraw
+        redrawstatus
     else
         echo "No URI found in line."
     endif
@@ -932,7 +940,7 @@ command! MsModeEnable set guioptions+=a
 command! MsModeDisable set guioptions-=a
 let g:msmodetoggle = 1
 fun! ToggleMsMode()
-    redraw!
+    redrawstatus
     if g:msmodetoggle
         MsModeEnable
         echo "[MS] copy & paste"
@@ -1123,6 +1131,10 @@ nmap <M-n> 17h
 imap <M-n> <ESC>17hi
 nmap <M-p> 17l
 imap <M-p> <ESC>17li
+nmap <M-N> ^
+imap <M-N> <ESC>^i
+nmap <M-P> $
+imap <M-P> <ESC>$i
 nmap `<M-n> ^
 imap `<M-n> <ESC>^i
 nmap `<M-p> $
