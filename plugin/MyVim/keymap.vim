@@ -1011,8 +1011,8 @@ imap `l )<CR>
 nmap \f :n <C-Z>
 nmap \b :b <C-Z>
 
-nmap <silent><M-/> V:s/\s\+$//e<CR>V:s/\([^=]*\)\s*=\s*\([^$]*\)/\2 = \1<CR>==:let @/=""<CR>
-vmap <silent><M-/> :s/\([^=]*\)\s*=\s*\([^$]*\)/\2 = \1<CR>==:let @/=""<CR>
+nmap <silent><M-/> V:s/\s\+$//e<CR>V:s/\([^=]*\)\s*=\s*\([^$]*\)/\2 = \1<CR>==:let @/=""<CR><M-0>V:al<CR>
+vmap <silent><M-/> :s/\([^=]*\)\s*=\s*\([^$]*\)/\2 = \1<CR>==:let @/=""<CR><M-0>
 
 " fun! OnDot()
     " " let searchword = getline('.')[col('.')-2]
