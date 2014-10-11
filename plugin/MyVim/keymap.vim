@@ -7,7 +7,7 @@ fun! Resize(arg)
 	elseif a:arg == -1
 		silent! let &guifont = substitute(&guifont, ':h\zs\d\+', '\=eval(submatch(0)-1)', '')
 	endif
-    redrawstatus
+    redraw
 	if len(&guifont) == 10
 		echo '+------------+'
 		echo '| ' . &guifont . ' |'
@@ -566,7 +566,7 @@ fun! ConfirmClear()
     let a = input('This will blow up your registers data, are you sure? (g)o : ')
     if a == 'g'
         call RegClear()
-        redrawstatus
+        redraw
         echo 'Cleaned up registers~ (except windows copy & paste)'
     endif
 endfun
@@ -594,7 +594,7 @@ fun! EncToggle()
         set enc=cp949
     endif
     call AltMap()
-    redrawstatus
+    redraw
     echo currentenc . ' -> ' . &enc
 endfun
 nmap <leader><C-f> :call EncToggle()<CR>
@@ -616,7 +616,7 @@ fun! EasyMoveToggle(arg) range
         exe 'nmap k '.(jumpnumber).'<Up>zz'
 
         let g:easy_move_toggle_on = 0
-        redrawstatus
+        redraw
         echo '[ON] Easy moving ON!'
         exe 'nmap j'
     else
@@ -624,7 +624,7 @@ fun! EasyMoveToggle(arg) range
         unmap j
         unmap k
         let g:easy_move_toggle_on = 1
-        redrawstatus
+        redraw
         echo '[OFF] Easy moving OFF!'
         " exe 'nmap j'
     endif
@@ -658,7 +658,7 @@ nmap <leader><C-g> :set guifont=*<cr>
 imap <C-r><C-r> ♣
 
 fun! DisplayEncFenc()
-    redrawstatus
+    redraw
     set enc
     set fenc
 endfun
@@ -869,7 +869,7 @@ fun! OpenIPython()
     silent! call system("start /b ipython qtconsole --ip=127.0.0.1") 
     let l:total = 60
     let l:bar = "" 
-    redrawstatus!
+    redraw!
     for i in range(l:total)
         " let l:bar = l:bar . "." 
         if i%4 == 1
@@ -889,7 +889,7 @@ fun! OpenIPython()
         redraw
         echohl MyNOTE | echo "Connecting to IPython..." |echohl None
         IPython
-        redraw
+        redraw!
         echohl MyYellow | echo "Vim is connected up with IPython. " | echohl None
         echohl MyGreen  | echo "(qtconsole --ip=127.0.0.1)"         | echohl None
     endif
@@ -927,7 +927,7 @@ function! HandleURL()
         echo s:uri
         echo s:cmd
         call system(s:cmd)
-        redrawstatus
+        redraw
     else
         echo "No URI found in line."
     endif
@@ -940,7 +940,7 @@ command! MsModeEnable set guioptions+=a
 command! MsModeDisable set guioptions-=a
 let g:msmodetoggle = 1
 fun! ToggleMsMode()
-    redrawstatus
+    redraw
     if g:msmodetoggle
         MsModeEnable
         echo "[MS] copy & paste"
