@@ -883,7 +883,7 @@ fun! OpenIPython()
         endif
         redraw
         echohl MyCyan | echo "calling..." . l:bar .  " IP[y]:" | echohl None
-        sleep 24m
+        sleep 20m
     endfor
     if &ft is 'python'
         redraw
@@ -1114,7 +1114,6 @@ nmap <M-h> :call StretchToggle(140)<CR>
 
 " call arpeggio#map('n','',1,'fh','<C-w>=')
 " call arpeggio#map('n" ','',1,'fl','9<S-right>')
-nmap ; zz
 
 let g:diffthistoggle=1
 fun! DiffToggle()
@@ -1148,3 +1147,5 @@ imap `<M-p> <ESC>$i
 " nmap cp :call Dwi()<cr>
 nmap cp dwi<space><Left><C-p>
 nmap <tab> zz
+
+nmap <M-;> :
