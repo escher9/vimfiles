@@ -869,7 +869,7 @@ fun! OpenIPython()
     silent! call system("start /b ipython qtconsole --ip=127.0.0.1") 
     let l:total = 60
     let l:bar = "" 
-    redraw!
+    redraw
     for i in range(l:total)
         " let l:bar = l:bar . "." 
         if i%4 == 1
@@ -889,7 +889,7 @@ fun! OpenIPython()
         redraw
         echohl MyNOTE | echo "Connecting to IPython..." |echohl None
         IPython
-        redraw!
+        redraw
         echohl MyYellow | echo "Vim is connected up with IPython. " | echohl None
         echohl MyGreen  | echo "(qtconsole --ip=127.0.0.1)"         | echohl None
     endif
@@ -1069,7 +1069,7 @@ nmap 2K :call GrepRecursive(2)<cr>
 nmap 3K :call GrepRecursive(3)<cr>
 nmap 4K :call GrepRecursive(4)<cr>
 " nmap K :exe 'vimgrep /<c-r><c-w>/ **/*'.expand('%:e')<CR>:cw<CR>
-
+  
 nmap <C-space> :sign unplace *<CR>:call setqflist([])<cr>:only!<CR>
 nmap <space> :ccl<CR>:sign unplace *<CR>:cd<CR>
 silent nmap <A-Delete> :sign unplace *<CR>:call setqflist([])<CR> 
@@ -1141,7 +1141,7 @@ imap `<M-p> <ESC>$i
     " echo cur_word
 " endfun
 " nmap cp :call Dwi()<cr>
-nmap cp dwi<space><Left><C-p>
+nmap cp dwi<C-p>
 nmap <tab> zz
 
 nmap <M-;> :
