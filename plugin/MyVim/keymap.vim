@@ -1148,7 +1148,7 @@ vmap `<M-p> $
 " endfun
 " nmap cp :call Dwi()<cr>
 nmap cp dwi<C-p>
-nmap <tab> zz
+" nmap <tab> zz -> same with <C-i> don't use like this!!
 
 nmap <M-;> :
 
