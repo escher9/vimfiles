@@ -785,7 +785,7 @@ func! ListTODO(  )"{{{
 				\'WHY',
 				\'WHEN',
 				\'WHERE',
-				\'ORDER'
+				\'ORDER',
 				\'DIARY'
 				\]
 
