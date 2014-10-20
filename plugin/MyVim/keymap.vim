@@ -769,7 +769,7 @@ map <A-d> <Del>
 nmap vil ^v$h
 
 
-inoremap <M-`> <C-R>=ListTODO()<CR>
+inoremap <M-\> <C-R>=ListTODO()<CR>
 "
 func! ListTODO(  )"{{{
 	let MyKeyword = [
