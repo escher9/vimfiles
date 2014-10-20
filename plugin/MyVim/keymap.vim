@@ -769,7 +769,7 @@ map <A-d> <Del>
 nmap vil ^v$h
 
 
-inoremap <M-\> <C-R>=ListTODO()<CR>
+inoremap <C-\> <C-R>=ListTODO()<CR>
 "
 func! ListTODO(  )"{{{
 	let MyKeyword = [
@@ -846,7 +846,7 @@ nmap vp viw
 " nmap vp wbviw
 
 nmap mc :MarkClear<CR>
-imap <C-\> <C-R>=strftime("%c %a")<CR><CR>
+imap <M-\> <C-R>=strftime("%c %a")<CR><CR>
 nmap dp ciw
 
 fun! AddLine()
