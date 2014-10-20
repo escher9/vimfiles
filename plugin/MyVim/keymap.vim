@@ -1129,19 +1129,19 @@ nmap <M-p> 17l
 imap <M-p> <ESC>17li
 nmap <M-N> ^
 imap <M-N> <ESC>^i
-nmap <M-P> $
+nmap <M-P> g_
 imap <M-P> <ESC>$i
 nmap `<M-n> ^
 imap `<M-n> <ESC>^i
-nmap `<M-p> $
+nmap `<M-p> g_
 imap `<M-p> <ESC>$i
 
 vmap <M-n> 17h
 vmap <M-p> 17l
 vmap <M-N> ^
-vmap <M-P> $
+vmap <M-P> g_
 vmap `<M-n> ^
-vmap `<M-p> $
+vmap `<M-p> g_
 
 " fun! Dwi()
     " let cur_word = expand("<cword>") 
