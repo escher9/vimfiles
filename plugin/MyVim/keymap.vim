@@ -774,6 +774,7 @@ inoremap <C-\> <C-R>=ListTODO()<CR>
 func! ListTODO(  )"{{{
 	let MyKeyword = [
 				\'TODO',
+				\'DONE',
 				\'NOTE',
 				\'SOLVED',
 				\'PENDING',
