@@ -309,6 +309,7 @@ vmap `k :call AssistEncloseWithAutoclose("]")<CR>%i
 vmap `l :call AssistEncloseWithAutoclose("}")<CR>%i
 
 imap <M-(> ()<Left>
+imap <M-$> $$<Left>
 imap <M-<> <><Left>
 imap <M-[> []<Left>
 imap <M-{> {}<Left>
