@@ -270,7 +270,7 @@ nmap <C-z> <C-x><Right><Left>
 nmap <leader>sp :sp<CR>
 nmap <leader>vp :vs<CR>
 
-nmap \p :set spell!<CR>
+nmap \s :set spell!<CR>
 
 "{{{
 let s:hash_quote = { ')' : ['(',')'],
