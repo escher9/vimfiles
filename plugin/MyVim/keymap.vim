@@ -207,7 +207,7 @@ fun! RecallEscCustomMap()
 	au syntax tex imap <buffer><leader>le <C-[>a \ge
 	au syntax tex imap <buffer><leader>re <C-[>a \le
     au syntax tex imap tt \textrm{
-    au syntax tex imap ii \indent\indent
+    au syntax tex imap ii \indent
     au syntax tex imap fp \frac{
     au syntax tex imap jjj \\<ESC>o
 	" endif
