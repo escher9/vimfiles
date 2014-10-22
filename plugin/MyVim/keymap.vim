@@ -304,9 +304,9 @@ vmap `] :call AssistEncloseWithAutoclose("]")<CR>
 vmap `> :call AssistEncloseWithAutoclose(">")<CR>
 vmap `} :call AssistEncloseWithAutoclose("}")<CR>
 vmap `$ :call AssistEncloseWithAutoclose("$")<CR>
-vmap `j :call AssistEncloseWithAutoclose(")")<CR>%i
-vmap `k :call AssistEncloseWithAutoclose("]")<CR>%i
-vmap `l :call AssistEncloseWithAutoclose("}")<CR>%i
+" vmap `j :call AssistEncloseWithAutoclose(")")<CR>%i
+" vmap `k :call AssistEncloseWithAutoclose("]")<CR>%i
+" vmap `l :call AssistEncloseWithAutoclose("}")<CR>%i
 
 imap <M-(> ()<Left>
 imap <M-$> $$<Left>
@@ -839,7 +839,7 @@ inoremap <expr> <c-u> pumvisible() ? "\<C-p>\<C-p>\<C-p>\<C-p>\<C-p>\<C-p>\<C-p>
 
 au BufReadPost _vimrc set filetype=vimrc
 au BufReadPost _vimrc set syntax=vim
-au filetype vimrc nmap <buffer>[s 141gg:BundleSearch<CR>
+au filetype vimrc nmap <buffer>[s 141gg:BundleSearch<CR><C-w>p
 
 nmap vim :w!<CR>,sl:VimFilerCurrentDir<CR>
 nmap vmp :verbose map<space>
@@ -1166,3 +1166,5 @@ vmap <silent><M-/> :s/\([^=]*\)\s*=\s*\([^$]*\)/\2 = \1<CR>==:let @/=""<CR><M-0>
 
 nmap ,,s o-------------------------------------------------------------------------------------------------------<ESC>
 nmap ,,S O-------------------------------------------------------------------------------------------------------<ESC>
+
+imap `j <M-{><cr><C-o><C-i>  
