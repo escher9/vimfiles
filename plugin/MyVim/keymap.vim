@@ -309,6 +309,7 @@ vmap `$ :call AssistEncloseWithAutoclose("$")<CR>
 " vmap `l :call AssistEncloseWithAutoclose("}")<CR>%i
 
 imap <M-(> ()<Left>
+imap `k ()<Left>
 imap <M-$> $$<Left>
 imap <M-<> <><Left>
 imap <M-[> []<Left>
@@ -348,8 +349,8 @@ fun! Imapset()
 	" au syntax tex imap <buffer>;3 {
 	" au syntax tex imap <buffer>;g _
 	" au syntax tex imap <buffer>;g _
-    imap `k <M-">
-	imap `j <M-'>
+    " imap `k <M-">
+	" imap `j <M-'>
 	" imap <C-p> <Del>
 
 	" imap r; :
@@ -839,7 +840,7 @@ inoremap <expr> <c-u> pumvisible() ? "\<C-p>\<C-p>\<C-p>\<C-p>\<C-p>\<C-p>\<C-p>
 
 au BufReadPost _vimrc set filetype=vimrc
 au BufReadPost _vimrc set syntax=vim
-au filetype vimrc nmap <buffer>[s 141gg:BundleSearch<CR><C-w>p
+au filetype vimrc nmap <buffer>]p 141gg:BundleSearch<CR><C-w>p
 
 nmap vim :w!<CR>,sl:VimFilerCurrentDir<CR>
 nmap vmp :verbose map<space>
@@ -1167,4 +1168,20 @@ vmap <silent><M-/> :s/\([^=]*\)\s*=\s*\([^$]*\)/\2 = \1<CR>==:let @/=""<CR><M-0>
 nmap ,,s o-------------------------------------------------------------------------------------------------------<ESC>
 nmap ,,S O-------------------------------------------------------------------------------------------------------<ESC>
 
+" imap `j <ESC>:call Openr()<cr>
 imap `j <M-{><cr><C-o><C-i>  
+" fun! Openr()
+    " startinsert!
+" endf
+"
+
+fun! HighlightRecover()
+    hi DbgCurrentSign term=reverse ctermfg=15 ctermbg=12 guifg=#ffffff guibg=#ff0000
+    hi DbgCurrentLine term=reverse ctermfg=15 ctermbg=12 guifg=#ffffff guibg=#ff0000
+    hi DbgBreaktSign term=reverse ctermfg=15 ctermbg=10 guifg=#ffffff guibg=#00ff00
+    hi DbgBreaktLine term=reverse ctermfg=15 ctermbg=10 guifg=#ffffff guibg=#00ff00
+    hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+    hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+endf
+command! HighlightRecover call HighlightRecover()
+nmap ,4 :HighlightRecover<CR>
