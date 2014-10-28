@@ -80,7 +80,8 @@ nmap <S-F5> :colorscheme default<CR>:call keymap#RecoverMarkAndCyan()<cr>
 
 au Bufenter *.\(avl\|mass\|dat\|txt\) set expandtab
 nmap ,<TAB> :set expandtab! expandtab?<CR>
-nmap du :cd..<CR>
+nmap du :cd..<CR><space>
+" nmap dU :cd..<CR><space>
 
 let @R='o   Meeting 13:00 ( 3 Order / 2 Note )o   1r -    2r -    3r -    4r -    5r - kkkkl'
 
@@ -1182,6 +1183,22 @@ fun! HighlightRecover()
     hi DbgBreaktLine term=reverse ctermfg=15 ctermbg=10 guifg=#ffffff guibg=#00ff00
     hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
     hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+
+    " hi airline_c1_inactive ctermfg=239 ctermbg=236 guifg=#4e4e4e guibg=#303030
+    " hi airline_y_to_airline_z_bold term=bold cterm=bold gui=bold guifg=#dfff00 guibg=#444444 
+    " hi airline_y_to_airline_z_red ctermfg=160 guifg=#ff0000 guibg=#444444
+    " hi airline_c_to_airline_x_bold term=bold cterm=bold gui=bold guifg=#202020 guibg=#202020
+    " hi airline_c_to_airline_x_red ctermfg=160 guifg=#ff0000 guibg=#202020
+    " hi airline_a_to_airline_b_bold term=bold cterm=bold gui=bold guifg=#dfff00 guibg=#444444
+    " hi airline_a_to_airline_b_red ctermfg=160 guifg=#ff0000 guibg=#444444
+    " hi airline_x_to_airline_y_bold term=bold cterm=bold gui=bold guifg=#444444 guibg=#202020
+    " hi airline_x_to_airline_y_red ctermfg=160 guifg=#ff0000 guibg=#202020
+    " hi airline_b_to_airline_c_bold term=bold cterm=bold gui=bold guifg=#444444 guibg=#202020
+    " hi airline_b_to_airline_c_red ctermfg=160 guifg=#ff0000 guibg=#202020
+    " hi airline_z_to_airline_warning_red term=bold cterm=bold gui=bold guifg=#df5f00 guibg=#dfff00
+    " hi airline_z_to_airline_warning_red ctermfg=160 guifg=#ff0000 guibg=#dfff00
+    " hi airline_tabsel_to_airline_tabfill guifg=#dfff00 guibg=#202020
+    " hi airline_tabfill_to_airline_tabtype guifg=#ffaf00 guibg=#202020
 endf
 command! HighlightRecover call HighlightRecover()
 nmap ,4 :HighlightRecover<CR>
