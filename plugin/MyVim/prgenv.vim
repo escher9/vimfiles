@@ -199,6 +199,7 @@ function! prgenv#Execute(arg) range
             elseif choose_num == 1
                 " let exe = system($LATEXBINDIR . "pdflatex.exe " . shellescape(expand("%:p")) . " >NUL" )
                 " silent !D:\Users\escher9\texlive\2011\bin\win32\pdflatex.exe %:p
+                " silent call asynccommand#run("!C:\Users\escher9\texlive\2012\bin\win32\pdflatex.exe %:p")
                 silent !C:\Users\escher9\texlive\2012\bin\win32\pdflatex.exe %:p
             endif
 

@@ -305,7 +305,7 @@ vmap `] :call AssistEncloseWithAutoclose("]")<CR>
 vmap `> :call AssistEncloseWithAutoclose(">")<CR>
 vmap `} :call AssistEncloseWithAutoclose("}")<CR>
 vmap `$ :call AssistEncloseWithAutoclose("$")<CR>
-" vmap `j :call AssistEncloseWithAutoclose(")")<CR>%i
+vmap `j :call AssistEncloseWithAutoclose(")")<CR>%i
 " vmap `k :call AssistEncloseWithAutoclose("]")<CR>%i
 " vmap `l :call AssistEncloseWithAutoclose("}")<CR>%i
 
