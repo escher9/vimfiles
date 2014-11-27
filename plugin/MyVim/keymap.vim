@@ -930,7 +930,9 @@ function! HandleURL()
         let s:cmd = s:browser." ".s:uri
         echo s:uri
         echo s:cmd
-        call system(s:cmd)
+        " silent call asynccommand#run("!C:\Users\escher9\texlive\2012\bin\win32\pdflatex.exe %:p")
+        silent call asynccommand#run(s:cmd)
+        " call system(s:cmd)
         redraw
     else
         echo "No URI found in line."
