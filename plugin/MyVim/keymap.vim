@@ -656,7 +656,7 @@ au CursorHold * if (!hasmapto(":python debugger.close()<CR>") && !hasmapto("<C-P
 
 nmap <C-S-F11> :call RltvNmbrToggle()<CR>
 let g:rltv_enable_toggle=1
-fun RltvNmbrToggle()
+fun! RltvNmbrToggle()
     if g:rltv_enable_toggle
         RltvNmbr
     else
@@ -932,33 +932,35 @@ nmap <C-S-CR> O<esc><C-e>j
 
 
 
-function! HandleURL(translate)
-    if a:translate == "chromespace"
-        let s:uri = '"'.matchstr(getline("."), '[a-z]*:\/\/[^ \">,;]*').'"'
-    else
-        let s:uri = a:translate 
-    endif
-    let s:browser = '"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"'
+let s:browser = '"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"'
+function! HandleURL(in_the_vim)
+    let s:uri = '"'.matchstr(getline("."), '[a-z]*:\/\/[^ \">,;]*').'"'
     if s:uri != '""'
-        let s:cmd = s:browser." ".s:uri
-        echo s:uri
-        echo s:cmd
-        " silent call asynccommand#run("!C:\Users\escher9\texlive\2012\bin\win32\pdflatex.exe %:p")
-        silent call asynccommand#run(s:cmd)
-        " call system(s:cmd)
-        redraw
+
+        if a:in_the_vim
+            exe 'W3m ' . s:uri
+        else
+            let s:cmd = s:browser." ".s:uri
+            echo s:uri
+            echo s:cmd
+            " silent call asynccommand#run("!C:\Users\escher9\texlive\2012\bin\win32\pdflatex.exe %:p")
+            silent call asynccommand#run(s:cmd)
+            " call system(s:cmd)
+            redraw
+        endif
     else
         echo "No URI found in line."
     endif
 endfunction
-map <silent>`u :call HandleURL("chromespace")<cr>
+map <silent>`u :call HandleURL(0)<cr>
+map <silent>\` :call HandleURL(1)<cr>
 
-fun! Translate()
-    let s:toknow = expand("<cword>") 
-    let s:findword = "https://translate.google.co.kr/?hl=ko\#en/ko/" . s:toknow
-    call HandleURL(s:findword)
-endfun
-map <silent><leader>t :call Translate()<cr>
+" fun! Translate()
+    " let s:toknow = expand("<cword>") 
+    " let s:findword = "https://translate.google.co.kr/?hl=ko\#en/ko/" . s:toknow
+    " call HandleURL(s:findword,0)
+" endfun
+" map <silent>\t :call Translate()<cr>
 
 
 command! MsModeEnable set guioptions+=a

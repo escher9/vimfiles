@@ -74,11 +74,17 @@ imap <silent><M-,> <ESC>:call SpaceSpread(0,0)<cr><Left>i
 let s:SurroundMap = {
 			\')'    : {'open': '(','close':')'},
 			\']'    : {'open': '[','close':']'},
-			\'}'    : {'open': '{','close':'}'} }
+			\'>'    : {'open': '<','close':'>'},
+			\'"'    : {'open': '"','close':'"'},
+			\"'"    : {'open': "'",'close':"'"} }
 
 fun! InSpace(opt)
-    let stoodwhere = getline('.')[col('.')]
-    echo stoodwhere
+    let stoodwhere = getline('.')[col('.')-1]
+    " let stoodwhere1 = getline('.')[col('.')-2] . '[-2]'
+    " let stoodwhere2 = getline('.')[col('.')-1] . '[-1]'
+    " let stoodwhere3 = getline('.')[col('.')]   . '[0]'
+    " let stoodwhere4 = getline('.')[col('.')+1] . '[+1]'
+    " echo a:opt . stoodwhere1 . stoodwhere2 . stoodwhere3 . stoodwhere4
     "elseif stoodwhere == '"'
     "    let l:choice = 3
     "elseif stoodwhere == '>'
@@ -88,35 +94,36 @@ fun! InSpace(opt)
     "0endif
     "let l:open  = s:SurroundMap[l:choice][0]
     "let l:close = s:SurroundMap[l:choice][1]
-    "00000
-    "00000
-	"let acol = match(getline('.'),l:open)
-	"let bcol = match(getline('.'),l:close)
-	"" let acol = match(getline('.'),'(')
-	"" let bcol = match(getline('.'),')')
-	"let ccol = col('.')-1
-	"let l_margin = abs(ccol - acol)
-	"let r_margin = abs(bcol - ccol) + 1
-	"let condition2 = (l_margin == r_margin)
+    "let acol = match(getline('.'),l:open)
+    "let bcol = match(getline('.'),l:close)
 
-    "let a = getline('.')[col('.')-2]
-    "let b = getline('.')[col('.')-1]
-    "let condition1 = (a == l:open && b == l:close)
+    let acol = match(getline('.'),'(')
+    let bcol = match(getline('.'),')')
+    let ccol = col('.')-1
+    let l_margin = abs(ccol - acol)
+    let r_margin = abs(bcol - ccol) + 1
+    let condition2 = (l_margin == r_margin)
 
-	"if a:opt == 'spread'
-	"    if condition2
-	"    " if condition2 || condition1
-	"        return "\<space>\<space>\<Left>"
-	"    else
-	"        return "\<space>"
-	"    endif
-	"elseif a:opt == 'shrink'
-	"    if condition2
-	"        return "\<Right>\<C-h>\<C-h>"
-	"    else
-	"        return "\<C-h>"
-	"    endif
-	"endif
+    let a = getline('.')[col('.')-2]
+    let b = getline('.')[col('.')-1]
+    let condition1 = (a == '(' && b == ')')
+    " let condition1 = (a == l:open && b == l:close)
+
+    if a:opt == 'spread'
+      if condition2
+      " if condition2 || condition1
+          return "\<space>\<space>\<Left>"
+      else
+          return "\<space>"
+      endif
+    elseif a:opt == 'shrink'
+      if condition2
+          return "\<Right>\<C-h>\<C-h>"
+      else
+          return "\<C-h>"
+      endif
+    endif
 endfun
-imap <space> <C-R>=InSpace('spread')<CR>
+"imap <space> <C-R>=InSpace('spread')<CR>
 imap <C-h> <C-R>=InSpace('shrink')<CR>
+
