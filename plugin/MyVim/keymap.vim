@@ -1229,3 +1229,5 @@ nmap ,4 :HighlightRecover<CR>
 
 nmap <F4> <leader>tr
 vmap <F4> <leader>tr
+map `<M-j> <Plug>(easymotion-eol-j)
+map `<M-k> <Plug>(easymotion-eol-k)
