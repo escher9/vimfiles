@@ -654,7 +654,16 @@ au CursorHold * if (!hasmapto(":python debugger.close()<CR>") && !hasmapto("<C-P
 " nmap <M-n> :cnext<CR>
 
 
-nmap <C-S-F11> :RltvNmbr!<CR>
+nmap <C-S-F11> :call RltvNmbrToggle()<CR>
+let g:rltv_enable_toggle=1
+fun RltvNmbrToggle()
+    if g:rltv_enable_toggle
+        RltvNmbr
+    else
+        RltvNmbr!
+    endif
+    let g:rltv_enable_toggle=!g:rltv_enable_toggle
+endfun
 
 nmap <leader><C-g> :set guifont=*<cr>
 
