@@ -923,8 +923,12 @@ nmap <C-S-CR> O<esc><C-e>j
 
 
 
-function! HandleURL()
-    let s:uri = '"'.matchstr(getline("."), '[a-z]*:\/\/[^ \">,;]*').'"'
+function! HandleURL(translate)
+    if a:translate == "chromespace"
+        let s:uri = '"'.matchstr(getline("."), '[a-z]*:\/\/[^ \">,;]*').'"'
+    else
+        let s:uri = a:translate 
+    endif
     let s:browser = '"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"'
     if s:uri != '""'
         let s:cmd = s:browser." ".s:uri
@@ -938,8 +942,14 @@ function! HandleURL()
         echo "No URI found in line."
     endif
 endfunction
-map <silent>`u :call HandleURL()<cr>
+map <silent>`u :call HandleURL("chromespace")<cr>
 
+fun! Translate()
+    let s:toknow = expand("<cword>") 
+    let s:findword = "https://translate.google.co.kr/?hl=ko\#en/ko/" . s:toknow
+    call HandleURL(s:findword)
+endfun
+map <silent><leader>t :call Translate()<cr>
 
 
 command! MsModeEnable set guioptions+=a
@@ -1204,3 +1214,7 @@ fun! HighlightRecover()
 endf
 command! HighlightRecover call HighlightRecover()
 nmap ,4 :HighlightRecover<CR>
+
+
+nmap <F4> <leader>tr
+vmap <F4> <leader>tr

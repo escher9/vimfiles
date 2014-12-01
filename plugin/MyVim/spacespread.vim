@@ -46,19 +46,20 @@ if has('unix')
 endif
 
 nmap <silent><M-.> :call SpaceSpread(1,1)<cr>
-imap <silent><M-.> <ESC>:call SpaceSpread(0,1)<cr>i
 nmap <silent><M-,> :call SpaceSpread(1,0)<cr>
-imap <silent><M-,> <ESC>:call SpaceSpread(0,0)<cr>i
+
+imap <silent><M-.> <ESC>:call SpaceSpread(0,1)<cr><Left>i
+imap <silent><M-,> <ESC>:call SpaceSpread(0,0)<cr><Left>i
 " (  <esc>hi(  hi))
-" (  h)
-" " " " " " " " " " " " " " " " " " " (h (woei>)(        ())(UUUUUUU) )
+" (      h)
+" " " " " " " " " " " " " " " " " " " (h (woei>)(        ())(UUUUUUU))
+" " " " " " " " " " " " ((woei>)(              ()      )(UUUUUUU))
+" " " " " " " " " " " " (           (woei>)(        ())(UUUUUUU) )
+" " " " " " " " " " " " ((woei>)(        ())(  UUUUUUU  ))
 " " " " " " " " " " " " ( (woei>)(        ())(UUUUUUU) )
+" " " " " " " " " " " " ( (woei>)(        () )(UUUUUUU) )
 " " " " " " " " " " " " ( (woei>)(        ())(UUUUUUU) )
-" " " " " " " " " " " " ( (woei>)(        ())(UUUUUUU) )
-" " " " " " " " " " " " ( (woei>)(        ())(UUUUUUU) )
-" " " " " " " " " " " " ( (woei>)(        ())(UUUUUUU) )
-" " " " " " " " " " " " ( (woei>)(        ())(UUUUUUU) )
-" " " " " " " " " " " " " ( (                                 woei>                                 )(        ())(UUUUUUU) )
+" " " " " " " " " " " " " ( (          ()                       woei>                                 )(        ())(UUUUUUU) )
 " ie + owie +  (woei>oei+)
 " ()()   ( weoi>oiew+)     (
 " ( oewi>woei+)
