@@ -934,17 +934,18 @@ nmap <C-S-CR> O<esc><C-e>j
 
 let s:browser = '"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"'
 function! HandleURL(in_the_vim)
-    let s:uri = '"'.matchstr(getline("."), '[a-z]*:\/\/[^ \">,;]*').'"'
-    if s:uri != '""'
-
+    if l:uri != '""'
         if a:in_the_vim
-            exe 'W3m ' . s:uri
+            let l:uri = '"'.matchstr(getline("."), '[a-z]*:\/\/[^ \">,;]*').'"'
+            let l:cmd = 'W3m ' . l:uri 
+            exe l:cmd
         else
-            let s:cmd = s:browser." ".s:uri
-            echo s:uri
-            echo s:cmd
+            let l:uri = '"'.matchstr(getline("."), '[a-z]*:\/\/[^ \">,;]*').'"'
+            let l:cmd = s:browser." ".l:uri
+            echo l:uri
+            echo l:cmd
             " silent call asynccommand#run("!C:\Users\escher9\texlive\2012\bin\win32\pdflatex.exe %:p")
-            silent call asynccommand#run(s:cmd)
+            silent call asynccommand#run(l:cmd)
             " call system(s:cmd)
             redraw
         endif
@@ -953,7 +954,7 @@ function! HandleURL(in_the_vim)
     endif
 endfunction
 map <silent>`u :call HandleURL(0)<cr>
-map <silent>\` :call HandleURL(1)<cr>
+map <silent>`i :call HandleURL(1)<cr>
 
 " fun! Translate()
     " let s:toknow = expand("<cword>") 
@@ -1068,9 +1069,6 @@ nmap \b :b <C-Z>
 " endfun
 " inoremap <silent>. <C-R>=OnDot()<CR>
 
-nmap <M-j> o<ESC>k
-
-nmap <M-k> <C-e>O<ESC>j
 fun! FixPos()
     return getpos('.')
 endfun
@@ -1231,3 +1229,5 @@ nmap <F4> <leader>tr
 vmap <F4> <leader>tr
 map `<M-j> <Plug>(easymotion-eol-j)
 map `<M-k> <Plug>(easymotion-eol-k)
+nmap <M-j> o<ESC>k
+nmap <M-k> <C-e>O<ESC>j
