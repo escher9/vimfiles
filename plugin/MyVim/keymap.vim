@@ -1227,7 +1227,21 @@ nmap ,4 :HighlightRecover<CR>
 
 nmap <F4> <leader>tr
 vmap <F4> <leader>tr
-map `<M-j> <Plug>(easymotion-eol-j)
-map `<M-k> <Plug>(easymotion-eol-k)
+map ;<M-j> <Plug>(easymotion-eol-j)
+map ;<M-k> <Plug>(easymotion-eol-k)
 nmap <M-j> o<ESC>k
 nmap <M-k> <C-e>O<ESC>j
+
+let b:current_encoding = 1 
+fun! ConvertEncoding(current_encoding)
+    let b:current_encoding = a:current_encoding
+    if b:current_encoding
+        set enc=utf8
+        echo 'set enc=utf8'
+    else
+        set enc=cp949
+        echo 'set enc=cp949'
+    endif
+    exe 'set enc'
+endfun
+nmap <leader>co :call ConvertEncoding(!b:current_encoding)<CR>
