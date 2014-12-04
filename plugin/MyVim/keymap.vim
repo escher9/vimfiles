@@ -667,7 +667,7 @@ endfun
 
 nmap <leader><C-g> :set guifont=*<cr>
 
-imap <C-r><C-r> â™£
+imap <C-r><C-r> ¢À
 
 fun! DisplayEncFenc()
     redraw
@@ -1232,13 +1232,13 @@ map ;<M-k> <Plug>(easymotion-eol-k)
 nmap <M-j> o<ESC>k
 nmap <M-k> <C-e>O<ESC>j
 
-let b:current_encoding = 1 
-fun! ConvertEncoding(current_encoding)
-    let b:current_encoding = a:current_encoding
-    if b:current_encoding
+let g:current_encoding_toggle = 1 
+fun! ConvertEncoding(current_encoding_toggle)
+    let g:current_encoding_toggle = a:current_encoding_toggle
+    if g:current_encoding_toggle
         set enc=utf8
     else
         set enc=cp949
     endif
 endfun
-nmap <S-space> :call ConvertEncoding(!b:current_encoding)<CR>:set enc<CR>
+nmap <S-space> :call ConvertEncoding(!g:current_encoding_toggle)<CR>:set enc<CR>
