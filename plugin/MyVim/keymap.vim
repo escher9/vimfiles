@@ -1237,11 +1237,8 @@ fun! ConvertEncoding(current_encoding)
     let b:current_encoding = a:current_encoding
     if b:current_encoding
         set enc=utf8
-        echo 'set enc=utf8'
     else
         set enc=cp949
-        echo 'set enc=cp949'
     endif
-    exe 'set enc'
 endfun
-nmap <leader>co :call ConvertEncoding(!b:current_encoding)<CR>
+nmap <S-space> :call ConvertEncoding(!b:current_encoding)<CR>:set enc<CR>
