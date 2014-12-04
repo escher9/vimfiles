@@ -667,7 +667,7 @@ endfun
 
 nmap <leader><C-g> :set guifont=*<cr>
 
-imap <C-r><C-r> ¢À
+imap <C-r><C-r> â™£
 
 fun! DisplayEncFenc()
     redraw
