@@ -1080,7 +1080,7 @@ fun! GrepRecursive(arg)
     let l:vimcmd = 'vimgrep /'.l:word.'/ '.l:upper_degree.'**/*.'.l:ext
     exe l:vimcmd
     cw
-    nmap <buffer>q :call setqflist([])<cr>:q!<CR>:sign unplace *<CR>
+    " nmap <buffer>q :call setqflist([])<cr>:q!<CR>:sign unplace *<CR>
 endfun
 nmap K :call GrepRecursive(0)<cr>
 nmap 1K :call GrepRecursive(1)<cr>
