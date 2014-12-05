@@ -934,22 +934,24 @@ nmap <C-S-CR> O<esc><C-e>j
 
 let s:browser = '"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"'
 function! HandleURL(in_the_vim)
-    if l:uri != '""'
-        if a:in_the_vim
-            let l:uri = '"'.matchstr(getline("."), '[a-z]*:\/\/[^ \">,;]*').'"'
-            let l:cmd = 'W3m ' . l:uri 
-            exe l:cmd
-        else
-            let l:uri = '"'.matchstr(getline("."), '[a-z]*:\/\/[^ \">,;]*').'"'
-            let l:cmd = s:browser." ".l:uri
-            echo l:uri
-            echo l:cmd
-            " silent call asynccommand#run("!C:\Users\escher9\texlive\2012\bin\win32\pdflatex.exe %:p")
-            silent call asynccommand#run(l:cmd)
-            " call system(s:cmd)
-            redraw
-        endif
+    let l:nofounduri = 1 
+    if a:in_the_vim
+        let l:uri = matchstr(getline("."), '[a-z]*:\/\/[^ \">,;]*')
+        let l:cmd = 'W3m ' . l:uri 
+        exe l:cmd
+        let l:nofounduri = 0 
     else
+        let l:uri = '"'.matchstr(getline("."), '[a-z]*:\/\/[^ \">,;]*').'"'
+        let l:cmd = s:browser." ".l:uri
+        echo l:uri
+        echo l:cmd
+        " silent call asynccommand#run("!C:\Users\escher9\texlive\2012\bin\win32\pdflatex.exe %:p")
+        silent call asynccommand#run(l:cmd)
+        " call system(s:cmd)
+        redraw
+        let l:nofounduri = 0 
+    endif
+    if l:nofounduri
         echo "No URI found in line."
     endif
 endfunction
