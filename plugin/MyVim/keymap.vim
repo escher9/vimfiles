@@ -9,13 +9,9 @@ fun! Resize(arg)
 	endif
     redraw
 	if len(&guifont) == 10
-		echo '+------------+'
 		echo '| ' . &guifont . ' |'
-		echo '+------------+'
 	else
-		echo '+-----------+'
 		echo '| ' . &guifont . ' |'
-		echo '+-----------+'
 	endif
 endfun
 
