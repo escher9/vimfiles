@@ -943,11 +943,7 @@ function! HandleURL(in_the_vim)
     else
         let l:uri = '"'.matchstr(getline("."), '[a-z]*:\/\/[^ \">,;]*').'"'
         let l:cmd = s:browser." ".l:uri
-        echo l:uri
-        echo l:cmd
-        " silent call asynccommand#run("!C:\Users\escher9\texlive\2012\bin\win32\pdflatex.exe %:p")
         silent call asynccommand#run(l:cmd)
-        " call system(s:cmd)
         redraw
         let l:nofounduri = 0 
     endif
