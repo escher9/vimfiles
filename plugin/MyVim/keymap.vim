@@ -762,8 +762,8 @@ imap <A-l> <Right>
 
 
 
-imap <A-j> <Down>
-imap <A-k> <Up>
+" imap <A-j> <Down>
+" imap <A-k> <Up>
 
 
 imap <A-q> <ESC>l
