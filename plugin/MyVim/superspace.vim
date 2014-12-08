@@ -57,5 +57,5 @@ fun! Imapjoper()
     endif
 endfun
 command! ImapJ call Imapjoper()
-silent nmap <A-J> :ImapJ<CR>
-                
+silent imap <A-j> <ESC>:ImapJ<CR>i
+" silent nmap <A-J> :ImapJ<CR>
