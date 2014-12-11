@@ -1232,3 +1232,7 @@ fun! ConvertEncoding(current_encoding_toggle)
 endfun
 nmap <S-space> :call ConvertEncoding(!g:current_encoding_toggle)<CR>:set enc<CR>
 
+nmap <M-[> :bprevious<CR>
+nmap <M-]> :bnext<CR>
+
+nmap d' ves
