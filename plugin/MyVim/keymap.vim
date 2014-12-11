@@ -1237,6 +1237,11 @@ nmap <M-]> :bnext<CR>
 
 nmap d' ves
 
-
 nmap ;b :b <C-z>
 nmap ;f :f <C-z>
+fun CopyAll()
+    let sav_line = line('.') 
+    normal ggVGy
+    exe 'normal ' . sav_line . 'gg'
+endfun
+nmap [<C-r> :call CopyAll()<CR>
