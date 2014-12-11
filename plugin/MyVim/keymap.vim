@@ -79,8 +79,6 @@ nmap ,<TAB> :set expandtab! expandtab?<CR>
 nmap du :cd..<CR><space>
 " nmap dU :cd..<CR><space>
 
-let @R='o   Meeting 13:00 ( 3 Order / 2 Note )o   1r -    2r -    3r -    4r -    5r - kkkkl'
-
 fun! Omni_pysmell()
 	set omnifunc=pysmell#Complete
 endf
@@ -631,7 +629,8 @@ endfun
 " nmap <leader><C-w> :call AltMap()<cr>
 
 fun! RemoveVM() " remove carets
-    %s/$//g
+    %s/
+$//g
 endfun
 command! RemoveCarets call RemoveVM()
 
@@ -1219,8 +1218,6 @@ command! HighlightRecover call HighlightRecover()
 nmap ,4 :HighlightRecover<CR>
 
 
-map ;<M-j> <Plug>(easymotion-eol-j)
-map ;<M-k> <Plug>(easymotion-eol-k)
 nmap <M-j> o<ESC>k
 nmap <M-k> <C-e>O<ESC>j
 
@@ -1234,3 +1231,6 @@ fun! ConvertEncoding(current_encoding_toggle)
     endif
 endfun
 nmap <S-space> :call ConvertEncoding(!g:current_encoding_toggle)<CR>:set enc<CR>
+Arpeggio map 2j <Plug>(easymotion-eol-j)
+Arpeggio map 2k <Plug>(easymotion-eol-k)
+
