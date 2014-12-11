@@ -1231,6 +1231,4 @@ fun! ConvertEncoding(current_encoding_toggle)
     endif
 endfun
 nmap <S-space> :call ConvertEncoding(!g:current_encoding_toggle)<CR>:set enc<CR>
-Arpeggio map 2j <Plug>(easymotion-eol-j)
-Arpeggio map 2k <Plug>(easymotion-eol-k)
 
