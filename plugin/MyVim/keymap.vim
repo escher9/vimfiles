@@ -1236,3 +1236,7 @@ nmap <M-[> :bprevious<CR>
 nmap <M-]> :bnext<CR>
 
 nmap d' ves
+
+
+nmap ;b :b <C-z>
+nmap ;f :f <C-z>
