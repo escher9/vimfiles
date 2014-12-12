@@ -1124,8 +1124,8 @@ fun! StretchToggle(dist)
     endif
     let g:stretchtoggle = !g:stretchtoggle
 endfun
-nmap <M-l> :call StretchToggle(70)<CR>
-nmap <M-h> :call StretchToggle(140)<CR>
+nmap <M-0> :call StretchToggle(70)<CR>
+nmap <M-1> :call StretchToggle(140)<CR>
 
 " call arpeggio#map('n','',1,'fh','<C-w>=')
 " call arpeggio#map('n" ','',1,'fl','9<S-right>')
@@ -1219,8 +1219,8 @@ command! HighlightRecover call HighlightRecover()
 nmap ,4 :HighlightRecover<CR>
 
 
-nmap <M-j> o<ESC>k
-nmap <M-k> <C-e>O<ESC>j
+nmap <M-J> o<ESC>k
+nmap <M-K> <C-e>O<ESC>j
 
 let g:current_encoding_toggle = 1 
 fun! ConvertEncoding(current_encoding_toggle)
@@ -1246,5 +1246,10 @@ fun! CopyAll()
     exe 'normal ' . sav_line . 'gg'
 endfun
 nmap [<C-r> :call CopyAll()<CR>
-map <M-J> <Plug>(easymotion-eol-j)
-map <M-K> <Plug>(easymotion-eol-k)
+map <M-j> <Plug>(easymotion-eol-j)
+map <M-k> <Plug>(easymotion-eol-k)
+map `<M-j> <Plug>(easymotion-sol-j)
+map `<M-k> <Plug>(easymotion-sol-k)
+
+map <M-l> <Plug>(easymotion-wl)
+map <M-h> <Plug>(easymotion-bl)
