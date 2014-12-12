@@ -22,8 +22,12 @@ nnoremap <silent><C-Home> :call Resize(-1)<CR>
 "Series Shift"#############################################################
 nmap <S-Left>   2<C-w><
 nmap <S-Right>  2<C-w>>
+nmap <M-S-Left>   10<C-w><
+nmap <M-S-Right>  10<C-w>>
 nmap <S-Up>     1<C-w>+
 nmap <S-Down>   1<C-w>-
+nmap <M-S-Up>     5<C-w>+
+nmap <M-S-Down>   5<C-w>-
 nmap `h :leftabove  vnew<CR>
 nmap `l :rightbelow vnew<CR>
 nmap `k :leftabove  new<CR>
