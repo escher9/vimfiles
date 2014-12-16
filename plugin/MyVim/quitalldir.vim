@@ -4,7 +4,8 @@ fun! QuitAll(dir)
     exe cmd_dir
     let to_right_or_not = winnr() 
     while to_right_or_not != current_window_num
-        exe 'wincmd q'
+        exe 'q!'
+        " exe 'wincmd q'
         exe cmd_dir
         let to_right_or_not = winnr() 
         if a:dir == 'h' || a:dir == 'k'
