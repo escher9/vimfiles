@@ -1128,7 +1128,7 @@ fun! StretchToggle(dist)
     endif
     let g:stretchtoggle = !g:stretchtoggle
 endfun
-nmap <M-0> :call StretchToggle(70)<CR>
+nmap <M-2> :call StretchToggle(70)<CR>
 nmap <M-1> :call StretchToggle(140)<CR>
 
 " call arpeggio#map('n','',1,'fh','<C-w>=')
@@ -1240,7 +1240,7 @@ nmap <S-space> :call ConvertEncoding(!g:current_encoding_toggle)<CR>:set enc<CR>
 nmap <M-[> :bprevious<CR>
 nmap <M-]> :bnext<CR>
 
-nmap d' ves
+nmap d. ves
 
 nmap ;b :b <C-z>
 nmap ;f :f <C-z>
