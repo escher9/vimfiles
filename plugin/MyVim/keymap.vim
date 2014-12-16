@@ -557,8 +557,8 @@ fun! AltMap()
     nmap <A-Down>  :clast<CR>
     nmap <A-Up>    :cfirst<CR>
     nmap <A-e> :E<CR>
-    vmap <A-q> V"Ayy
-    nmap <A-q> "Ayy
+    " vmap <A-q> V"Ayy
+    " nmap <A-q> "Ayy
 
     " nmap <A-w> viw
 	" imap <A-p> <ESC>pa
@@ -924,8 +924,6 @@ nmap \q :q!<CR>
 imap <C-o><C-p> <ESC>A
 imap <C-o><C-k> <ESC>I
 
-
-nmap <M-r> ^f:wv$y
 
 nmap <C-S-CR> O<esc><C-e>j
 
