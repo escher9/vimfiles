@@ -35,7 +35,7 @@ nmap `j :rightbelow new<CR>
 
 "Series double leader"###############################################
 map `p :TagbarToggle<CR>
-map T :TaskList<CR>jjfT
+map [t :TaskList<CR>jjfT
 
 " nmap [p 300<C-w><z0<CR>
 " nmap [o 300<C-w>>z100<CR>

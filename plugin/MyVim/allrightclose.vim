@@ -12,5 +12,5 @@ fun! AllClose(dir)
         endif
     endwhile
 endfun
-nmap qwl :call AllClose('l')<CR>
-nmap qwh :call AllClose('h')<CR>
+nmap ql :call AllClose('l')<CR>
+nmap qh :call AllClose('h')<CR>
