@@ -1255,4 +1255,6 @@ map `<M-k> <Plug>(easymotion-sol-k)
 
 map <M-l> <Plug>(easymotion-wl)
 map <M-h> <Plug>(easymotion-bl)
-command! AUTOEXEC :!explorer.exe "C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"<CR>
+command! AUTOEXEC call asynccommand#run('explorer.exe "C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"')
+nmap <M-F21> :AUTOEXEC<CR>
+
