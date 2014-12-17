@@ -1015,7 +1015,7 @@ vmap al :Align=<space>
 command! StartEclim silent call asynccommand#run("eclimd.bat")
 nmap \<M-`> :ProjectTree <C-Z>
 
-command! FullScreenToggle call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)
+command! FullScreenToggle call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 1)
 nmap <M-\> :FullScreenToggle<CR>
 nmap \<M-F1> :cd %:p:h<CR>:silent !start cmd<CR>
 
@@ -1240,8 +1240,8 @@ nmap <M-]> :bnext<CR>
 
 nmap d. ves
 
-nmap ;b :b <C-z>
-nmap ;f :f <C-z>
+nmap [b :b <C-z>
+nmap [f :f <C-z>
 fun! CopyAll()
     let sav_line = line('.') 
     normal ggVGy
