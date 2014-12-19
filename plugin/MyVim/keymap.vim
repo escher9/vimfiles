@@ -1020,7 +1020,7 @@ nmap <M-\> :FullScreenToggle<CR>
 nmap \<M-F1> :cd %:p:h<CR>:silent !start cmd<CR>
 
 
-command! RecordMyworks e D:\Workspace\[FootPrint]\TODO_LIST.mywork
+command! RecordMyworks e C:\Users\Administrator\footprint\miscellaneous.mywork
 nmap <M-BS> :RecordMyworks<cr>zozz
 nmap <M-`> :Unite bookmark<CR>
 nmap [<M-`> :UniteBookmarkAdd<CR>
