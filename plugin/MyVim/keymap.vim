@@ -685,6 +685,7 @@ imap TT TODO
 
 " cmap go Go
 nmap go :Go<space>
+nmap gl :GitClearStart<space>
 " cmap git G
 nmap git :G<C-z>
 
@@ -761,16 +762,17 @@ command! Greset call s:Gresetfunc()<CR>
 
 
 fun! s:GitClearStart(repo_name,commit_msg)
-    let @A = system('del /q .git')
-    let @A = system('git init')
+    cd %:p:h
+    call system('del /q .git')
+    call system('git init')
     let @A = system('git remote add origin git@github.com:escher9/'.a:repo_name.'.git')
-    let @A = system('git config --global core.excludesfile ~/.gitignore_global --replace-all')
-    let @A = system('git add * --all')
+    call system('git config --global core.excludesfile ~/.gitignore_global --replace-all')
+    call system('git add * --all')
     let @A = system('git commit -m "'.a:commit_msg.'"')
     let @A = system('git push origin master')
     rightbelow vnew
     normal "ap
-    let @A = "" 
+    let @a = "" 
 endfun
 command! -nargs=* GitClearStart call s:GitClearStart(<f-args>)
 
