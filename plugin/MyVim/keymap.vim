@@ -759,6 +759,21 @@ command! -nargs=* GitCustom call s:GitCustom(<f-args>)
 command! -nargs=* MakeGitCustom !makegit <f-args>
 command! Greset call s:Gresetfunc()<CR>
 
+
+fun! s:GitClearStart(repo_name,commit_msg)
+    let @A = system('del /q .git')
+    let @A = system('git init')
+    let @A = system('git remote add origin git@github.com:escher9/'.a:repo_name.'.git')
+    let @A = system('git config --global core.excludesfile ~/.gitignore_global --replace-all')
+    let @A = system('git add * --all')
+    let @A = system('git commit -m "'.a:commit_msg.'"')
+    let @A = system('git pushi origin master')
+    rightbelow vnew
+    normal "ap
+    let @A = "" 
+endfun
+command! -nargs=* GitClearStart call s:GitClearStart(<f-args>)
+
 map <A-h> <Left>
 imap <A-h> <Left>
 map <A-l> <Right>
@@ -872,19 +887,19 @@ au filetype python imap lj self.
 
 
 fun! OpenIPython()
-    " silent call asynccommand#run("start /b ipython qtconsole --ip=127.0.0.1") 
+    " silent call asynccommand#run("start /b ipython qtconsole --ip=127.0.0.1")
     hi MyOrange  guifg=Orange  guibg=Black
     hi MyCyan    guifg=Cyan    guibg=Black
     hi MyGreen   guifg=Green   guibg=Black
     hi MyYellow  guifg=Yellow  guibg=Black
     hi MyPink    guifg=Pink    guibg=Black
     hi MyNOTE    guifg=Black   guibg=Orange
-    silent! call system("start /b ipython qtconsole --ip=127.0.0.1") 
+    silent! call system("start /b ipython qtconsole --ip=127.0.0.1")
     let l:total = 60
-    let l:bar = "" 
+    let l:bar = ""
     redraw
     for i in range(l:total)
-        " let l:bar = l:bar . "." 
+        " let l:bar = l:bar . "."
         if i%4 == 1
             let l:bar = "-"
         elseif i%4==2
@@ -932,18 +947,18 @@ nmap <C-S-CR> O<esc><C-e>j
 
 let s:browser = '"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"'
 function! HandleURL(in_the_vim)
-    let l:nofounduri = 1 
+    let l:nofounduri = 1
     if a:in_the_vim
         let l:uri = matchstr(getline("."), '[a-z]*:\/\/[^ \">,;]*')
-        let l:cmd = 'W3m ' . l:uri 
+        let l:cmd = 'W3m ' . l:uri
         exe l:cmd
-        let l:nofounduri = 0 
+        let l:nofounduri = 0
     else
         let l:uri = '"'.matchstr(getline("."), '[a-z]*:\/\/[^ \">,;]*').'"'
         let l:cmd = s:browser." ".l:uri
         silent call asynccommand#run(l:cmd)
         redraw
-        let l:nofounduri = 0 
+        let l:nofounduri = 0
     endif
     if l:nofounduri
         echo "No URI found in line."
@@ -953,7 +968,7 @@ map <silent>`u :call HandleURL(0)<cr>
 map <silent>`i :call HandleURL(1)<cr>
 
 " fun! Translate()
-    " let s:toknow = expand("<cword>") 
+    " let s:toknow = expand("<cword>")
     " let s:findword = "https://translate.google.co.kr/?hl=ko\#en/ko/" . s:toknow
     " call HandleURL(s:findword,0)
 " endfun
@@ -1024,7 +1039,7 @@ command! RecordMyworks e C:\Users\Administrator\footprint\miscellaneous.mywork
 nmap <M-BS> :RecordMyworks<cr>zozz
 nmap <M-`> :Unite bookmark<CR>
 nmap [<M-`> :UniteBookmarkAdd<CR>
-" autoclose toggle 
+" autoclose toggle
 " nmap <F21> :call CoreExample()<CR>
 nmap <M--> :NeoCompleteToggle<cr>
 nmap `<M-BS> :silent !start explorer /select,%:p<CR>
@@ -1070,12 +1085,12 @@ fun! FixPos()
 endfun
 fun! GrepRecursive(arg)
 " fun! GrepRecursive(arg) range
-    let l:word = expand('<cword>') 
-    let l:upper_degree = '' 
+    let l:word = expand('<cword>')
+    let l:upper_degree = ''
     for i in range(a:arg)
         let l:upper_degree = l:upper_degree . '../'
     endfor
-    let l:ext = expand('%:e') 
+    let l:ext = expand('%:e')
     if l:ext == ''
         let l:ext = 'py'
     endif
@@ -1090,10 +1105,10 @@ nmap 2K :call GrepRecursive(2)<cr>
 nmap 3K :call GrepRecursive(3)<cr>
 nmap 4K :call GrepRecursive(4)<cr>
 " nmap K :exe 'vimgrep /<c-r><c-w>/ **/*'.expand('%:e')<CR>:cw<CR>
-  
+
 nmap <C-space> :sign unplace *<CR>:call setqflist([])<cr>:only!<CR>
 nmap <space> :ccl<CR>:sign unplace *<CR>:cd<CR>
-silent nmap <A-Delete> :sign unplace *<CR>:call setqflist([])<CR> 
+silent nmap <A-Delete> :sign unplace *<CR>:call setqflist([])<CR>
 fun! AlternativeK()
     let word = expand('<cword>')
     exe 'help ' . word
@@ -1103,11 +1118,11 @@ nmap - :q!<CR>
 nmap _ :vs#<CR>
 nmap `_ :sp#<CR>
 
-let g:stretchtoggle = 1 
+let g:stretchtoggle = 1
 fun! Exists_RightSplit()
-    let thiswin = winnr() 
+    let thiswin = winnr()
     exe "wincmd l"
-    let rightwin = winnr() 
+    let rightwin = winnr()
     if thiswin == rightwin
         return 0
     else
@@ -1138,7 +1153,7 @@ fun! DiffToggle()
         diffthis
     else
         diffoff
-    endif 
+    endif
     let g:diffthistoggle=!g:diffthistoggle
 endfun
 nmap <F12> :call DiffToggle()<cr>
@@ -1164,7 +1179,7 @@ vmap `<M-n> ^
 vmap `<M-p> g_
 
 " fun! Dwi()
-    " let cur_word = expand("<cword>") 
+    " let cur_word = expand("<cword>")
     " echo cur_word
 " endfun
 " nmap cp :call Dwi()<cr>
@@ -1178,8 +1193,8 @@ nmap <silent><M-/> V:s/\s\+$//e<CR>V:s/\([^=]*\)\s*=\s*\([^$]*\)/\2 = \1<CR>==:l
 vmap <silent><M-/> :s/\([^=]*\)\s*=\s*\([^$]*\)/\2 = \1<CR>==:let @/=""<CR><M-0>
 
 " fun SwapLHSandRHS()
-    " let 
-" 
+    " let
+"
 " endfun
 
 
@@ -1187,7 +1202,7 @@ nmap ,,S o----------------------------------------------------------------------
 nmap ,,s O-------------------------------------------------------------------------------------------------------<ESC>j<Home>
 
 " imap `j <ESC>:call Openr()<cr>
-imap `j <M-{><cr><C-o><C-i>  
+imap `j <M-{><cr><C-o><C-i>
 " fun! Openr()
     " startinsert!
 " endf
@@ -1202,7 +1217,7 @@ fun! HighlightRecover()
     hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 
     " hi airline_c1_inactive ctermfg=239 ctermbg=236 guifg=#4e4e4e guibg=#303030
-    " hi airline_y_to_airline_z_bold term=bold cterm=bold gui=bold guifg=#dfff00 guibg=#444444 
+    " hi airline_y_to_airline_z_bold term=bold cterm=bold gui=bold guifg=#dfff00 guibg=#444444
     " hi airline_y_to_airline_z_red ctermfg=160 guifg=#ff0000 guibg=#444444
     " hi airline_c_to_airline_x_bold term=bold cterm=bold gui=bold guifg=#202020 guibg=#202020
     " hi airline_c_to_airline_x_red ctermfg=160 guifg=#ff0000 guibg=#202020
@@ -1224,7 +1239,7 @@ nmap ,4 :HighlightRecover<CR>
 nmap <M-J> o<ESC>k
 nmap <M-K> <C-e>O<ESC>j
 
-let g:current_encoding_toggle = 1 
+let g:current_encoding_toggle = 1
 fun! ConvertEncoding(current_encoding_toggle)
     let g:current_encoding_toggle = a:current_encoding_toggle
     if g:current_encoding_toggle
@@ -1243,7 +1258,7 @@ nmap d. ves
 nmap [b :b <C-z>
 nmap [f :f <C-z>
 fun! CopyAll()
-    let sav_line = line('.') 
+    let sav_line = line('.')
     normal ggVGy
     exe 'normal ' . sav_line . 'gg'
 endfun
