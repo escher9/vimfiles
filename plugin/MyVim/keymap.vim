@@ -767,7 +767,7 @@ fun! s:GitClearStart(repo_name,commit_msg)
     let @A = system('git config --global core.excludesfile ~/.gitignore_global --replace-all')
     let @A = system('git add * --all')
     let @A = system('git commit -m "'.a:commit_msg.'"')
-    let @A = system('git pushi origin master')
+    let @A = system('git push origin master')
     rightbelow vnew
     normal "ap
     let @A = "" 
