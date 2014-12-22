@@ -29,7 +29,7 @@ fun! SuperSpace(arg)
 	return mapspace
 endfun
 imap <C-space> <c-r>=SuperSpace('=')<CR>
-imap <M-e><C-Space> <c-r>=SuperSpace('==')<CR>
+imap je<C-Space> <c-r>=SuperSpace('==')<CR>
 au filetype tex imap <C-space> <c-r>=SuperSpace('=')<CR>
 au filetype tex imap <M-space> <c-r>=SuperSpace('&=')<CR>
 let g:toggle_imapjoper = 1
