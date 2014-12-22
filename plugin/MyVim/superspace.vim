@@ -29,7 +29,6 @@ fun! SuperSpace(arg)
 	return mapspace
 endfun
 imap <C-space> <c-r>=SuperSpace('=')<CR>
-imap je<C-Space> <c-r>=SuperSpace('==')<CR>
 au filetype tex imap <C-space> <c-r>=SuperSpace('=')<CR>
 au filetype tex imap <M-space> <c-r>=SuperSpace('&=')<CR>
 let g:toggle_imapjoper = 1
@@ -42,6 +41,7 @@ fun! Imapjoper()
         imap jg <c-r>=SuperSpace('%')<CR>
         imap jq \
         imap ja <c-r>=SuperSpace('/')<CR>
+        imap j<C-Space> <c-r>=SuperSpace('==')<CR>
         echo 'easy type operator j on'
         let g:toggle_imapjoper = 0
     else
