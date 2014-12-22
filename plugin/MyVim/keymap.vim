@@ -781,11 +781,8 @@ imap <A-h> <Left>
 map <A-l> <Right>
 imap <A-l> <Right>
 
-
-
 " imap <A-j> <Down>
 " imap <A-k> <Up>
-
 
 imap <A-q> <ESC>l
 vmap <A-q> <ESC>l
@@ -1011,7 +1008,7 @@ endfun
 nmap <M-0> :call ClearTrailingReturn()<cr>
 " nmap <M-0> :ClearTrailing<cr><C-o>
 "
-vmap al :Align=<space>
+vmap al :Align <space>
 
 " fun! SwitchJediNeocomplete()
     " let g:jedi#show_call_signatures = !g:jedi#show_call_signatures
