@@ -172,9 +172,9 @@ function! prgenv#Execute(arg) range
                 let filename = expand("%:t")
                 
                 w
-                silent !taskkill /f /fi "Windowtitle eq %:t:r.pdf - Foxit Reader" /im Foxit*
+                !taskkill /f /fi "Windowtitle eq %:t:r.pdf - Foxit Reader" /im Foxit*
                 if filereadable(filename)
-                    silent !del %:p:r.pdf
+                    !del %:p:r.pdf
                 endif
                 " if filereadable(filename_aux)
                 " silent !del %:p:r.aux
@@ -184,30 +184,30 @@ function! prgenv#Execute(arg) range
                 return 0
             endif
             if choose_num == 2
-                silent !C:\Users\escher9\texlive\2012\bin\win32\latex.exe %:t:r.tex
-                silent !C:\Users\escher9\texlive\2012\bin\win32\dvips.exe %:t:r.dvi
-                silent !C:\Users\escher9\texlive\2012\bin\win32\ps2pdf.exe %:t:r.ps
+                silent !C:\Users\Administrator\texlive\2012\bin\win32\latex.exe %:t:r.tex
+                silent !C:\Users\Administrator\texlive\2012\bin\win32\dvips.exe %:t:r.dvi
+                silent !C:\Users\Administrator\texlive\2012\bin\win32\ps2pdf.exe %:t:r.ps
             elseif choose_num == 3
-                silent !C:\Users\escher9\texlive\2012\bin\win32\xelatex.exe %:t:r.tex
+                silent !C:\Users\Administrator\texlive\2012\bin\win32\xelatex.exe %:t:r.tex
             elseif choose_num == 4
-                silent !C:\Users\escher9\texlive\2012\bin\win32\lualatex.exe %:t:r.tex
+                silent !C:\Users\Administrator\texlive\2012\bin\win32\lualatex.exe %:t:r.tex
             elseif choose_num == 5
-                silent !C:\Users\escher9\texlive\2012\bin\win32\pdflatex.exe --shell-escape %:p
+                silent !C:\Users\Administrator\texlive\2012\bin\win32\pdflatex.exe --shell-escape %:p
             elseif choose_num == 6
-                silent !C:\Users\escher9\texlive\2012\bin\win32\pdflatex.exe --enable-write18 %:p
-                " silent !C:\Users\escher9\texlive\2012\bin\win32\pdflatex.exe --enable-write18 %:p
+                silent !C:\Users\Administrator\texlive\2012\bin\win32\pdflatex.exe --enable-write18 %:p
+                " silent !C:\Users\Administrator\texlive\2012\bin\win32\pdflatex.exe --enable-write18 %:p
             elseif choose_num == 1
                 " let exe = system($LATEXBINDIR . "pdflatex.exe " . shellescape(expand("%:p")) . " >NUL" )
-                " silent !D:\Users\escher9\texlive\2011\bin\win32\pdflatex.exe %:p
-                " silent call asynccommand#run("!C:\Users\escher9\texlive\2012\bin\win32\pdflatex.exe %:p")
-                silent !C:\Users\escher9\texlive\2012\bin\win32\pdflatex.exe %:p
+                " silent !D:\Users\Administrator\texlive\2011\bin\win32\pdflatex.exe %:p
+                " silent call asynccommand#run("!C:\Users\Administrator\texlive\2012\bin\win32\pdflatex.exe %:p")
+                silent !C:\Users\Administrator\texlive\2012\bin\win32\pdflatex.exe %:p
             endif
 
             if filereadable(filename_pdf)
                 silent !"C:\Program Files (x86)\Foxit Software\Foxit Reader\Foxit Reader.exe" %:p:r.pdf
             endif
         else
-            silent !C:\Users\escher9\texlive\2012\bin\win32\pdflatex.exe -shell-escape %:p
+            silent !C:\Users\Administrator\texlive\2012\bin\win32\pdflatex.exe -shell-escape %:p
             silent !"C:\Program Files (x86)\Foxit Software\Foxit Reader\Foxit Reader.exe" %:p:r.pdf
         endif
     endif
