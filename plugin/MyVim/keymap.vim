@@ -1272,3 +1272,10 @@ map <M-h> <Plug>(easymotion-bl)
 command! AUTOEXEC call asynccommand#run('explorer.exe "C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"')
 nmap <M-F21> :AUTOEXEC<CR>
 
+
+fun! SelectAll()
+    normal ggVG
+    " exec "normal "
+endf
+
+nmap [s :call SelectAll()<CR>
