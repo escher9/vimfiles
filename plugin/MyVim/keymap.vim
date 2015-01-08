@@ -1277,5 +1277,4 @@ fun! SelectAll()
     normal ggVG
     " exec "normal "
 endf
-
 nmap [s :call SelectAll()<CR>

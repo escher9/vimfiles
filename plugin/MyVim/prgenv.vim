@@ -172,9 +172,11 @@ function! prgenv#Execute(arg) range
                 let filename = expand("%:t")
                 
                 w
-                !taskkill /f /fi "Windowtitle eq %:t:r.pdf - Foxit Reader" /im Foxit*
+                call system('taskkill /f /fi "Windowtitle eq ' . expand("%:t:r") . '.pdf - Foxit Reader" /im Foxit*')
+                " !taskkill /f /fi "Windowtitle eq %:t:r.pdf - Foxit Reader" /im Foxit*
                 if filereadable(filename)
-                    !del %:p:r.pdf
+                    call system('del ' . expand("%:p:r") . '.pdf')
+                    " !del %:p:r.pdf
                 endif
                 " if filereadable(filename_aux)
                 " silent !del %:p:r.aux
@@ -204,7 +206,14 @@ function! prgenv#Execute(arg) range
             endif
 
             if filereadable(filename_pdf)
-                silent !"C:\Program Files (x86)\Foxit Software\Foxit Reader\Foxit Reader.exe" %:p:r.pdf
+                " call system('"C:\Program Files (x86)\Foxit Software\Foxit Reader\Foxit Reader.exe" ' . expand("%:p:r.pdf"))
+
+                " rightbelow vnew
+                " normal "pp
+                let run_cmd = '"C:\Program Files (x86)\Foxit Software\Foxit Reader\Foxit Reader.exe" ' . expand("%:p:r") . '.pdf'
+                call asynccommand#run(run_cmd)
+                " silent !"C:\Program Files (x86)\Foxit Software\Foxit Reader\Foxit Reader.exe" %:p:r.pdf
+                " silent call asynccommand#run("!C:\Users\Administrator\texlive\2012\bin\win32\pdflatex.exe %:p")
             endif
         else
             silent !C:\Users\Administrator\texlive\2012\bin\win32\pdflatex.exe -shell-escape %:p
