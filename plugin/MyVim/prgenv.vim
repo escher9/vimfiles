@@ -220,6 +220,7 @@ function! prgenv#Execute(arg) range
             silent !"C:\Program Files (x86)\Foxit Software\Foxit Reader\Foxit Reader.exe" %:p:r.pdf
         endif
     endif
+    redraw!
 endf
 
 function! prgenv#TagsMake()
