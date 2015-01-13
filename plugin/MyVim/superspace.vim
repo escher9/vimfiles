@@ -36,6 +36,7 @@ fun! Imapjoper()
     if g:toggle_imapjoper
         imap jd <c-r>=SuperSpace('+')<CR>
         imap jf <c-r>=SuperSpace('*')<CR>
+        imap jj **
         imap jt <c-r>=SuperSpace('^')<CR>
         imap js <c-r>=SuperSpace('-')<CR>
         imap jg <c-r>=SuperSpace('%')<CR>

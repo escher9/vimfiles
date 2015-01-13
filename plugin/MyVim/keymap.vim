@@ -120,7 +120,7 @@ fun! RangeCount() range
 endf
 vmap ,b :call RangeCount()<CR>
 
-nmap `' :ConqueTermSplit python<CR>
+nmap `' :ConqueTermVSplit python<CR>
 nmap `; `l:VimShellCurrentDir<CR>
 
 command! -nargs=1 CS ConqueTermSplit <args>
