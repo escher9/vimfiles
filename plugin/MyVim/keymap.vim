@@ -1281,4 +1281,4 @@ fun! SelectAll()
 endf
 nmap [s :call SelectAll()<CR>
 
-nmap <BS> zz
+nmap <BS> zz5<C-e>
