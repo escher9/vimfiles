@@ -120,8 +120,10 @@ fun! RangeCount() range
 endf
 vmap ,b :call RangeCount()<CR>
 
-nmap `' :ConqueTermVSplit python<CR>
+nmap <M-'> :ConqueTermVSplit python<CR>
+" nmap `' :ConqueTermVSplit python<CR>
 nmap `; `l:VimShellCurrentDir<CR>
+" nmap `; `l:VimShellCurrentDir<CR>
 
 command! -nargs=1 CS ConqueTermSplit <args>
 command! -nargs=1 CV ConqueTermVSplit <args>
@@ -1278,3 +1280,5 @@ fun! SelectAll()
     " exec "normal "
 endf
 nmap [s :call SelectAll()<CR>
+
+nmap <BS> zz
