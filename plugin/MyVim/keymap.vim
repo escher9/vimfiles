@@ -132,6 +132,7 @@ fun! EnglishLangua()
     let $LANG='en'
 endfun
 command! English call EnglishLangua()
+nmap <C-E> :English<CR>
 nmap <silent>,pf      :call prgenv#SelectOmnifuncPython()<CR>
 command! OmniPythonFunc call prgenv#SelectOmnifuncPython()
 command! Q close!
