@@ -132,7 +132,7 @@ fun! EnglishLangua()
     let $LANG='en'
 endfun
 command! English call EnglishLangua()
-nmap <C-E> :English<CR>
+nmap [<C-e> :English<CR>
 nmap <silent>,pf      :call prgenv#SelectOmnifuncPython()<CR>
 command! OmniPythonFunc call prgenv#SelectOmnifuncPython()
 command! Q close!
@@ -1283,3 +1283,5 @@ endf
 nmap [s :call SelectAll()<CR>
 
 nmap <BS> zz5<C-e>
+
+nmap \<F5> :so $VIMRUNTIME/syntax/2html.vim<CR>
