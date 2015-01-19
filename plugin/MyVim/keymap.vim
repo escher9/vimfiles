@@ -1285,4 +1285,4 @@ nmap [s :call SelectAll()<CR>
 
 nmap <BS> zz5<C-e>
 
-nmap \<F5> :so $VIMRUNTIME/syntax/2html.vim<CR>
+nmap [<F5> :so $VIMRUNTIME/syntax/2html.vim<CR>
