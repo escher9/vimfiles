@@ -78,6 +78,7 @@ nmap <leader><S-F2> :colorscheme solarized<CR>:set background=dark<CR>:call keym
 nmap <S-F3> :colorscheme midnight<CR> :call keymap#RecoverMarkAndCyan()<cr>
 nmap <S-F4> :colorscheme hybrid<CR>:call keymap#RecoverMarkAndCyan()<cr>
 nmap <S-F5> :colorscheme default<CR>:call keymap#RecoverMarkAndCyan()<cr>
+nmap <S-F6> :colorscheme peachpuff<CR>:call keymap#RecoverMarkAndCyan()<cr>
 
 au Bufenter *.\(avl\|mass\|dat\|txt\) set expandtab
 nmap ,<TAB> :set expandtab! expandtab?<CR>
