@@ -25,12 +25,12 @@ snippet cl
 			self.$4 = $4
 			${6}
 # New Function
-snippet def
-	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
+snippet dp
+	def ${1:fname}(${2:`indent('.') ? 'self,' : ''`}${3:args}):
 		"""
-		${3:docstring for $1}
+		${4:docstring for $1}
 		"""
-		${4:pass}
+		${5:pass}
 snippet deff
 	def ${1:fname}(${2:`indent('.') ? 'self' : ''`}):
 		${3}
@@ -97,6 +97,13 @@ snippet pdb
 	import vimpdb; vimpdb.set_trace()
 snippet todo
 	# TODO 
+
+snippet pi
+	if __name__ == '__main__':
+		app = QtGui.QApplication(sys.argv)
+		window = ${1:Ui_MainWindow}()
+		window.show()
+		sys.exit(app.exec_())
 
 snippet pu
 	import sys
