@@ -223,8 +223,6 @@ nmap <C-Delete> :tabo!<CR>
 nmap <silent>,pr   :call prgenv#MakePYSMELLSbeReady()<CR>
 command! PYSMELLTAGS call prgenv#MakePYSMELLSbeReady()
 
-imap <C-s> <C-[>ggVG
-nmap <C-s> ggVG
 let g:switch_on = 1
 fun! ToggleAutoComplete()
 	if g:switch_on && &ft is 'python'
@@ -873,7 +871,7 @@ au filetype vimrc nmap <buffer>]p 141gg:BundleSearch<CR><C-w>p
 nmap vim :w!<CR>,sl:VimFilerCurrentDir<CR>
 nmap vmp :verbose map<space>
 nmap con :Breakpoint conditional<space>
-nmap vp viw
+nmap vp <C-v>iw
 " nmap vp wbviw
 
 nmap mc :MarkClear<CR>
@@ -1191,6 +1189,7 @@ nmap cp dwi<C-p>
 
 nmap <M-;> :
 
+" swap for the equal sign
 nmap <silent><M-/> V:s/\s\+$//e<CR>V:s/\([^=]*\)\s*=\s*\([^$]*\)/\2 = \1<CR>==:let @/=""<CR><M-0>V:al<CR>
 " s/\([^ =]*\)\([ ]*\)=[ ]*\([^;]*\);/\3 = \1;/<CR>
 vmap <silent><M-/> :s/\([^=]*\)\s*=\s*\([^$]*\)/\2 = \1<CR>==:let @/=""<CR><M-0>
@@ -1286,3 +1285,11 @@ nmap [s :call SelectAll()<CR>
 nmap <BS> zz5<C-e>
 
 nmap [<F5> :so $VIMRUNTIME/syntax/2html.vim<CR>
+
+
+autocmd filetype python set expandtab
+autocmd BufWrite *.py retab
+
+
+nmap <M-Right> :cnext<CR>
+nmap <M-Left> :cprev<CR>
