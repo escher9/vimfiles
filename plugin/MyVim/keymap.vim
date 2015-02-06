@@ -60,9 +60,9 @@ fun! FontSelect(arg)
 	echo &guifont
 	" call WorkAroundTransDrag('on')
 endfun
-" nmap <A-F5> :call FontSelect('fix')<CR>
-" nmap <A-F6> :call FontSelect('mon')<CR>
-" nmap <A-F7> :call FontSelect('bit')<CR>
+nmap <A-F5> :call FontSelect('fix')<CR>
+nmap <A-F6> :call FontSelect('mon')<CR>
+nmap <A-F7> :call FontSelect('bit')<CR>
 
 fun! keymap#RecoverMarkAndCyan()
     source ~/vimfiles/plugin/mark.vim
@@ -248,7 +248,7 @@ nmap <silent>,e :call prgenv#Execute($buf.count)<CR>
 command! FF echo &ft
 nmap <S-F12> :FF<CR>
 au Syntax tex nmap<buffer> <silent><A-F21> :silent !del *.aux<CR>
-nmap <leader><C-d> :call prgenv#Debug()<CR>
+" nmap <leader><C-d> :call prgenv#Debug()<CR>
 nmap <silent><A-F9> :call prgenv#CscopePythonSettingOrigin()<CR>
 "
 nmap <S-F7> <C-[>:syntax on<CR>
@@ -526,9 +526,9 @@ fun! AltMap()
     nmap <A-F11> :tabnew $MYKEYS<CR>
     nmap <A-F10> :tabnew $MYVIMRC<CR>
 
-    " nmap <A-F5> :call FontSelect('fix')<CR>
-    " nmap <A-F6> :call FontSelect('mon')<CR>
-    " nmap <A-F7> :call FontSelect('bit')<CR>
+    nmap <A-F5> :call FontSelect('fix')<CR>
+    nmap <A-F6> :call FontSelect('mon')<CR>
+    nmap <A-F7> :call FontSelect('bit')<CR>
     nmap <A-L> :tabnew $HOME/.ve_favorite<CR>
     nmap <A-1> :mksession! ~/vim_session1<cr> " Quick write session with F2
     nmap <A-2> :mksession! ~/vim_session2<cr> " Quick write session with F2
