@@ -170,8 +170,8 @@ command! H helptags $VIMRUNTIME/../vimfiles/doc
 let g:ToggleTransparent = 1
 fun! ToggleTransparent()
 	if g:ToggleTransparent == 0
-		" call libcallnr("vimtweak.dll","SetAlpha",190)
-		call libcallnr("vimtweak.dll","SetAlpha",220)
+        " call libcallnr("vimtweak.dll","SetAlpha",180)
+        call libcallnr("vimtweak.dll","SetAlpha",200)
 		let g:ToggleTransparent = 1
 	elseif g:ToggleTransparent == 1
 		call libcallnr("vimtweak.dll","SetAlpha",255)
@@ -526,9 +526,9 @@ fun! AltMap()
     nmap <A-F11> :tabnew $MYKEYS<CR>
     nmap <A-F10> :tabnew $MYVIMRC<CR>
 
-    nmap <A-F5> :call FontSelect('fix')<CR>
-    nmap <A-F6> :call FontSelect('mon')<CR>
-    nmap <A-F7> :call FontSelect('bit')<CR>
+    " nmap <A-F5> :call FontSelect('fix')<CR>
+    " nmap <A-F6> :call FontSelect('mon')<CR>
+    " nmap <A-F7> :call FontSelect('bit')<CR>
     nmap <A-L> :tabnew $HOME/.ve_favorite<CR>
     nmap <A-1> :mksession! ~/vim_session1<cr> " Quick write session with F2
     nmap <A-2> :mksession! ~/vim_session2<cr> " Quick write session with F2
