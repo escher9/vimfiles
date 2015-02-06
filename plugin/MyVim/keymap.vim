@@ -60,9 +60,9 @@ fun! FontSelect(arg)
 	echo &guifont
 	" call WorkAroundTransDrag('on')
 endfun
-nmap <A-F5> :call FontSelect('fix')<CR>
-nmap <A-F6> :call FontSelect('mon')<CR>
-nmap <A-F7> :call FontSelect('bit')<CR>
+" nmap <A-F5> :call FontSelect('fix')<CR>
+" nmap <A-F6> :call FontSelect('mon')<CR>
+" nmap <A-F7> :call FontSelect('bit')<CR>
 
 fun! keymap#RecoverMarkAndCyan()
     source ~/vimfiles/plugin/mark.vim
