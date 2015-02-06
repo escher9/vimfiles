@@ -171,7 +171,7 @@ let g:ToggleTransparent = 1
 fun! ToggleTransparent()
 	if g:ToggleTransparent == 0
         " call libcallnr("vimtweak.dll","SetAlpha",180)
-        call libcallnr("vimtweak.dll","SetAlpha",200)
+        call libcallnr("vimtweak.dll","SetAlpha",225)
 		let g:ToggleTransparent = 1
 	elseif g:ToggleTransparent == 1
 		call libcallnr("vimtweak.dll","SetAlpha",255)
@@ -1282,7 +1282,8 @@ fun! SelectAll()
 endf
 nmap [s :call SelectAll()<CR>
 
-nmap <BS> zz5<C-e>
+nmap <CR> zz5<C-e>
+" nmap <BS> zz5<C-e>
 
 nmap [<F5> :so $VIMRUNTIME/syntax/2html.vim<CR>
 
