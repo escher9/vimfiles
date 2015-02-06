@@ -601,7 +601,7 @@ fun! EncToggle()
     redraw
     echo currentenc . ' -> ' . &enc
 endfun
-nmap <leader><C-f> :call EncToggle()<CR>
+nmap <leader><C-g> :call EncToggle()<CR>
 
 nmap <leader><F1> <S-F2><A-F6>
 nmap <leader><F2> <S-F3><A-F7>
@@ -667,7 +667,7 @@ fun! RltvNmbrToggle()
     let g:rltv_enable_toggle=!g:rltv_enable_toggle
 endfun
 
-nmap <leader><C-g> :set guifont=*<cr>
+nmap <leader><C-f> :set guifont=*<cr>
 
 imap <C-r><C-r> ♣
 
