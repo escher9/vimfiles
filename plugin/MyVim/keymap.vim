@@ -1108,7 +1108,7 @@ nmap 4K :call GrepRecursive(4)<cr>
 " nmap K :exe 'vimgrep /<c-r><c-w>/ **/*'.expand('%:e')<CR>:cw<CR>
 
 nmap <C-space> :sign unplace *<CR>:call setqflist([])<cr>:only!<CR>
-nmap <space> :ccl<CR>:sign unplace *<CR>:cd<CR>
+nmap <CR> :ccl<CR>:sign unplace *<CR>:cd<CR>
 silent nmap <A-Delete> :sign unplace *<CR>:call setqflist([])<CR>
 fun! AlternativeK()
     let word = expand('<cword>')
@@ -1282,7 +1282,7 @@ fun! SelectAll()
 endf
 nmap [s :call SelectAll()<CR>
 
-nmap <CR> zz5<C-e>
+nmap <space> zz5<C-e>
 " nmap <BS> zz5<C-e>
 
 nmap [<F5> :so $VIMRUNTIME/syntax/2html.vim<CR>
