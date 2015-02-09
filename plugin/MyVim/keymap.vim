@@ -1107,7 +1107,7 @@ nmap 3K :call GrepRecursive(3)<cr>
 nmap 4K :call GrepRecursive(4)<cr>
 " nmap K :exe 'vimgrep /<c-r><c-w>/ **/*'.expand('%:e')<CR>:cw<CR>
 
-nmap <C-space> :sign unplace *<CR>:call setqflist([])<cr>:only!<CR>
+nmap <C-w><C-space> :sign unplace *<CR>:call setqflist([])<cr>:only!<CR>
 nmap <CR> :ccl<CR>:sign unplace *<CR>:cd<CR>
 silent nmap <A-Delete> :sign unplace *<CR>:call setqflist([])<CR>
 fun! AlternativeK()
