@@ -319,6 +319,7 @@ imap <M-{> {}<Left>
 imap <M-'> ''<Left>
 imap <M-"> ""<Left>
 nmap <C-\><C-\> :Align&<CR>
+imap <C-l><C-l> <ESC><C-e>o
 
 " '"<[{()}]>"'
 " 'abc'
@@ -1294,3 +1295,7 @@ autocmd BufWrite *.py retab
 
 nmap <M-Right> :cnext<CR>
 nmap <M-Left> :cprev<CR>
+
+vmap i :I<CR>
+
+nmap <ESC> :NeoCompleteToggle<CR>
