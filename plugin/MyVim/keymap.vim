@@ -1296,6 +1296,6 @@ autocmd BufWrite *.py retab
 nmap <M-Right> :cnext<CR>
 nmap <M-Left> :cprev<CR>
 
-vmap i :I<CR>
+vmap <C-i> :I<CR>
 
-nmap <ESC> :NeoCompleteToggle<CR>
+" nmap <ESC> :NeoCompleteToggle<CR>
