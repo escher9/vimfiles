@@ -1299,3 +1299,6 @@ nmap <M-Left> :cprev<CR>
 vmap <C-i> :I<CR>
 
 " nmap <ESC> :NeoCompleteToggle<CR>
+"
+nmap [c C<C-[>
+vmap [c C<C-[>
