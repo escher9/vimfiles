@@ -300,24 +300,24 @@ fun! AssistEncloseWithAutoclose(arg)
 endfun
 au syntax tex vmap <buffer>S c$<C-r>"$<ESC>
 vmap `' :call AssistEncloseWithAutoclose("'")<CR>
-vmap `" :call AssistEncloseWithAutoclose('"')<CR>
+vmap `; :call AssistEncloseWithAutoclose('"')<CR>
 vmap `) :call AssistEncloseWithAutoclose(")")<CR>
 vmap `] :call AssistEncloseWithAutoclose("]")<CR>
-vmap `> :call AssistEncloseWithAutoclose(">")<CR>
-vmap `} :call AssistEncloseWithAutoclose("}")<CR>
-vmap `$ :call AssistEncloseWithAutoclose("$")<CR>
+vmap `. :call AssistEncloseWithAutoclose(">")<CR>
+vmap `[ :call AssistEncloseWithAutoclose("}")<CR>
+vmap `4 :call AssistEncloseWithAutoclose("$")<CR>
 vmap `j :call AssistEncloseWithAutoclose(")")<CR>%i
 " vmap `k :call AssistEncloseWithAutoclose("]")<CR>%i
 " vmap `l :call AssistEncloseWithAutoclose("}")<CR>%i
 
-imap <M-(> ()<Left>
+imap <M-9> ()<Left>
 imap `k ()<Left>
-imap <M-$> $$<Left>
-imap <M-<> <><Left>
-imap <M-[> []<Left>
-imap <M-{> {}<Left>
+imap <M-4> $$<Left>
+imap <M-.> <><Left>
+imap <M-]> []<Left>
+imap <M-[> {}<Left>
 imap <M-'> ''<Left>
-imap <M-"> ""<Left>
+imap <M-;> ""<Left>
 nmap <C-\><C-\> :Align&<CR>
 imap <C-l><C-l> <ESC><C-e>o
 
