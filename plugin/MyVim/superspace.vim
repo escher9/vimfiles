@@ -60,3 +60,4 @@ endfun
 command! ImapJ call Imapjoper()
 silent imap <A-j> <ESC>:ImapJ<CR>i
 " silent nmap <A-J> :ImapJ<CR>
+silent call Imapjoper()
