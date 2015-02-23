@@ -372,7 +372,7 @@ function s:Translate(str)
             setlocal noswapfile
             setlocal buftype=nowrite
             setlocal bufhidden=delete
-            setlocal nowrap
+            " setlocal nowrap
             iabclear <buffer>
 
             
