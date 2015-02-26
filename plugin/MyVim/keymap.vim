@@ -344,9 +344,9 @@ fun! Imapset()
 	" imap qk <M-[>
 	" imap qi <M-<>
 
-	imap ;j <M-(>
-	imap ;h <M-{>
-	imap ;k <M-[>
+	imap ;j <M-9>
+	imap ;h <M-[>
+	imap ;k <M-]>
 	" imap ;i <
 	" au syntax tex imap <buffer>;f (
 	" au syntax tex imap <buffer>;3 {
