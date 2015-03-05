@@ -75,7 +75,8 @@ endfun
 nmap <S-F1> :colorscheme oceandeep<CR>:call keymap#RecoverMarkAndCyan()<cr>
 nmap <S-F2> :colorscheme solarized<CR>:set background=light<CR>:call keymap#RecoverMarkAndCyan()<cr>
 nmap <leader><S-F2> :colorscheme solarized<CR>:set background=dark<CR>:call keymap#RecoverMarkAndCyan()<cr>
-nmap <S-F3> :colorscheme midnight<CR> :call keymap#RecoverMarkAndCyan()<cr>
+nmap <S-F3> :colorscheme molokai<CR> :call keymap#RecoverMarkAndCyan()<cr>
+" nmap <S-F3> :colorscheme midnight<CR> :call keymap#RecoverMarkAndCyan()<cr>
 nmap <S-F4> :colorscheme hybrid<CR>:call keymap#RecoverMarkAndCyan()<cr>
 nmap <S-F5> :colorscheme default<CR>:call keymap#RecoverMarkAndCyan()<cr>
 nmap <S-F6> :colorscheme peachpuff<CR>:call keymap#RecoverMarkAndCyan()<cr>
@@ -1302,3 +1303,11 @@ vmap <C-i> :I<CR>
 "
 nmap [c C<C-[>
 vmap [c C<C-[>
+
+
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+nmap gap vip<CR>=
