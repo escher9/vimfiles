@@ -51,7 +51,8 @@ fun! FontSelect(arg)
 	if a:arg == 'fix'
 		set guifont=Fixedsys:h9
 	elseif a:arg == 'mon'
-		set guifont=Monaco:h9
+        " set guifont=Inconsolata_for_Powerline:h9
+        set guifont=Monaco:h9
 	elseif a:arg == 'bit'
 		set guifont=Bitstream_Vera_Sans_Mono:h9
 	endif
@@ -382,7 +383,6 @@ fun! Imapset()
     imap ;y  Y
 
     imap `u  U
-    imap `i  I
     imap `o  O
 
 	imap <C-l><C-s> <C-[>^C
@@ -967,8 +967,8 @@ function! HandleURL(in_the_vim)
         echo "No URI found in line."
     endif
 endfunction
-map <silent>`u :call HandleURL(0)<cr>
-map <silent>`i :call HandleURL(1)<cr>
+map <silent>"u :call HandleURL(0)<cr>
+map <silent>"i :call HandleURL(1)<cr>
 
 " fun! Translate()
     " let s:toknow = expand("<cword>")
@@ -1311,3 +1311,8 @@ vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 nmap gap vip<CR>=
+nmap <C-cr> vip<CR>=
+
+nmap `ij <C-v>]v:I<CR>
+nmap `ik <C-v>[v:I<CR>
+
