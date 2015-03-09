@@ -316,8 +316,8 @@ imap <M-9> ()<Left>
 imap `k ()<Left>
 imap <M-4> $$<Left>
 imap <M-.> <><Left>
-imap <M-]> []<Left>
-imap <M-[> {}<Left>
+imap <M-[> []<Left>
+imap <M-]> {}<Left>
 imap <M-'> ''<Left>
 imap <M-;> ""<Left>
 nmap <C-\><C-\> :Align&<CR>
@@ -776,7 +776,7 @@ fun! s:GitClearStart(repo_name,commit_msg)
     let @A = system('git push origin master')
     rightbelow vnew
     normal "ap
-    let @a = "" 
+    let @a = ""
 endfun
 command! -nargs=* GitClearStart call s:GitClearStart(<f-args>)
 
