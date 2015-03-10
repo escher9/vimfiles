@@ -927,7 +927,7 @@ fun! OpenIPython()
         echohl MyGreen  | echo "(qtconsole --ip=127.0.0.1)"         | echohl None
     endif
 endfun
-nmap <silent>`<M-i> :call OpenIPython()<CR>
+nmap <silent><M-i><M-i> :call OpenIPython()<CR>
 " " connect
 " nmap <silent>`<M-p> :IPython<CR>
 
@@ -969,8 +969,8 @@ function! HandleURL(in_the_vim)
         echo "No URI found in line."
     endif
 endfunction
-map <silent>"u :call HandleURL(0)<cr>
-map <silent>"i :call HandleURL(1)<cr>
+map <silent>`uu :call HandleURL(0)<cr>
+map <silent>`ii :call HandleURL(1)<cr>
 
 " fun! Translate()
     " let s:toknow = expand("<cword>")
@@ -1315,6 +1315,6 @@ nmap ga <Plug>(EasyAlign)
 nmap gap vip<CR>=
 nmap <C-cr> vip<CR>=
 
-nmap `ij <C-v>]v:I<CR>
-nmap `ik <C-v>[v:I<CR>
+nmap fj <C-v>]v:I<CR>
+nmap fk <C-v>[v:I<CR>
 
