@@ -1269,13 +1269,18 @@ fun! CopyAll()
     exe 'normal ' . sav_line . 'gg'
 endfun
 nmap [<C-r> :call CopyAll()<CR>
-map <M-j> <Plug>(easymotion-eol-j)
-map <M-k> <Plug>(easymotion-eol-k)
-map `<M-j> <Plug>(easymotion-sol-j)
-map `<M-k> <Plug>(easymotion-sol-k)
+map <M-`><M-j> <Plug>(easymotion-eol-j)
+map <M-`><M-k> <Plug>(easymotion-eol-k)
+" map <M-`><M-j> <Plug>(easymotion-sol-j)
+" map <M-`><M-k> <Plug>(easymotion-sol-k)
 
-map <M-l> <Plug>(easymotion-wl)
-map <M-h> <Plug>(easymotion-bl)
+map <M-`><M-l> <Plug>(easymotion-wl)
+map <M-`><M-h> <Plug>(easymotion-bl)
+
+nmap <M-j> 5j
+nmap <M-k> 5k
+nmap <M-l> 10l
+nmap <M-h> 10h
 command! AUTOEXEC call asynccommand#run('explorer.exe "C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"')
 nmap <M-F21> :AUTOEXEC<CR>
 
@@ -1317,4 +1322,6 @@ nmap <C-cr> vip<CR>=
 
 nmap fj <C-v>]v:I<CR>
 nmap fk <C-v>[v:I<CR>
+nnoremap t "=strftime("%c")<CR>P
+
 
