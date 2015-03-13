@@ -671,7 +671,8 @@ fun! RltvNmbrToggle()
     let g:rltv_enable_toggle=!g:rltv_enable_toggle
 endfun
 
-nmap <leader><C-f> :set guifont=*<cr>
+nmap gp :set guifont=*<cr>
+" nmap <leader><C-f> :set guifont=*<cr>
 
 imap <C-r><C-r> ♣
 
@@ -1325,4 +1326,27 @@ nmap fk <C-v>[v:I<CR>
 nnoremap tp "=strftime("%c")<CR>P
 nnoremap tt :echo strftime("%c")<CR>
 
+let g:show_time_on = 1
+augroup ShowTime
+    au CursorHoldI,CursorMovedI,CursorMoved,CursorHold * if g:show_time_on | echo strftime("%c") | endif
+augroup END     
+fun ShowTimeToggle()
+    let g:show_time_on = !g:show_time_on
+endfun
+nmap tt :call ShowTimeToggle()<cr>
 
+let g:MakeEclimToggleOn = 1 
+fun! EclimToggle()
+    if g:MakeEclimToggleOn
+        EclimEnable
+        echo '(Eclim Enabled) ... you can open projects.'
+    else
+        EclimDisable
+        echo '(Eclim Disabled) ... Eclim will not work!'
+    endif
+    let g:MakeEclimToggleOn = !g:MakeEclimToggleOn
+endfun
+nmap T :call EclimToggle()<CR>
+
+
+nmap 0 :q!<cr>
