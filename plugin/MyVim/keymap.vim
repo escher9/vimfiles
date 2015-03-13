@@ -1326,12 +1326,17 @@ nmap fk <C-v>[v:I<CR>
 nnoremap tp "=strftime("%c")<CR>P
 nnoremap tt :echo strftime("%c")<CR>
 
-let g:show_time_on = 1
+let g:show_time_on = 0
 augroup ShowTime
     au CursorHoldI,CursorMovedI,CursorMoved,CursorHold * if g:show_time_on | echo strftime("%c") | endif
 augroup END     
-fun ShowTimeToggle()
+fun! ShowTimeToggle()
     let g:show_time_on = !g:show_time_on
+    if g:show_time_on
+        echo 'show time on'
+    else
+        echo 'show time off'
+    endif
 endfun
 nmap tt :call ShowTimeToggle()<cr>
 
@@ -1342,7 +1347,7 @@ fun! EclimToggle()
         echo '(Eclim Enabled) ... you can open projects.'
     else
         EclimDisable
-        echo '(Eclim Disabled) ... Eclim will not work!'
+        echo '(Eclim Disabled) ... but you can still open projects!'
     endif
     let g:MakeEclimToggleOn = !g:MakeEclimToggleOn
 endfun
