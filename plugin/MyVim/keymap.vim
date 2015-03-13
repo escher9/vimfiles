@@ -1332,13 +1332,11 @@ augroup ShowTime
 augroup END     
 fun! ShowTimeToggle()
     let g:show_time_on = !g:show_time_on
-    if g:show_time_on
-        echo 'show time on'
-    else
-        echo 'show time off'
+    if !g:show_time_on
+        redraw!
     endif
 endfun
-nmap tt :call ShowTimeToggle()<cr>
+nmap T :silent call ShowTimeToggle()<cr>
 
 let g:MakeEclimToggleOn = 1 
 fun! EclimToggle()
@@ -1351,7 +1349,7 @@ fun! EclimToggle()
     endif
     let g:MakeEclimToggleOn = !g:MakeEclimToggleOn
 endfun
-nmap T :call EclimToggle()<CR>
+nmap tj :call EclimToggle()<CR>
 
 
 nmap 0 :q!<cr>
