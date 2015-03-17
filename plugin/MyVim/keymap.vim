@@ -1321,8 +1321,8 @@ nmap ga <Plug>(EasyAlign)
 nmap gap vip<CR>=
 nmap <C-cr> vip<CR>=
 
-nmap fj <C-v>]v:I<CR>
-nmap fk <C-v>[v:I<CR>
+nmap gj <C-v>]v:I<CR>
+nmap gk <C-v>[v:I<CR>
 nnoremap tp "=strftime("%c")<CR>P
 nnoremap tt :echo strftime("%c")<CR>
 
