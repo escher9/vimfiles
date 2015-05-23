@@ -434,9 +434,13 @@ call Imapset()
 nmap <silent>\x :call prgenv#GetFoo()<CR>:exe "/" . Foo<CR>
 nmap <silent>\g :call prgenv#VimgrepEXE()<CR>
 
-hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-hi CursorColumn cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-nnoremap <Leader><F4> :set cursorline! cursorcolumn!<CR>
+fun! SetCursorLine()
+    hi CursorLine   cterm = NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+    hi CursorColumn cterm = NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+    set cursorline! cursorcolumn!
+endfun
+nnoremap <Leader><F4> :call SetCursorLine()<CR>
+" nnoremap <Leader><F4> :set cursorline! cursorcolumn!<CR>
 
 fun! SetTags()
 
@@ -819,7 +823,8 @@ func! ListTODO(  )"{{{
 				\'WHEN',
 				\'WHERE',
 				\'ORDER',
-				\'DIARY'
+				\'DIARY',
+				\'OBJECT'
 				\]
 
 	call complete(col('.'), MyKeyword)
@@ -880,7 +885,6 @@ nmap vp <C-v>iw
 " nmap vp wbviw
 
 nmap mc :MarkClear<CR>
-imap <M-\> <C-R>=strftime("%c %a")<CR><CR>
 nmap dp ciw
 
 fun! AddLine()
@@ -894,26 +898,26 @@ au filetype python imap lj self.
 
 fun! OpenIPython()
     " silent call asynccommand#run("start /b ipython qtconsole --ip=127.0.0.1")
-    hi MyOrange  guifg=Orange  guibg=Black
-    hi MyCyan    guifg=Cyan    guibg=Black
-    hi MyGreen   guifg=Green   guibg=Black
-    hi MyYellow  guifg=Yellow  guibg=Black
-    hi MyPink    guifg=Pink    guibg=Black
-    hi MyNOTE    guifg=Black   guibg=Orange
+    hi MyOrange  guifg  = Orange  guibg=Black
+    hi MyCyan    guifg  = Cyan    guibg=Black
+    hi MyGreen   guifg  = Green   guibg=Black
+    hi MyYellow  guifg  = Yellow  guibg=Black
+    hi MyPink    guifg  = Pink    guibg=Black
+    hi MyNOTE    guifg  = Black   guibg=Orange
     silent! call system("start /b ipython qtconsole --ip=127.0.0.1")
-    let l:total = 60
-    let l:bar = ""
+    let l:total         = 60
+    let l:bar           = ""
     redraw
     for i in range(l:total)
         " let l:bar = l:bar . "."
-        if i%4 == 1
-            let l:bar = "-"
-        elseif i%4==2
-            let l:bar = "\\"
-        elseif i%4==3
-            let l:bar = "|"
-        elseif i%4==0
-            let l:bar = "/"
+        if i%4         == 1
+            let l:bar   = "-"
+        elseif i%4     == 2
+            let l:bar   = "\\"
+        elseif i%4     == 3
+            let l:bar   = "|"
+        elseif i%4     == 0
+            let l:bar   = "/"
         endif
         redraw
         echohl MyCyan | echo "calling..." . l:bar .  " IP[y]:" | echohl None
@@ -928,7 +932,8 @@ fun! OpenIPython()
         echohl MyGreen  | echo "(qtconsole --ip=127.0.0.1)"         | echohl None
     endif
 endfun
-nmap <silent><M-i><M-i> :call OpenIPython()<CR>
+nmap `<M-i><M-i> :call OpenIPython()<CR>
+command! I call OpenIPython()<CR>
 " " connect
 " nmap <silent>`<M-p> :IPython<CR>
 
@@ -1323,12 +1328,16 @@ nmap <C-cr> vip<CR>=
 
 nmap gj <C-v>]v:I<CR>
 nmap gk <C-v>[v:I<CR>
-nnoremap tp "=strftime("%c")<CR>P
-nnoremap tt :echo strftime("%c")<CR>
+" nnoremap ,tt ^"=strftime("%c")<CR>Po
+" nnoremap ,tt ^"=strftime("%c")<CR>Po
+" nnoremap ,tt :echo strftime("%c")<CR>
+" nmap [<M-\> <C-R>=strftime("%c %a")<CR><CR>
+imap <M-\> <C-R>=strftime("%c %a")<CR><CR>
+nmap [<M-\> ^"=strftime("%c %a")<CR>Po
 
 let g:show_time_on = 0
 augroup ShowTime
-    au CursorHoldI,CursorMovedI,CursorMoved,CursorHold * if g:show_time_on | echo strftime("%c") | endif
+    au CursorHoldI,CursorMovedI,CursorMoved,CursorHold * if g:show_time_on | echo strftime("%c %a") | endif
 augroup END     
 fun! ShowTimeToggle()
     let g:show_time_on = !g:show_time_on
@@ -1351,5 +1360,12 @@ fun! EclimToggle()
 endfun
 nmap tj :call EclimToggle()<CR>
 
-
 nmap 0 :q!<cr>
+
+command! EX cd C:\Program Files\Dassault Systemes\B21\win_b64\code\command
+command! CD cd C:\Users\Administrator\Desktop
+
+nmap <C-space> q:
+
+nmap <M-space> :q!<CR>
+imap <M-space> <ESC>:q!<CR>
