@@ -200,8 +200,6 @@ fun! RecallEscCustomMap()
 
 	inoremap <A-.> <C-[>
 	vnoremap <A-.> <C-[>
-	inoremap <C-l><C-j> <C-[>
-	vnoremap <C-l><C-j> <C-[>
 
 	inoremap <C-b> <Del>
 	" inoremap <C-n> <C-[>^i
@@ -316,14 +314,16 @@ imap <M-0> ()<Left>
 imap <M-9> ()<Left>
 imap `k ()<Left>
 imap <M-4> $$<Left>
-imap <M-,> <><Left>
-imap <M-.> <><Left>
+imap <M->> <><Left>
+imap <M-<> <><Left>
 imap <M-]> []<Left>
 imap <M-[> {}<Left>
 imap <M-'> ''<Left>
 imap <M-;> ""<Left>
 nmap <C-\><C-\> :Align&<CR>
-imap <C-l><C-l> <ESC><C-e>o
+imap <C-o><C-o> <ESC><C-e>o
+
+ 
 
 " '"<[{()}]>"'
 " 'abc'
@@ -337,11 +337,7 @@ fun! Imapset()
 	au syntax tex imap <buffer>wf $
 	au syntax tex imap <buffer>// \\<C-j><CR>
 	imap <C-o><C-i> <ESC>O
-	imap <C-l><C-j> <ESC>
-	vmap <C-l><C-j> <ESC>
-	imap <C-l><C-l> <ESC><C-e>o
-	imap <C-l><C-d> <ESC>kA
-    imap <C-l>j <ESC>
+	imap <C-o><C-o> <ESC><C-e>o
 
 	" imap qj <M-(>
 	" imap ql <M-{>
@@ -387,7 +383,6 @@ fun! Imapset()
     imap `u  U
     imap `o  O
 
-	imap <C-l><C-s> <C-[>^C
 	call RecallEscCustomMap()
 endfun!
 vmap <silent><leader><C-k> :call MakeBufferSpace('visual')<CR>
@@ -891,7 +886,7 @@ fun! AddLine()
     exec "normal "
     call append(line('.')-1,'') "or try this ===> m`O<ESC>``
 endfun
-imap <C-o><C-o> <ESC>:call AddLine()<cr>a
+imap <C-o><C-u> <ESC>:call AddLine()<cr><Left>a
 
 au filetype python imap lj self.
 
@@ -1369,3 +1364,7 @@ nmap <C-space> q:
 
 nmap <M-space> :q!<CR>
 imap <M-space> <ESC>:q!<CR>
+
+
+
+imap <C-l> -><C-x><C-o>
