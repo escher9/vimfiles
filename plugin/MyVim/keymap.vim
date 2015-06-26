@@ -321,7 +321,8 @@ imap <M-[> {}<Left>
 imap <M-'> ''<Left>
 imap <M-;> ""<Left>
 nmap <C-\><C-\> :Align&<CR>
-imap <C-o><C-o> <ESC><C-e>o
+imap <C-o><C-o> <ESC>o
+" imap <C-o><C-o> <ESC><C-e>o
 
  
 
