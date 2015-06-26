@@ -1293,7 +1293,8 @@ fun! SelectAll()
 endf
 nmap [s :call SelectAll()<CR>
 
-nmap <space> zz5<C-e>
+nmap <space> z.
+" nmap <space> zz5<C-e>
 " nmap <BS> zz5<C-e>
 
 nmap [<F5> :so $VIMRUNTIME/syntax/2html.vim<CR>
