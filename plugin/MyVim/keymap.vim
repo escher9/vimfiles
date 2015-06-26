@@ -1358,8 +1358,8 @@ nmap tj :call EclimToggle()<CR>
 nmap 0 :q!<cr>
 
 command! EX cd C:\Program Files\Dassault Systemes\B21\win_b64\code\command
-command! CD cd C:\Users\Administrator\Desktop
-command! CDW cd C:\Workspace
+command! D cd C:\Users\Administrator\Desktop
+command! W cd C:\Workspace
 
 nmap <C-space> q:
 
