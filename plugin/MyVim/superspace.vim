@@ -13,14 +13,14 @@ fun! SuperSpace(arg)
 	let [qlin,qcol] = searchpairpos('"','','"','n')
 	normal l
 
-	if (([slin,scol] != [0,0]) || ([tlin,tcol] != [0,0]) || ([qlin,qcol] != [0,0]))
+	if [slin,scol] != [0,0]
 		let inquote = 1
 	endif
 	if sav_pos[2] == col('$')
 		normal A 
 		call setpos('.',sav_pos)
 	endif
-    let same_line_condition = ((slin==line('.')) || (tlin==line('.')) || (qlin==line('.')))
+    let same_line_condition = (slin==line('.')) 
 	if inquote && same_line_condition 
 		let mapspace = expr
 	else
@@ -36,8 +36,7 @@ fun! Imapjoper()
     if g:toggle_imapjoper
         imap jd <c-r>=SuperSpace('+')<CR>
         imap jf <c-r>=SuperSpace('*')<CR>
-        imap jj **
-        imap jt ^
+        imap jt <c-r>=SuperSpace('^')<CR>
         imap js <c-r>=SuperSpace('-')<CR>
         imap jg <c-r>=SuperSpace('%')<CR>
         imap jq \
@@ -60,4 +59,3 @@ endfun
 command! ImapJ call Imapjoper()
 silent imap <A-j> <ESC>:ImapJ<CR>i
 " silent nmap <A-J> :ImapJ<CR>
-silent call Imapjoper()

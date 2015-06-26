@@ -55,7 +55,7 @@ function! prgenv#Execute(arg) range
         " let choose_num = input("0. Default (python27) 1. Panda3D game engine (v1.81) 2. python33  (Enter = Default(0)) : ")
         if choose_num == 27
             let @a = '' 
-            let @a = system("c:/Python27/slpython -W ignore " . expand('%:p'))
+            let @a = system("c:/Python27/python -W ignore " . expand('%:p'))
             if @a != ''
                 rightbelow vnew
                 setlocal syntax=vim
@@ -67,9 +67,9 @@ function! prgenv#Execute(arg) range
             endif
             " !c:/Python27/python -W ignore %:p
         elseif choose_num == 270
-            call asynccommand#run("c:/Python27/slpython -W ignore %:p")
+            call asynccommand#run("c:/Python27/python -W ignore %:p")
         elseif choose_num == 271
-            !c:/Python27/slpython -W ignore %:p
+            !c:/Python27/python -W ignore %:p
             " !c:/Panda3D-1.8.1/python/ppython %:p
         elseif choose_num == 272
             !c:/Panda3D-1.3.2/python/ppython %:p

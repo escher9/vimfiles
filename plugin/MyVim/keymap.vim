@@ -1359,6 +1359,7 @@ nmap 0 :q!<cr>
 
 command! EX cd C:\Program Files\Dassault Systemes\B21\win_b64\code\command
 command! CD cd C:\Users\Administrator\Desktop
+command! CDW cd C:\Workspace
 
 nmap <C-space> q:
 
@@ -1368,3 +1369,18 @@ imap <M-space> <ESC>:q!<CR>
 
 
 imap <C-l> -><C-x><C-o>
+
+let g:findkeytoggled = 1
+fun! FindKeyToggle()
+    if g:findkeytoggled
+        nmap ; :r!
+        echo '; => ;r!'
+        let g:findkeytoggled = 0
+    else
+        nunmap ;
+        echo '; => (next search)'
+        let g:findkeytoggled = 1
+    endif
+endfun
+
+nmap `; :call FindKeyToggle()<cr>
