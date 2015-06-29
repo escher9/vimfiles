@@ -1370,7 +1370,6 @@ imap <M-space> <ESC>:q!<CR>
 
 
 
-imap <C-l> -><C-x><C-o>
 
 let g:findkeytoggled = 1
 fun! FindKeyToggle()
@@ -1386,3 +1385,32 @@ fun! FindKeyToggle()
 endfun
 
 nmap `; :call FindKeyToggle()<cr>
+
+
+" fun! OnDot()
+    " " let searchword = getline('.')[col('.')-2]
+    " let col_prev = col('.')-2
+    " if getline('.')[col_prev] =~#"[a-zA-Z_]"
+        " return ".\<C-X>\<C-U>"
+    " else
+        " return "."
+    " endif
+" endfun
+" fun! OnTab()
+    " return "\<C-X>\<C-U>"
+" endfun
+" let g:popup_on_dot = 1
+" fun! PoponOnDotToggle()
+    " let g:popup_on_dot = !g:popup_on_dot
+    " if g:popup_on_dot
+        " inoremap <silent>. <C-R>=OnDot()<CR>
+        "
+        "
+fun! ArrowChar()
+    if &ft == 'cpp'
+        return "->\<C-X>\<C-o>"
+    else
+        return " -> "
+    endif
+endfun
+imap <C-l> <C-R>=ArrowChar()<CR> 
