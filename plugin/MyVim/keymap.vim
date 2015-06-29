@@ -1408,7 +1408,7 @@ nmap `; :call FindKeyToggle()<cr>
         "
 fun! ArrowChar()
     if &ft == 'cpp'
-        return "->\<C-X>\<C-o>"
+        return "->\<C-X>\<C-U>"
     else
         return " -> "
     endif
