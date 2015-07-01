@@ -338,7 +338,7 @@ fun! Imapset()
 	au syntax tex imap <buffer>wf $
 	au syntax tex imap <buffer>// \\<C-j><CR>
 	imap <C-o><C-i> <ESC>O
-	imap <C-o><C-o> <ESC><C-e>o
+	imap <C-o><C-o> <ESC>o
 
 	" imap qj <M-(>
 	" imap ql <M-{>
@@ -1410,7 +1410,7 @@ fun! ArrowChar()
     if &ft == 'cpp'
         return "->\<C-X>\<C-U>"
     else
-        return " -> "
+        return " ->"
     endif
 endfun
 imap <C-l> <C-R>=ArrowChar()<CR> 
