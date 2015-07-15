@@ -939,7 +939,6 @@ fun! OpenNetw()
 endfun
 nmap [e :call OpenNetw()<cr>
 nmap <M-2> :VimFiler<cr>
-nmap <M-3> :E<cr>
 " nmap [e :botright vs<CR>:E<CR>:nmap <buffer>q :q!<CR><C
 nmap \q :q!<CR>
 
@@ -1039,7 +1038,7 @@ nmap \<M-`> :ProjectTree <C-Z>
 
 command! FullScreenToggle call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 1)
 nmap <M-\> :FullScreenToggle<CR>
-nmap \<M-F1> :cd %:p:h<CR>:silent !start cmd<CR>
+nmap \<M-F1> :cd %:p:h<CR>:silent !start powershell.exe<CR>
 
 
 command! RecordMyworks e C:\Users\Administrator\footprint\miscellaneous.mywork
@@ -1360,8 +1359,8 @@ nmap tj :call EclimToggle()<CR>
 nmap 0 :q!<cr>
 
 command! EX cd C:\Program Files\Dassault Systemes\B21\win_b64\code\command
-command! D cd C:\Users\Administrator\Desktop
-command! W cd C:\Workspace
+command! R cd C:\Users\Administrator\Desktop
+command! R cd D:\Workspace
 
 nmap <C-space> q:
 
@@ -1414,3 +1413,8 @@ fun! ArrowChar()
     endif
 endfun
 imap <C-l> <C-R>=ArrowChar()<CR> 
+
+map [<F2> :mksession! ~/vim_session <cr> " Quick write session with F2
+map [<F3> :source ~/vim_session <cr>     " And load session with F3
+
+nmap <M-3> [sy
