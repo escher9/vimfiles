@@ -1414,8 +1414,8 @@ fun! ArrowChar()
 endfun
 imap <C-l> <C-R>=ArrowChar()<CR> 
 
-map ]<F4> :mksession! ~/vim_session <cr> " Quick write session with F2
-map ]<F1> :source ~/vim_session <cr>     " And load session with F3
+map [<F4> :mksession! ~/vim_session <cr> " Quick write session with F2
+map [<F1> :source ~/vim_session <cr>     " And load session with F3
 
 nmap <M-3> [sy
 
@@ -1423,3 +1423,5 @@ command! R call SetMyPallete()
 nmap cj :let @* = expand("%:p")<cr>
 
 nmap <F9> :b <C-z>
+nmap W 3w
+nmap B 3b

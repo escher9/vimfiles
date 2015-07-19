@@ -3,7 +3,13 @@ fun! QuitAll(dir)
     let cmd_dir = 'wincmd ' . a:dir
 
     " init movement
+    let starting_window_rel_nr = winnr() 
     exe cmd_dir
+    let other_window_nr = winbufnr(0) 
+    if starting_window_rel_nr != winnr() && current_window_nr == other_window_nr
+        exe 'q!'
+        exe cmd_dir
+    endif
     let other_window_nr = winbufnr(0) 
     while current_window_nr != other_window_nr
         exe 'q!'
