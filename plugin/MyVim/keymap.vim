@@ -1359,8 +1359,8 @@ nmap tj :call EclimToggle()<CR>
 nmap 0 :q!<cr>
 
 command! EX cd C:\Program Files\Dassault Systemes\B21\win_b64\code\command
-command! R cd C:\Users\Administrator\Desktop
-command! R cd D:\Workspace
+" command! R cd C:\Users\Administrator\Desktop
+command! W cd D:\Workspace
 
 nmap <C-space> q:
 
@@ -1418,3 +1418,6 @@ map [<F2> :mksession! ~/vim_session <cr> " Quick write session with F2
 map [<F3> :source ~/vim_session <cr>     " And load session with F3
 
 nmap <M-3> [sy
+
+command! R call SetCustomColorTxt()
+nmap cj :let @* = expand("%:p")<cr>
