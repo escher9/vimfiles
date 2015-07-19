@@ -1,21 +1,36 @@
 fun! QuitAll(dir)
     let current_window_nr = winbufnr(0) 
     let cmd_dir = 'wincmd ' . a:dir
+    let starting_window_rel_nr = winnr() 
 
     " init movement
-    let starting_window_rel_nr = winnr() 
     exe cmd_dir
     let other_window_nr = winbufnr(0) 
+
+    while current_window_nr == other_window_nr
+        if starting_window_rel_nr != winnr()
+            exe 'q!'
+            exe cmd_dir
+        else
+            break
+        endif
+        let other_window_nr = winbufnr(0) 
+    endwhile
     while current_window_nr != other_window_nr
         exe 'q!'
         exe cmd_dir
         let other_window_nr = winbufnr(0) 
     endwhile
-    let other_window_nr = winbufnr(0) 
-    if starting_window_rel_nr != winnr() && current_window_nr == other_window_nr
-        exe 'q!'
-        exe cmd_dir
-    endif
+    " let other_window_nr = winbufnr(0) 
+    " while 1
+        " if starting_window_rel_nr != winnr() && current_window_nr == other_window_nr
+            " exe 'q!'
+            " exe cmd_dir
+        " else
+            " break
+        " endif
+        " let other_window_nr = winbufnr(0) 
+    " endwhile
     exe 'wincmd p'
 endfun
 " fun! QuitAll(dir)
