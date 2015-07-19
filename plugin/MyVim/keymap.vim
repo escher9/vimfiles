@@ -1270,10 +1270,10 @@ fun! CopyAll()
     exe 'normal ' . sav_line . 'gg'
 endfun
 nmap [<C-r> :call CopyAll()<CR>
-map <M-`><M-j> <Plug>(easymotion-eol-j)
-map <M-`><M-k> <Plug>(easymotion-eol-k)
-" map <M-`><M-j> <Plug>(easymotion-sol-j)
-" map <M-`><M-k> <Plug>(easymotion-sol-k)
+" map <M-`><M-j> <Plug>(easymotion-eol-j)
+" map <M-`><M-k> <Plug>(easymotion-eol-k)
+map <M-`><M-j> <Plug>(easymotion-sol-j)
+map <M-`><M-k> <Plug>(easymotion-sol-k)
 
 map <M-`><M-l> <Plug>(easymotion-wl)
 map <M-`><M-h> <Plug>(easymotion-bl)
