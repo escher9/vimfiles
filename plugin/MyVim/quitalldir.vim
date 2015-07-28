@@ -7,6 +7,23 @@ fun! QuitAll(dir)
     exe cmd_dir
     let other_window_nr = winbufnr(0) 
 
+    " while 1
+        " if current_window_nr == other_window_nr
+            " if starting_window_rel_nr != winnr()
+                " exe 'q!'
+                " exe cmd_dir
+            " else
+                " break
+            " endif
+            " let other_window_nr = winbufnr(0) 
+        " elseif current_window_nr != other_window_nr
+            " exe 'q!'
+            " exe cmd_dir
+            " let other_window_nr = winbufnr(0) 
+        " else
+            " break
+        " endif
+    " endwhile
     while current_window_nr == other_window_nr
         if starting_window_rel_nr != winnr()
             exe 'q!'
@@ -21,16 +38,6 @@ fun! QuitAll(dir)
         exe cmd_dir
         let other_window_nr = winbufnr(0) 
     endwhile
-    " let other_window_nr = winbufnr(0) 
-    " while 1
-        " if starting_window_rel_nr != winnr() && current_window_nr == other_window_nr
-            " exe 'q!'
-            " exe cmd_dir
-        " else
-            " break
-        " endif
-        " let other_window_nr = winbufnr(0) 
-    " endwhile
     exe 'wincmd p'
 endfun
 " fun! QuitAll(dir)
@@ -61,7 +68,7 @@ endfun
         " endwhile
     " endif
 " endfun
-nmap ql :call QuitAll('l')<CR>
-nmap qh :call QuitAll('h')<CR>
-nmap qj :call QuitAll('j')<CR>
-nmap qk :call QuitAll('k')<CR>
+nmap <C-w><C-l> :call QuitAll('l')<CR>
+nmap <C-w><C-h> :call QuitAll('h')<CR>
+nmap <C-w><C-j> :call QuitAll('j')<CR>
+nmap <C-w><C-k> :call QuitAll('k')<CR>
