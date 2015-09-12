@@ -215,13 +215,14 @@ fun! ToggleTranslate()
     let g:translate_toggle_enable = !g:translate_toggle_enable
 endfun
 
+let g:trv_dictionary = "~/vimfiles/plugin/dictionary/EK51873.txt"
 let g:switch_dictionary_toggle = 1 
 fun! SwitchDictionary()
     if g:switch_dictionary_toggle
-        let g:trv_dictionary = "~/.vim/dictionary/EK51873.txt"
+        let g:trv_dictionary = "~/vimfiles/plugin/dictionary/EK51873.txt"
         echo "English-Korean"
     else
-        let g:trv_dictionary = "~/.vim/dictionary/JP1202.txt"
+        let g:trv_dictionary = "~/vimfiles/plugin/dictionary/JP1202.txt"
         echo "Japanese-Korean"
     endif
     let g:switch_dictionary_toggle = !g:switch_dictionary_toggle
