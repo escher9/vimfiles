@@ -1551,6 +1551,5 @@ fun! SetPath()
 	rightbelow vnew
 	r!set path
 endfun
-call SetPath()
 command! SetPath call SetPath()
 ca sp SetPath
