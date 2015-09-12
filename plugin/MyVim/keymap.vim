@@ -1537,9 +1537,9 @@ imap <C-l><C-i> ()<Left>
 
 fun! SetPath()
 	set enc=cp949 
-	let pythonset = 'set PYTHONPATH="C:\Python27;C:\Python27\Lib;C:\Python27\DLLs;C:\Python27\Lib\site-packages;C:\Python27\Scripts"'
-	let mingwset = 'set MINGWPATH="C:\MinGW\msys\1.0\bin;C:\MinGW\bin"'
-	let pathset = 'setx path "C:\Program Files(x86)\Java\jre7\bin;%MINGWPATH%;%PYTHONPATH%;%PROGRAMFILES%\MacType;%HOME%\utils\MyOwn;C\Windows\System32;c:\windows\syswow64;%PROGRAMFILES%\Git\bin;C:\Vim\vim74" /M'
+	let pythonset = 'set PYTHONPATH="C:/Python27;C:/Python27/Lib;C:/Python27/DLLs;C:/Python27/Lib/site-packages;C:/Python27/Scripts"'
+	let mingwset = 'set MINGWPATH="C:/MinGW/msys/1.0/bin;C:/MinGW/bin"'
+	let pathset = 'setx path "C:/Program Files(x86)/Java/jre7/bin;%MINGWPATH%;%PYTHONPATH%;%PROGRAMFILES%/MacType;%HOME%/utils/MyOwn;C/Windows/System32;c:/windows/syswow64;%PROGRAMFILES%/Git/bin;C:/Vim\vim74" /M'
 
 	call system(pythonset) 
 	call system(mingwset) 
@@ -1547,9 +1547,8 @@ fun! SetPath()
 
 	echo d
 	set enc=utf8 
+	echo '[NOTE] This path will be available when the terminal re-launched.'
 
-	rightbelow vnew
-	r!set path
 endfun
 command! SetPath call SetPath()
 ca sp SetPath
