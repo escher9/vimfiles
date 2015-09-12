@@ -1280,6 +1280,7 @@ command! AUTOEXEC call asynccommand#run('explorer.exe "C:\Users\Administrator\Ap
 nmap <M-F21> :AUTOEXEC<CR>
 
 cmap ;u AUTOEXEC
+ca au AUTOEXEC
 
 fun! SelectAll()
     normal ggVG
