@@ -1425,19 +1425,21 @@ endfun
 let g:findkeyswitch = 0
 let g:findkeystatus = '(next search)'
 fun! FindKeySwitch(forward)
-	if a:forward
+	if a:forward == 'forward'
 		let g:findkeyswitch += 1
 		if g:findkeyswitch > 4
 			let g:findkeyswitch = 1
 		endif
-	elseif a:forward < 0
+	elseif a:forward == 'backward'
 		let g:findkeyswitch -= 1
 		if g:findkeyswitch < 0
 			let g:findkeyswitch = 3
         elseif g:findkeyswitch < 1
 			let g:findkeyswitch = 4
 		endif
-	else
+	elseif a:forward == 'default'
+		let g:findkeyswitch=4
+	elseif a:forward == 'semicolon'
 		let g:findkeyswitch=1
 	endif
     if g:findkeyswitch == 1
@@ -1457,9 +1459,10 @@ fun! FindKeySwitch(forward)
     endif
 endfun
 
-nmap <M-;> :call FindKeySwitch(1)<cr>
-nmap <M-:> :call FindKeySwitch(-1)<cr>
-nmap <M-'> :call FindKeySwitch(0)<cr>
+nmap <M-;> :call FindKeySwitch('forward')<cr>
+nmap <M-:> :call FindKeySwitch('backward')<cr>
+nmap <M-'> :call FindKeySwitch('semicolon')<cr>
+nmap <M-"> :call FindKeySwitch('default')<cr>
 
 " hi User1 ctermbg=green ctermfg=red   guibg=green guifg=red
 " hi User2 ctermbg=red   ctermfg=blue  guibg=red   guifg=blue
