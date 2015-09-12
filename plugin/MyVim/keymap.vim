@@ -1095,12 +1095,12 @@ fun! GrepRecursive(arg)
     cw
     " nmap <buffer>q :call setqflist([])<cr>:q!<CR>:sign unplace *<CR>
 endfun
-nmap K :call GrepRecursive(0)<cr>
-nmap 1K :call GrepRecursive(1)<cr>
-nmap 2K :call GrepRecursive(2)<cr>
-nmap 3K :call GrepRecursive(3)<cr>
-nmap 4K :call GrepRecursive(4)<cr>
-" nmap K :exe 'vimgrep /<c-r><c-w>/ **/*'.expand('%:e')<CR>:cw<CR>
+nmap ? :call GrepRecursive(0)<cr>
+nmap 1? :call GrepRecursive(1)<cr>
+nmap 2? :call GrepRecursive(2)<cr>
+nmap 3? :call GrepRecursive(3)<cr>
+nmap 4? :call GrepRecursive(4)<cr>
+" nmap ? :exe 'vimgrep /<c-r><c-w>/ **/*'.expand('%:e')<CR>:cw<CR>
 
 nmap <C-w><C-space> :sign unplace *<CR>:call setqflist([])<cr>:only!<CR>
 nmap <CR> :ccl<CR>:sign unplace *<CR>:cd<CR>
@@ -1263,7 +1263,7 @@ fun! CopyAll()
 endfun
 nmap [<C-r> :call CopyAll()<CR>
 map <M-`><M-l> <Plug>(easymotion-lineanywhere)
-map <M-`><M-k> <Plug>(easymotion-bd-t)
+map <M-`><M-j> <Plug>(easymotion-bd-t)
 " map <M-`><M-j> <Plug>(easymotion-eol-j)
 " map <M-`><M-k> <Plug>(easymotion-eol-k)
 " map <M-`><M-i> <Plug>(easymotion-sol-j)
@@ -1431,7 +1431,9 @@ fun! FindKeySwitch(forward)
 		endif
 	else
 		let g:findkeyswitch -= 1
-		if g:findkeyswitch < 1
+		if g:findkeyswitch < 0
+			let g:findkeyswitch = 3
+        elseif g:findkeyswitch < 1
 			let g:findkeyswitch = 4
 		endif
 	endif
@@ -1446,9 +1448,9 @@ fun! FindKeySwitch(forward)
         nmap ; :r!
     elseif g:findkeyswitch == 4
         let g:findkeystatus = '(next search)'
-		try
+        if len(maparg(';'))
 			nunmap ;
-		endtry
+        endif
     endif
 endfun
 
@@ -1528,3 +1530,8 @@ fun! s:AddPath(path)
 endfun
 command! -nargs=1 AddPath call s:AddPath(<f-args>)
 cmap ;d AddPath 
+
+imap <C-l><C-u> ()
+imap <C-l><C-i> ()<Left>
+
+

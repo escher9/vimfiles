@@ -46,9 +46,9 @@ function! prgenv#Execute(arg) range
 
     elseif &filetype is 'python'
 
-        NeoCompleteDisable
+        " NeoCompleteDisable
         w!
-        NeoCompleteEnable
+        " NeoCompleteEnable
 
         
         let choose_num = input("[default enter : output in vim] / [+0] Python27(shadow) / [+1] Python27(pending shell) / [+2] Panda3D (v1.3.2) / [+3] python33 / [+4] python27-64bit : ",27)
