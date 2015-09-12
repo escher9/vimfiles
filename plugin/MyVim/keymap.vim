@@ -1461,8 +1461,8 @@ endfun
 
 nmap <M-;> :call FindKeySwitch('forward')<cr>
 nmap <M-:> :call FindKeySwitch('backward')<cr>
-nmap <M-'> :call FindKeySwitch('semicolon')<cr>
-nmap <M-"> :call FindKeySwitch('default')<cr>
+nmap <M-"> :call FindKeySwitch('semicolon')<cr>
+nmap <M-'> :call FindKeySwitch('default')<cr>
 
 " hi User1 ctermbg=green ctermfg=red   guibg=green guifg=red
 " hi User2 ctermbg=red   ctermfg=blue  guibg=red   guifg=blue
