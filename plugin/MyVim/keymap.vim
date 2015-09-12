@@ -1552,3 +1552,5 @@ fun! SetPath()
 endfun
 command! SetPath call SetPath()
 ca sp SetPath
+ca e EclimDisable
+ca ee EclimEnable

@@ -366,6 +366,7 @@ function s:Translate(str)
     if @a != ''
         if s:not_exist_translation_window || winnr('$') == 1
             leftabove vnew
+			vertical resize 70
             let s:not_exist_translation_window = 0
             let s:sav_winnr = winnr() 
 
