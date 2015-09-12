@@ -56,7 +56,7 @@ fun! FontSelect(arg)
 	elseif a:arg == 'bit'
 		set guifont=Bitstream_Vera_Sans_Mono:h9
 	endif
-	source $VIMRUNTIME/../vimfiles/plugin/mark.vim
+    source ~/vimfiles/plugin/mark.vim
 	redraw!
 	echo &guifont
 	" call WorkAroundTransDrag('on')
@@ -65,22 +65,6 @@ nmap <A-F5> :call FontSelect('fix')<CR>
 nmap <A-F6> :call FontSelect('mon')<CR>
 nmap <A-F7> :call FontSelect('bit')<CR>
 
-fun! keymap#RecoverMarkAndCyan()
-    source ~/vimfiles/plugin/mark.vim
-    " source $VIMRUNTIME/../vimfiles/plugin/mark.vim
-    " color of the current tag in the status line (bold cyan on black)
-    highlight User1 gui=bold guifg=cyan guibg=black
-    " color of the modified flag in the status line (bold black on red)
-    highlight User2 gui=bold guifg=black guibg=red
-endfun
-nmap <S-F1> :colorscheme oceandeep<CR>:call keymap#RecoverMarkAndCyan()<cr>
-nmap <S-F2> :colorscheme solarized<CR>:set background=light<CR>:call keymap#RecoverMarkAndCyan()<cr>
-nmap <leader><S-F2> :colorscheme solarized<CR>:set background=dark<CR>:call keymap#RecoverMarkAndCyan()<cr>
-nmap <S-F3> :colorscheme molokai<CR> :call keymap#RecoverMarkAndCyan()<cr>
-" nmap <S-F3> :colorscheme midnight<CR> :call keymap#RecoverMarkAndCyan()<cr>
-nmap <S-F4> :colorscheme hybrid<CR>:call keymap#RecoverMarkAndCyan()<cr>
-nmap <S-F5> :colorscheme default<CR>:call keymap#RecoverMarkAndCyan()<cr>
-nmap <S-F6> :colorscheme peachpuff<CR>:call keymap#RecoverMarkAndCyan()<cr>
 
 au Bufenter *.\(avl\|mass\|dat\|txt\) set expandtab
 nmap ,<TAB> :set expandtab! expandtab?<CR>
@@ -123,8 +107,7 @@ fun! RangeCount() range
 endf
 vmap ,b :call RangeCount()<CR>
 
-nmap <M-'> :ConqueTermVSplit python<CR>
-" nmap `' :ConqueTermVSplit python<CR>
+nmap `' :ConqueTermVSplit python<CR>
 nmap `; `l:VimShellCurrentDir<CR>
 " nmap `; `l:VimShellCurrentDir<CR>
 
@@ -335,9 +318,14 @@ imap <C-o><C-o> <ESC>o
 
 
 fun! Imapset()
+
+    " imap <C-w><C-j> ()
+    " imap <C-w><C-l> () 
+    " imap <C-w><C-i> ()<Left>
+    imap <C-l><C-j> self.
 	au syntax tex imap <buffer>wf $
 	au syntax tex imap <buffer>// \\<C-j><CR>
-	imap <C-o><C-i> <ESC>O
+	imap <C-o><C-i> <Left><ESC>O
 	imap <C-o><C-o> <ESC>o
 
 	" imap qj <M-(>
@@ -604,6 +592,7 @@ fun! EncToggle()
     call AltMap()
     redraw
     echo currentenc . ' -> ' . &enc
+	call SetStatusLine()
 endfun
 nmap <leader><C-g> :call EncToggle()<CR>
 
@@ -708,6 +697,7 @@ endfun
 
 " cmap R RltvNmbr
 fun! s:GoUpdate(theme)
+	set enc=cp949
     let gittest = s:GitCustomtest()
     echo 'gittest ' . gittest
     if gittest == 0
@@ -718,6 +708,7 @@ fun! s:GoUpdate(theme)
         echo "no git repository"
         return
     endif
+	set enc=utf8
 endfun
 fun! s:Gresetfunc()
     !rm .git/index
@@ -801,7 +792,6 @@ map <A-d> <Del>
 
 nmap vil ^v$h
 
-
 inoremap <C-\> <C-R>=ListTODO()<CR>
 "
 func! ListTODO(  )"{{{
@@ -881,7 +871,7 @@ nmap vp <C-v>iw
 " nmap vp wbviw
 
 nmap mc :MarkClear<CR>
-nmap dp ciw
+nmap d. ciw
 
 fun! AddLine()
     exec "normal "
@@ -889,7 +879,7 @@ fun! AddLine()
 endfun
 imap <C-o><C-u> <ESC>:call AddLine()<cr><Left>a
 
-au filetype python imap lj self.
+" au filetype python imap lj self.
 
 
 fun! OpenIPython()
@@ -1033,12 +1023,12 @@ vmap al :Align = ( ) ,<space>
 
 " command! SwitchJediNeocomplete call SwitchJediNeocomplete()
 
-command! StartEclim silent call asynccommand#run("eclimd.bat")
+command! STARTEclim silent call asynccommand#run("eclimd.bat")
 nmap \<M-`> :ProjectTree <C-Z>
 
 command! FullScreenToggle call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 1)
 nmap <M-\> :FullScreenToggle<CR>
-nmap \<M-F1> :cd %:p:h<CR>:silent !start powershell.exe<CR>
+nmap \<M-F1> :cd %:p:h<CR>:silent !start cmd.exe<CR>
 
 
 command! RecordMyworks e C:\Users\Administrator\footprint\miscellaneous.mywork
@@ -1254,13 +1244,15 @@ fun! ConvertEncoding(current_encoding_toggle)
     else
         set enc=cp949
     endif
+	call SetStatusLine()
 endfun
-nmap <S-space> :call ConvertEncoding(!g:current_encoding_toggle)<CR>:set enc<CR>
+nmap <S-space> :call ConvertEncoding(!g:current_encoding_toggle)<CR>
 
 nmap <M-[> :bprevious<CR>
 nmap <M-]> :bnext<CR>
 
-nmap d. ves
+nmap di ves
+nmap dp vex
 
 nmap [b :b <C-z>
 nmap [f :f <C-z>
@@ -1270,13 +1262,15 @@ fun! CopyAll()
     exe 'normal ' . sav_line . 'gg'
 endfun
 nmap [<C-r> :call CopyAll()<CR>
+map <M-`><M-l> <Plug>(easymotion-lineanywhere)
+map <M-`><M-k> <Plug>(easymotion-bd-t)
 " map <M-`><M-j> <Plug>(easymotion-eol-j)
 " map <M-`><M-k> <Plug>(easymotion-eol-k)
-map <M-`><M-j> <Plug>(easymotion-sol-j)
-map <M-`><M-k> <Plug>(easymotion-sol-k)
-
-map <M-`><M-l> <Plug>(easymotion-wl)
-map <M-`><M-h> <Plug>(easymotion-bl)
+" map <M-`><M-i> <Plug>(easymotion-sol-j)
+" map <M-`><M-o> <Plug>(easymotion-sol-k)
+" 
+" map <M-`><M-l> <Plug>(easymotion-wl)
+" map <M-`><M-h> <Plug>(easymotion-bl)
 
 nmap <M-j> 5j
 nmap <M-k> 5k
@@ -1285,6 +1279,7 @@ nmap <M-h> 10h
 command! AUTOEXEC call asynccommand#run('explorer.exe "C:\Users\Administrator\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"')
 nmap <M-F21> :AUTOEXEC<CR>
 
+cmap ;u AUTOEXEC
 
 fun! SelectAll()
     normal ggVG
@@ -1341,20 +1336,20 @@ fun! ShowTimeToggle()
         redraw!
     endif
 endfun
-nmap T :silent call ShowTimeToggle()<cr>
+nmap T :silent call ShowTimeToggle()<cr>jk
 
 let g:MakeEclimToggleOn = 1 
 fun! EclimToggle()
     if g:MakeEclimToggleOn
         EclimEnable
-        echo '(Eclim Enabled) ... you can open projects.'
+        echo 'Eclim Enabled (SLOW save) ... you can open projects.'
     else
         EclimDisable
-        echo '(Eclim Disabled) ... but you can still open projects!'
+        echo 'Eclim Disabled (FAST save) ... but you can still open projects!'
     endif
     let g:MakeEclimToggleOn = !g:MakeEclimToggleOn
 endfun
-nmap tj :call EclimToggle()<CR>
+nmap gp :call EclimToggle()<CR>
 
 nmap 0 :q!<cr>
 
@@ -1370,20 +1365,6 @@ imap <M-space> <ESC>:q!<CR>
 
 
 
-let g:findkeytoggled = 1
-fun! FindKeyToggle()
-    if g:findkeytoggled
-        nmap ; :r!
-        echo '; => ;r!'
-        let g:findkeytoggled = 0
-    else
-        nunmap ;
-        echo '; => (next search)'
-        let g:findkeytoggled = 1
-    endif
-endfun
-
-nmap `; :call FindKeyToggle()<cr>
 
 
 " fun! OnDot()
@@ -1412,7 +1393,7 @@ fun! ArrowChar()
         return " ->"
     endif
 endfun
-imap <C-l> <C-R>=ArrowChar()<CR> 
+imap <C-l><C-l> <C-R>=ArrowChar()<CR> 
 
 map [<F4> :mksession! ~/vim_session <cr> " Quick write session with F2
 map ]<F1> :source ~/vim_session <cr>     " And load session with F3
@@ -1425,3 +1406,125 @@ nmap cj :let @* = expand("%:p")<cr>
 nmap <F9> :b <C-z>
 nmap W 3w
 nmap B 3b
+nmap ,r `l`j`h`k
+nmap ,f <C-j>,r<C-k>,r
+
+nmap <m->> <C-v>]v><C-v>]vwhhx
+nmap v. F\|wvt\|be
+
+
+fun! VirtualenvStart(dir)
+	" set shell = bash.exe 
+	call asynccommand#run("sh")
+	call asynccommand#run("virtualenv --python=C:\\Python27\\python.exe " . a:dir)
+	call asynccommand#run("source ./" . a:dir . "/activate")
+endfun
+
+
+let g:findkeyswitch = 0
+let g:findkeystatus = '(next search)'
+fun! FindKeySwitch(forward)
+	if a:forward
+		let g:findkeyswitch += 1
+		if g:findkeyswitch > 4
+			let g:findkeyswitch = 1
+		endif
+	else
+		let g:findkeyswitch -= 1
+		if g:findkeyswitch < 1
+			let g:findkeyswitch = 4
+		endif
+	endif
+    if g:findkeyswitch == 1
+        let g:findkeystatus = ': (1)'
+        nmap ; :
+    elseif g:findkeyswitch == 2
+        let g:findkeystatus = 'q: (2)'
+        nmap ; q:
+    elseif g:findkeyswitch == 3
+        let g:findkeystatus = ':r! (3)'
+        nmap ; :r!
+    elseif g:findkeyswitch == 4
+        let g:findkeystatus = '(next search)'
+		try
+			nunmap ;
+		endtry
+    endif
+endfun
+
+nmap <M-;> :call FindKeySwitch(1)<cr>
+nmap <M-:> :call FindKeySwitch(0)<cr>
+
+" hi User1 ctermbg=green ctermfg=red   guibg=green guifg=red
+" hi User2 ctermbg=red   ctermfg=blue  guibg=red   guifg=blue
+" hi User3 ctermbg=blue  ctermfg=green guibg=blue  guifg=green
+"
+fun! CallMyOwnSet()
+	hi User4 ctermbg=black ctermfg=cyan guibg=black guifg=cyan
+	hi User5 ctermbg=black ctermfg=green guibg=black guifg=green
+	hi User6 ctermbg=black ctermfg=darkyellow guibg=black guifg=darkyellow
+	hi User7 ctermbg=black ctermfg=gray guibg=black guifg=gray
+	hi User8 ctermbg=black ctermfg=yellow guibg=black guifg=yellow
+	hi User9 ctermbg=black ctermfg=darkyellow guibg=black guifg=orange
+endfun
+call CallMyOwnSet()
+let g:hexinfo = '%6* [ASCII=%03.3b] [HEX=%02.2B] [POS=%04l,%04v][%p%%] [LEN=%L]%0*' 
+let &statusline='%8*[enc=%{&enc}]%0*%4*[fenc=%{&fileencoding}][%Y]%0*%7*%F%m%r%h%w%0*'.g:hexinfo.'%5* [; => %{findkeystatus}]%0*'
+fun! SetStatusLine()
+	call CallMyOwnSet()
+	if &enc =~ 'utf-8'
+		let colornum = '%8*' 
+	else
+		let colornum = '%9*' 
+	endif
+	let &statusline=colornum . '[enc=%{&enc}]%0*%4*[fenc=%{&fileencoding}][%Y]%0*%7*%F%m%r%h%w%0*'.g:hexinfo.'%5* [; => %{findkeystatus}]%0*'
+endfun
+
+let g:showhex = 0
+fun! RotateStatus()
+	if g:showhex
+		let g:hexinfo = '%6* [ASCII=%03.3b] [HEX=%02.2B] [POS=%04l,%04v][%p%%] [LEN=%L]%0*' 
+	else
+		let g:hexinfo = '' 
+	endif
+	call SetStatusLine()
+	let g:showhex = !g:showhex
+endfun
+call RotateStatus()
+
+cmap ;t call SetStatusLine()
+nmap R :call RotateStatus()<CR>
+
+fun! RecoverMarkAndCyan()
+    source ~/vimfiles/plugin/mark.vim
+    " source $VIMRUNTIME/../vimfiles/plugin/mark.vim
+    " color of the current tag in the status line (bold cyan on black)
+    highlight User1 gui=bold guifg=cyan guibg=black
+    " color of the modified flag in the status line (bold black on red)
+    highlight User2 gui=bold guifg=black guibg=red
+endfun
+fun! ChangeColorscheme(color)
+	exec('colorscheme ' . a:color)
+	call RecoverMarkAndCyan()
+	call SetStatusLine()
+	colorscheme
+endfun
+nmap <S-F1> :call ChangeColorscheme('oceandeep')<CR>
+nmap <S-F2> :call ChangeColorscheme('solarized')<CR>
+nmap <S-F3> :call ChangeColorscheme('molokai')<CR>
+nmap <S-F4> :call ChangeColorscheme('hybrid')<CR>
+nmap <S-F5> :call ChangeColorscheme('default')<CR>
+nmap <S-F6> :call ChangeColorscheme('peachpuff')<CR>
+
+
+imap <M-.> <CR>
+fun! s:AddPath(path)
+	set enc=cp949
+	let r = system('setx /m path "%PATH%;' . a:path . '"') 
+	echo r
+	set enc=utf8
+	rightbelow vnew
+	r!set path
+endfun
+command! -nargs=1 AddPath call s:AddPath(<f-args>)
+cmap ;d AddPath 
