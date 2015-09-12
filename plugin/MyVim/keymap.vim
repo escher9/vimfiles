@@ -1429,13 +1429,15 @@ fun! FindKeySwitch(forward)
 		if g:findkeyswitch > 4
 			let g:findkeyswitch = 1
 		endif
-	else
+	elseif a:forward < 0
 		let g:findkeyswitch -= 1
 		if g:findkeyswitch < 0
 			let g:findkeyswitch = 3
         elseif g:findkeyswitch < 1
 			let g:findkeyswitch = 4
 		endif
+	else
+		let g:findkeyswitch=1
 	endif
     if g:findkeyswitch == 1
         let g:findkeystatus = ': (1)'
@@ -1455,7 +1457,8 @@ fun! FindKeySwitch(forward)
 endfun
 
 nmap <M-;> :call FindKeySwitch(1)<cr>
-nmap <M-:> :call FindKeySwitch(0)<cr>
+nmap <M-:> :call FindKeySwitch(-1)<cr>
+nmap <M-'> :call FindKeySwitch(0)<cr>
 
 " hi User1 ctermbg=green ctermfg=red   guibg=green guifg=red
 " hi User2 ctermbg=red   ctermfg=blue  guibg=red   guifg=blue
