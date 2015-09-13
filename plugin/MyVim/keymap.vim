@@ -581,20 +581,6 @@ nmap ,<C-r> :call ConfirmClear()<cr>
 vmap <A-q> V"Ayy
 nmap <A-q> "Ayy
 
-fun! EncToggle()
-
-    let currentenc = &enc
-    if &enc == 'cp949'
-        set enc=utf-8
-    elseif &enc == 'utf-8'
-        set enc=cp949
-    endif
-    call AltMap()
-    redraw
-    echo currentenc . ' -> ' . &enc
-	call SetStatusLine()
-endfun
-nmap <leader><C-g> :call EncToggle()<CR>
 
 nmap <leader><F1> <S-F2><A-F6>
 nmap <leader><F2> <S-F3><A-F7>
@@ -1023,7 +1009,7 @@ vmap al :Align = ( ) ,<space>
 
 " command! SwitchJediNeocomplete call SwitchJediNeocomplete()
 
-command! STARTEclim silent call asynccommand#run("eclimd.bat")
+command! STARTEclim silent call asynccommand#run("C:\Program Files\eclipse\eclimd.bat")
 nmap \<M-`> :ProjectTree <C-Z>
 
 command! FullScreenToggle call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 1)
@@ -1103,7 +1089,7 @@ nmap 4? :call GrepRecursive(4)<cr>
 " nmap ? :exe 'vimgrep /<c-r><c-w>/ **/*'.expand('%:e')<CR>:cw<CR>
 
 nmap <C-w><C-space> :sign unplace *<CR>:call setqflist([])<cr>:only!<CR>
-nmap <CR> :ccl<CR>:sign unplace *<CR>:cd<CR>
+nmap <CR> :ccl<CR>:sign unplace *<CR>:cd<CR>z.
 silent nmap <A-Delete> :sign unplace *<CR>:call setqflist([])<CR>
 fun! AlternativeK()
     let word = expand('<cword>')
@@ -1288,7 +1274,6 @@ fun! SelectAll()
 endf
 nmap [s :call SelectAll()<CR>
 
-nmap <space> z.
 " nmap <space> zz5<C-e>
 " nmap <BS> zz5<C-e>
 
@@ -1457,6 +1442,7 @@ fun! FindKeySwitch(forward)
 			nunmap ;
         endif
     endif
+	call SetStatusLine()
 endfun
 
 nmap <M-'> :call FindKeySwitch('forward')<cr>
@@ -1561,7 +1547,10 @@ endfun
 command! SetPath call SetPath()
 ca sp SetPath
 ca ef EclimDisable
-ca eo EclimEnable
+ca ee EclimEnable
+ca st STARTEclim
 
 nmap <C-t> vil`
 
+
+nmap <space> z.
