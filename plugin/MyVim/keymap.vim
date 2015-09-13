@@ -1570,7 +1570,8 @@ function! CleverSelfdot()
     if searchleft =~ '('
         return "self,"
     else
-        return "self."
+        return "self.\<C-x>\<C-o>"
     endif
 endfunction
 inoremap <C-l><C-j> <C-R>=CleverSelfdot()<CR>
+
