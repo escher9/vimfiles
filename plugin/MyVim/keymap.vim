@@ -322,7 +322,6 @@ fun! Imapset()
     " imap <C-w><C-j> ()
     " imap <C-w><C-l> () 
     " imap <C-w><C-i> ()<Left>
-    imap <C-l><C-j> self.
 	au syntax tex imap <buffer>wf $
 	au syntax tex imap <buffer>// \\<C-j><CR>
 	imap <C-o><C-i> <Left><ESC>O
@@ -1566,3 +1565,12 @@ inoremap j <C-R>=CleverJ()<CR>
 nmap d. ciw
 nmap di ves
 nmap dp vex
+function! CleverSelfdot()
+    let searchleft = getline('.')[col('.')-2]
+    if searchleft =~ '('
+        return "self,"
+    else
+        return "self."
+    endif
+endfunction
+inoremap <C-l><C-j> <C-R>=CleverSelfdot()<CR>
