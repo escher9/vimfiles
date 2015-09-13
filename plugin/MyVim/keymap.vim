@@ -49,12 +49,12 @@ nmap yC v$y
 fun! FontSelect(arg)
 	" call WorkAroundTransDrag('off')
 	if a:arg == 'fix'
-		set guifont=Fixedsys:h9
+		set guifont=Fixedsys:h11
 	elseif a:arg == 'mon'
-        " set guifont=Inconsolata_for_Powerline:h9
-        set guifont=Monaco:h9
+        set guifont=Inconsolata_for_Powerline:h11
 	elseif a:arg == 'bit'
-		set guifont=Bitstream_Vera_Sans_Mono:h9
+		set guifont=Bitstream_Vera_Sans_Mono:h11
+        " set guifont=Monaco:h9
 	endif
     source ~/vimfiles/plugin/mark.vim
 	redraw!
@@ -1554,3 +1554,4 @@ nmap <C-t> vil`
 
 
 nmap <space> z.
+nmap vj V
