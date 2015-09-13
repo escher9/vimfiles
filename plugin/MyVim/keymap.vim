@@ -1562,9 +1562,9 @@ function! CleverJ()
 endfunction
 inoremap j <C-R>=CleverJ()<CR>
 
-nmap d. ciw
+nmap dp ciw
 nmap di ves
-nmap dp vex
+nmap d. vex
 function! CleverSelfdot()
     let searchleft = getline('.')[col('.')-2]
     if searchleft =~ '('
