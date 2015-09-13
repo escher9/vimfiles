@@ -857,7 +857,6 @@ nmap vp <C-v>iw
 " nmap vp wbviw
 
 nmap mc :MarkClear<CR>
-nmap d. ciw
 
 fun! AddLine()
     exec "normal "
@@ -1237,8 +1236,6 @@ nmap <S-space> :call ConvertEncoding(!g:current_encoding_toggle)<CR>
 nmap <M-[> :bprevious<CR>
 nmap <M-]> :bnext<CR>
 
-nmap di ves
-nmap dp vex
 
 nmap [b :b <C-z>
 nmap [f :f <C-z>
@@ -1554,4 +1551,18 @@ nmap <C-t> vil`
 
 
 nmap <space> z.
-nmap vj V
+nmap v; V
+
+
+function! CleverJ()
+  if pumvisible()
+    return "\<cr>"
+  else
+    return "j"
+  endif
+endfunction
+inoremap j <C-R>=CleverJ()<CR>
+
+nmap d. ciw
+nmap di ves
+nmap dp vex
