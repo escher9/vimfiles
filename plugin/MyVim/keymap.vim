@@ -1579,26 +1579,30 @@ function! CleverSelfdot()
 endfunction
 inoremap <C-l><C-j> <C-R>=CleverSelfdot()<CR>
 
-fun! ErasePairs()
-    let pairs = [["'","'"],['"','"'],['(',')'],['{','}'],['[',']'],['<','>']]
-
-    let f = getline('.')[col('.')-2]
-    let b = getline('.')[col('.')-1]
-    echo f.b
-    let paired = 0
-    for p in pairs
-        if f == p[0] && b == p[1]
-            let paired = 1 
-        endif
-    endfor
-    if paired
-        return "\<Del>\<BS>"
-    else
-        return "\<BS>"
-    endif
-endfun
-inoremap <C-h> <C-r>=ErasePairs()<CR>
 
 
+" fun! ErasePairs()
+    " let pairs = [["'","'"],['"','"'],['(',')'],['{','}'],['[',']'],['<','>']]
+" 
+    " let f = getline('.')[col('.')-2]
+    " let b = getline('.')[col('.')-1]
+    " echo f.b
+    " let paired = 0
+    " for p in pairs
+        " if f == p[0] && b == p[1]
+            " let paired = 1 
+        " endif
+    " endfor
+    " if paired
+        " return "\<Del>\<BS>"
+    " else
+        " return "\<BS>"
+    " endif
+" endfun
+" inoremap <C-h> <C-r>=ErasePairs()<CR>
+" 
+" 
 imap <M-k> <><Left>
-imap <M-.> <><Left>
+"imap <C-p> <Del><BS>
+
+imap <C-cr> <ESC>bjviws
