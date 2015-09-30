@@ -297,8 +297,8 @@ imap <M-0> ()<Left>
 imap <M-9> ()<Left>
 imap `k ()<Left>
 imap <M-4> $$<Left>
-imap <M->> <><Left>
-imap <M-<> <><Left>
+" inoremap <M->> <><Left>
+" inoremap <M-<> <><Left>
 imap <M-]> []<Left>
 imap <M-[> {}<Left>
 imap <M-'> ''<Left>
@@ -1598,3 +1598,7 @@ fun! ErasePairs()
     endif
 endfun
 inoremap <C-h> <C-r>=ErasePairs()<CR>
+
+
+imap <M-k> <><Left>
+imap <M-.> <><Left>
