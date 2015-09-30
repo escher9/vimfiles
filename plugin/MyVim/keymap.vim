@@ -689,8 +689,11 @@ fun! s:GoUpdate(theme)
         echo 'now adding all and pushing @github...'
         let a = system("Go " . a:theme)
         echo a
+        sleep 1
     else
         echo "no git repository"
+        sleep 1
+        set enc=utf8
         return
     endif
 	set enc=utf8
@@ -1087,7 +1090,7 @@ nmap 4? :call GrepRecursive(4)<cr>
 " nmap ? :exe 'vimgrep /<c-r><c-w>/ **/*'.expand('%:e')<CR>:cw<CR>
 
 nmap <C-w><C-space> :sign unplace *<CR>:call setqflist([])<cr>:only!<CR>
-nmap <CR> :ccl<CR>:sign unplace *<CR>:cd<CR>z.
+nmap <CR> :cd %:p:h<CR>:ccl<CR>:sign unplace *<CR>:cd<CR>z.
 silent nmap <A-Delete> :sign unplace *<CR>:call setqflist([])<CR>
 fun! AlternativeK()
     let word = expand('<cword>')
@@ -1296,7 +1299,8 @@ vmap <Enter> <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-nmap gap vip<CR>=
+nmap gp vip<CR>=
+" nmap gap vip<CR>=
 nmap <C-cr> vip<CR>=
 
 nmap gj <C-v>]v:I<CR>
@@ -1331,7 +1335,7 @@ fun! EclimToggle()
     endif
     let g:MakeEclimToggleOn = !g:MakeEclimToggleOn
 endfun
-nmap gp :call EclimToggle()<CR>
+nmap <M-`><M-p> :call EclimToggle()<CR>
 
 nmap 0 :q!<cr>
 
@@ -1575,3 +1579,22 @@ function! CleverSelfdot()
 endfunction
 inoremap <C-l><C-j> <C-R>=CleverSelfdot()<CR>
 
+fun! ErasePairs()
+    let pairs = [['(',')'],['{','}'],['[',']'],['<','>']]
+
+    let f = getline('.')[col('.')-2]
+    let b = getline('.')[col('.')-1]
+    echo f.b
+    let paired = 0
+    for p in pairs
+        if f == p[0] && b == p[1]
+            let paired = 1 
+        endif
+    endfor
+    if paired
+        return "\<Del>\<BS>"
+    else
+        return "\<BS>"
+    endif
+endfun
+inoremap <C-h> <C-r>=ErasePairs()<CR>

@@ -25,7 +25,7 @@ fun! QuitAll(dir)
         " endif
     " endwhile
     while current_window_nr == other_window_nr
-        if starting_window_rel_nr != winnr()
+        if starting_window_rel_nr != winnr() && winnr() != 1
             exe 'q!'
             exe cmd_dir
         else
@@ -33,7 +33,7 @@ fun! QuitAll(dir)
         endif
         let other_window_nr = winbufnr(0) 
     endwhile
-    while current_window_nr != other_window_nr
+    while current_window_nr != other_window_nr && winnr() != 1
         exe 'q!'
         exe cmd_dir
         let other_window_nr = winbufnr(0) 

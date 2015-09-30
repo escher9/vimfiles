@@ -11,6 +11,7 @@ let $LATEXBINDIR = $DRIVE2 . "usr/texlive/2011/bin/win32/"
 " let $LATEXBINDIR = $DRIVE . "usr/texlive/2011/bin/win32/"
 function! prgenv#Execute(arg) range
     let option = a:arg
+	w!
     if &filetype is 'make'
 
         
@@ -47,7 +48,6 @@ function! prgenv#Execute(arg) range
     elseif &filetype is 'python'
 
         " NeoCompleteDisable
-        w!
         " NeoCompleteEnable
 
         
