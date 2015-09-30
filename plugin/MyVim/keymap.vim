@@ -1580,7 +1580,7 @@ endfunction
 inoremap <C-l><C-j> <C-R>=CleverSelfdot()<CR>
 
 fun! ErasePairs()
-    let pairs = [['(',')'],['{','}'],['[',']'],['<','>']]
+    let pairs = [["'","'"],['"','"'],['(',')'],['{','}'],['[',']'],['<','>']]
 
     let f = getline('.')[col('.')-2]
     let b = getline('.')[col('.')-1]
