@@ -1464,6 +1464,7 @@ fun! CallMyOwnSet()
 	hi User9 ctermbg=black ctermfg=darkyellow guibg=black guifg=orange
 endfun
 call CallMyOwnSet()
+let g:ExcelLikeInputOn = ' Excel mode ' 
 let g:hexinfo = '%6* [ASCII=%03.3b] [HEX=%02.2B] [POS=%04l,%04v][%p%%] [LEN=%L]%0*' 
 let &statusline='%8*[enc=%{&enc}]%0*%4*[fenc=%{&fileencoding}][%Y]%0*%7*%F%m%r%h%w%0*%='.g:hexinfo.'%3*'.g:ExcelLikeInputOn.'%5*[; => %{findkeystatus}]'
 
@@ -1477,7 +1478,6 @@ fun! SetStatusLine()
 	let &statusline=colornum . '[enc=%{&enc}]%0*%4*[fenc=%{&fileencoding}][%Y]%0*%7*%F%m%r%h%w%0*%='.g:hexinfo.'%3*'.g:ExcelLikeInputOn.'%5*[; => %{findkeystatus}]'
 endfun
 
-let g:ExcelLikeInputOn = ' Excel mode ' 
 let g:showhex = 0
 fun! RotateStatus()
 	if g:showhex
