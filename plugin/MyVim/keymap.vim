@@ -1455,6 +1455,7 @@ nmap <M-;> :call FindKeySwitch('default')<cr>
 " hi User3 ctermbg=blue  ctermfg=green guibg=blue  guifg=green
 "
 fun! CallMyOwnSet()
+	hi User3 ctermbg=cyan ctermfg=black guibg=cyan guifg=black
 	hi User4 ctermbg=black ctermfg=cyan guibg=black guifg=cyan
 	hi User5 ctermbg=black ctermfg=green guibg=black guifg=green
 	hi User6 ctermbg=black ctermfg=darkyellow guibg=black guifg=darkyellow
@@ -1464,7 +1465,7 @@ fun! CallMyOwnSet()
 endfun
 call CallMyOwnSet()
 let g:hexinfo = '%6* [ASCII=%03.3b] [HEX=%02.2B] [POS=%04l,%04v][%p%%] [LEN=%L]%0*' 
-let &statusline='%8*[enc=%{&enc}]%0*%4*[fenc=%{&fileencoding}][%Y]%0*%7*%F%m%r%h%w%0*%='.g:hexinfo.'%5* [; => %{findkeystatus}]%4*'.(g:ExcelLikeInputOn)
+let &statusline='%8*[enc=%{&enc}]%0*%4*[fenc=%{&fileencoding}][%Y]%0*%7*%F%m%r%h%w%0*%='.g:hexinfo.'%3*'.g:ExcelLikeInputOn.'%5*[; => %{findkeystatus}]'
 
 fun! SetStatusLine()
 	call CallMyOwnSet()
@@ -1473,15 +1474,18 @@ fun! SetStatusLine()
 	else
 		let colornum = '%9*' 
 	endif
-	let &statusline=colornum . '[enc=%{&enc}]%0*%4*[fenc=%{&fileencoding}][%Y]%0*%7*%F%m%r%h%w%0*%='.g:hexinfo.'%5* [; => %{findkeystatus}]%4*'.(g:ExcelLikeInputOn)
+	let &statusline=colornum . '[enc=%{&enc}]%0*%4*[fenc=%{&fileencoding}][%Y]%0*%7*%F%m%r%h%w%0*%='.g:hexinfo.'%3*'.g:ExcelLikeInputOn.'%5*[; => %{findkeystatus}]'
 endfun
 
+let g:ExcelLikeInputOn = ' Excel mode ' 
 let g:showhex = 0
 fun! RotateStatus()
 	if g:showhex
 		let g:hexinfo = '%6* [ASCII=%03.3b] [HEX=%02.2B] [POS=%04l,%04v][%p%%] [LEN=%L]%0*' 
+		let g:ExcelLikeInputOn = ' Excel mode ' 
 	else
 		let g:hexinfo = '' 
+		let g:ExcelLikeInputOn = '' 
 	endif
 	call SetStatusLine()
 	let g:showhex = !g:showhex
@@ -1568,7 +1572,7 @@ endfunction
 inoremap j <C-R>=CleverJ()<CR>
 
 nmap dp ciw
-nmap di ves
+" nmap di ves
 nmap d. vex
 function! CleverSelfdot()
     let searchleft = getline('.')[col('.')-2]
@@ -1606,11 +1610,10 @@ inoremap <C-l><C-j> <C-R>=CleverSelfdot()<CR>
 imap <M-k> <><Left>
 "imap <C-p> <Del><BS>
 
-let g:ExcelLikeInputOn = ' Excel mode ' 
 fun! ExcelLikeInput()
 	if g:ExcelLikeInputOn == ' Excel mode '
-		normal lbjviws
-		" return "\<bs>"
+		normal bjviws
+		return "\<Right>"
 	else
 		return "\<cr>"
 	endif
