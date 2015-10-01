@@ -1464,7 +1464,8 @@ fun! CallMyOwnSet()
 endfun
 call CallMyOwnSet()
 let g:hexinfo = '%6* [ASCII=%03.3b] [HEX=%02.2B] [POS=%04l,%04v][%p%%] [LEN=%L]%0*' 
-let &statusline='%8*[enc=%{&enc}]%0*%4*[fenc=%{&fileencoding}][%Y]%0*%7*%F%m%r%h%w%0*'.g:hexinfo.'%5* [; => %{findkeystatus}]%0*'
+let &statusline='%8*[enc=%{&enc}]%0*%4*[fenc=%{&fileencoding}][%Y]%0*%7*%F%m%r%h%w%0*%='.g:hexinfo.'%5* [; => %{findkeystatus}]%4*'.(g:ExcelLikeInputOn)
+
 fun! SetStatusLine()
 	call CallMyOwnSet()
 	if &enc =~ 'utf-8'
@@ -1472,7 +1473,7 @@ fun! SetStatusLine()
 	else
 		let colornum = '%9*' 
 	endif
-	let &statusline=colornum . '[enc=%{&enc}]%0*%4*[fenc=%{&fileencoding}][%Y]%0*%7*%F%m%r%h%w%0*'.g:hexinfo.'%5* [; => %{findkeystatus}]%0*'
+	let &statusline=colornum . '[enc=%{&enc}]%0*%4*[fenc=%{&fileencoding}][%Y]%0*%7*%F%m%r%h%w%0*%='.g:hexinfo.'%5* [; => %{findkeystatus}]%4*'.(g:ExcelLikeInputOn)
 endfun
 
 let g:showhex = 0
@@ -1605,4 +1606,15 @@ inoremap <C-l><C-j> <C-R>=CleverSelfdot()<CR>
 imap <M-k> <><Left>
 "imap <C-p> <Del><BS>
 
-imap <C-cr> <ESC>bjviws
+let g:ExcelLikeInputOn = ' Excel mode ' 
+fun! ExcelLikeInput()
+	if g:ExcelLikeInputOn == ' Excel mode '
+		normal lbjviws
+		" return "\<bs>"
+	else
+		return "\<cr>"
+	endif
+endfun
+imap <cr> <C-r>=ExcelLikeInput()<CR>
+" imap <cr> <ESC>bjviws
+" imap <C-cr> <ESC>bjviws
