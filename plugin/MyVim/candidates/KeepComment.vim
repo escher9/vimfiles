@@ -1,5 +1,6 @@
 let s:CommentStringMap = { 
 			\'python'    : {'left': '#'},
+			\'ruby'      : {'left': '#'},
 			\'make'      : {'left': '#'},
 			\'snippet'   : {'left': '#'},
 			\'cpp'       : {'left': '//'},

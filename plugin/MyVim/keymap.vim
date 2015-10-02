@@ -349,7 +349,6 @@ fun! Imapset()
 	" imap <tab>; :
 	" imap ;n _
 	imap ;m _
-    imap ;;m __
 
     imap ;q  Q
     imap ;w  W
@@ -1248,7 +1247,10 @@ fun! CopyAll()
 endfun
 nmap [<C-r> :call CopyAll()<CR>
 map <M-`><M-l> <Plug>(easymotion-lineanywhere)
-map <M-`><M-j> <Plug>(easymotion-bd-t)
+" map <M-`><M-j> <Plug>(easymotion-jumptoanywhere)
+" map <M-`><M-j> <Plug>(easymotion-bd-jk)
+map <M-`><M-j> <Plug>(easymotion-bd-n)
+map <M-`><M-k> <Plug>(easymotion-bd-w)
 " map <M-`><M-j> <Plug>(easymotion-eol-j)
 " map <M-`><M-k> <Plug>(easymotion-eol-k)
 " map <M-`><M-i> <Plug>(easymotion-sol-j)
@@ -1621,3 +1623,5 @@ imap <cr> <C-r>=ExcelLikeInput()<CR>
 " imap <C-cr> <ESC>bjviws
 "
 
+nmap ci; ci"
+imap ;; ::
