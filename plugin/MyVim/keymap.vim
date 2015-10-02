@@ -1235,8 +1235,8 @@ fun! ConvertEncoding(current_encoding_toggle)
 endfun
 nmap <S-space> :call ConvertEncoding(!g:current_encoding_toggle)<CR>
 
-nmap <M-[> :bprevious<CR>
-nmap <M-]> :bnext<CR>
+" nmap <M-[> :bprevious<CR>
+" nmap <M-]> :bnext<CR>
 
 
 nmap [b :b <C-z>
