@@ -1555,8 +1555,6 @@ ca ef EclimDisable
 ca ee EclimEnable
 ca st STARTEclim
 
-nmap <C-t> vil`
-
 
 nmap <space> z.
 nmap v; V

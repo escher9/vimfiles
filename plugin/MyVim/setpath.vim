@@ -50,6 +50,6 @@ fun! SetPath()
 endfun
 command! SetPath call SetPath()
 ca sp SetPath
-ca spm e ~/vimfiles/plugin/myvim/setpath.vim
+cmap spm e ~/vimfiles/plugin/myvim/setpath.vim<CR>
 
 nmap <M-[> :vs<CR>:spm<CR>
