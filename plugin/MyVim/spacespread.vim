@@ -46,3 +46,8 @@ endfun
 
 imap <space> <C-R>=InSpace('spread')<CR>
 imap <C-h> <C-R>=InSpace('shrink')<CR>
+fun! spacespread#inspaceRemap()
+	imap <space> <C-R>=InSpace('spread')<CR>
+	imap <C-h> <C-R>=InSpace('shrink')<CR>
+endfun
+cmap rp call spacespread#inspaceRemap()<CR>

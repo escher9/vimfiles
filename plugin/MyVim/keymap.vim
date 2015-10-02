@@ -1621,3 +1621,5 @@ endfun
 imap <cr> <C-r>=ExcelLikeInput()<CR>
 " imap <cr> <ESC>bjviws
 " imap <C-cr> <ESC>bjviws
+"
+
